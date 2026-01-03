@@ -3,7 +3,6 @@ import { frequencyBars } from './plugins/frequency-bars';
 import { waveform } from './plugins/waveform';
 import { circularSpectrum } from './plugins/circular-spectrum';
 import { particles } from './plugins/particles';
-import { auroraBloom } from './plugins/aurora-bloom';
 
 class VisualizationRegistry {
   private visualizations: Map<string, VisualizationModule> = new Map();
@@ -13,7 +12,6 @@ class VisualizationRegistry {
     this.register(waveform);
     this.register(circularSpectrum);
     this.register(particles);
-    this.register(auroraBloom);
   }
 
   register(module: VisualizationModule): void {
