@@ -1,0 +1,1134 @@
+[Log] Audio data received: – {avgFreq: "1.57", bass: "15.74", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.57", bass: "15.74", freqLength: 1024, firstFewFreq: [0, 45, 101, 124, 125]}Object
+[Log] Audio data received: – {avgFreq: "1.56", bass: "15.71", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.56", bass: "15.71", freqLength: 1024, firstFewFreq: [0, 51, 107, 127, 125]}Object
+[Log] Audio data received: – {avgFreq: "1.56", bass: "15.71", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.56", bass: "15.71", freqLength: 1024, firstFewFreq: [0, 51, 107, 127, 125]}Object
+[Log] Audio data received: – {avgFreq: "1.55", bass: "15.61", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.55", bass: "15.61", freqLength: 1024, firstFewFreq: [0, 56, 110, 129, 124]}Object
+[Log] Audio data received: – {avgFreq: "1.99", bass: "19.99", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.99", bass: "19.99", freqLength: 1024, firstFewFreq: [0, 57, 110, 127, 122]}Object
+[Log] Audio data received: – {avgFreq: "1.99", bass: "19.99", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.99", bass: "19.99", freqLength: 1024, firstFewFreq: [0, 57, 110, 127, 122]}Object
+[Log] Audio data received: – {avgFreq: "2.06", bass: "20.67", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "2.06", bass: "20.67", freqLength: 1024, firstFewFreq: [0, 56, 108, 125, 118]}Object
+[Log] Audio data received: – {avgFreq: "2.06", bass: "20.67", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "2.06", bass: "20.67", freqLength: 1024, firstFewFreq: [0, 56, 108, 125, 118]}Object
+[Log] Audio data received: – {avgFreq: "2.02", bass: "20.31", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "2.02", bass: "20.31", freqLength: 1024, firstFewFreq: [0, 53, 104, 121, 114]}Object
+[Log] Audio data received: – {avgFreq: "2.02", bass: "20.31", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "2.02", bass: "20.31", freqLength: 1024, firstFewFreq: [0, 53, 104, 121, 114]}Object
+[Log] Audio data received: – {avgFreq: "1.96", bass: "19.72", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.96", bass: "19.72", freqLength: 1024, firstFewFreq: [0, 50, 101, 117, 110]}Object
+[Log] Audio data received: – {avgFreq: "1.96", bass: "19.72", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.96", bass: "19.72", freqLength: 1024, firstFewFreq: [0, 50, 101, 117, 110]}Object
+[Log] Audio data received: – {avgFreq: "1.92", bass: "19.24", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.92", bass: "19.24", freqLength: 1024, firstFewFreq: [0, 47, 99, 115, 106]}Object
+[Log] Audio data received: – {avgFreq: "1.92", bass: "19.24", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.92", bass: "19.24", freqLength: 1024, firstFewFreq: [0, 47, 99, 115, 106]}Object
+[Log] Audio data received: – {avgFreq: "1.92", bass: "19.28", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.92", bass: "19.28", freqLength: 1024, firstFewFreq: [0, 48, 98, 114, 104]}Object
+[Log] Audio data received: – {avgFreq: "1.92", bass: "19.28", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.92", bass: "19.28", freqLength: 1024, firstFewFreq: [0, 48, 98, 114, 104]}Object
+[Log] Audio data received: – {avgFreq: "1.88", bass: "18.86", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.88", bass: "18.86", freqLength: 1024, firstFewFreq: [0, 47, 96, 111, 106]}Object
+[Log] Audio data received: – {avgFreq: "1.88", bass: "18.86", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.88", bass: "18.86", freqLength: 1024, firstFewFreq: [0, 47, 96, 111, 106]}Object
+[Log] Audio data received: – {avgFreq: "1.86", bass: "18.66", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.86", bass: "18.66", freqLength: 1024, firstFewFreq: [0, 48, 100, 118, 116]}Object
+[Log] Audio data received: – {avgFreq: "1.86", bass: "18.66", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.86", bass: "18.66", freqLength: 1024, firstFewFreq: [0, 48, 100, 118, 116]}Object
+[Log] Audio data received: – {avgFreq: "1.84", bass: "18.44", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.84", bass: "18.44", freqLength: 1024, firstFewFreq: [0, 48, 103, 123, 120]}Object
+[Log] Audio data received: – {avgFreq: "1.84", bass: "18.44", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.84", bass: "18.44", freqLength: 1024, firstFewFreq: [0, 48, 103, 123, 120]}Object
+[Log] Audio data received: – {avgFreq: "1.79", bass: "17.95", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.79", bass: "17.95", freqLength: 1024, firstFewFreq: [0, 51, 105, 124, 120]}Object
+[Log] Audio data received: – {avgFreq: "1.79", bass: "17.95", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.79", bass: "17.95", freqLength: 1024, firstFewFreq: [0, 51, 105, 124, 120]}Object
+[Log] Audio data received: – {avgFreq: "1.76", bass: "17.63", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.76", bass: "17.63", freqLength: 1024, firstFewFreq: [0, 52, 105, 123, 117]}Object
+[Log] Audio data received: – {avgFreq: "1.76", bass: "17.63", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.76", bass: "17.63", freqLength: 1024, firstFewFreq: [0, 52, 105, 123, 117]}Object
+[Log] Audio data received: – {avgFreq: "1.77", bass: "17.77", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.77", bass: "17.77", freqLength: 1024, firstFewFreq: [0, 50, 102, 120, 113]}Object
+[Log] Audio data received: – {avgFreq: "1.74", bass: "17.45", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.74", bass: "17.45", freqLength: 1024, firstFewFreq: [0, 47, 99, 118, 116]}Object
+[Log] Audio data received: – {avgFreq: "1.74", bass: "17.45", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.74", bass: "17.45", freqLength: 1024, firstFewFreq: [0, 47, 99, 118, 116]}Object
+[Log] Audio data received: – {avgFreq: "1.71", bass: "17.15", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.71", bass: "17.15", freqLength: 1024, firstFewFreq: [0, 47, 101, 122, 120]}Object
+[Log] Audio data received: – {avgFreq: "1.71", bass: "17.15", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.71", bass: "17.15", freqLength: 1024, firstFewFreq: [0, 47, 101, 122, 120]}Object
+[Log] Audio data received: – {avgFreq: "1.68", bass: "16.86", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.68", bass: "16.86", freqLength: 1024, firstFewFreq: [0, 51, 105, 125, 121]}Object
+[Log] Audio data received: – {avgFreq: "1.68", bass: "16.86", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.68", bass: "16.86", freqLength: 1024, firstFewFreq: [0, 51, 105, 125, 121]}Object
+[Log] Audio data received: – {avgFreq: "1.62", bass: "16.22", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.62", bass: "16.22", freqLength: 1024, firstFewFreq: [0, 53, 106, 124, 118]}Object
+[Log] Audio data received: – {avgFreq: "1.62", bass: "16.22", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.62", bass: "16.22", freqLength: 1024, firstFewFreq: [0, 53, 106, 124, 118]}Object
+[Log] Audio data received: – {avgFreq: "1.99", bass: "19.99", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.99", bass: "19.99", freqLength: 1024, firstFewFreq: [0, 53, 105, 122, 115]}Object
+[Log] Audio data received: – {avgFreq: "1.99", bass: "19.99", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.99", bass: "19.99", freqLength: 1024, firstFewFreq: [0, 53, 105, 122, 115]}Object
+[Log] Audio data received: – {avgFreq: "2.08", bass: "20.84", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "2.08", bass: "20.84", freqLength: 1024, firstFewFreq: [0, 51, 102, 118, 110]}Object
+[Log] Audio data received: – {avgFreq: "2.08", bass: "20.84", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "2.08", bass: "20.84", freqLength: 1024, firstFewFreq: [0, 51, 102, 118, 110]}Object
+[Log] Audio data received: – {avgFreq: "2.01", bass: "20.22", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "2.01", bass: "20.22", freqLength: 1024, firstFewFreq: [0, 47, 99, 116, 107]}Object
+[Log] Audio data received: – {avgFreq: "2.01", bass: "20.22", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "2.01", bass: "20.22", freqLength: 1024, firstFewFreq: [0, 47, 99, 116, 107]}Object
+[Log] Audio data received: – {avgFreq: "1.96", bass: "19.72", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.96", bass: "19.72", freqLength: 1024, firstFewFreq: [0, 41, 95, 113, 107]}Object
+[Log] Audio data received: – {avgFreq: "1.96", bass: "19.72", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.96", bass: "19.72", freqLength: 1024, firstFewFreq: [0, 41, 95, 113, 107]}Object
+[Log] Audio data received: – {avgFreq: "1.90", bass: "19.06", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.90", bass: "19.06", freqLength: 1024, firstFewFreq: [0, 35, 91, 112, 107]}Object
+[Log] Audio data received: – {avgFreq: "1.90", bass: "19.06", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.90", bass: "19.06", freqLength: 1024, firstFewFreq: [0, 35, 91, 112, 107]}Object
+[Log] Audio data received: – {avgFreq: "1.86", bass: "18.68", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.86", bass: "18.68", freqLength: 1024, firstFewFreq: [0, 32, 89, 111, 108]}Object
+[Log] Audio data received: – {avgFreq: "1.86", bass: "18.68", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.86", bass: "18.68", freqLength: 1024, firstFewFreq: [0, 32, 89, 111, 108]}Object
+[Log] Audio data received: – {avgFreq: "1.80", bass: "18.12", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.80", bass: "18.12", freqLength: 1024, firstFewFreq: [0, 27, 86, 110, 109]}Object
+[Log] Audio data received: – {avgFreq: "1.80", bass: "18.12", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.80", bass: "18.12", freqLength: 1024, firstFewFreq: [0, 27, 86, 110, 109]}Object
+[Log] Audio data received: – {avgFreq: "1.76", bass: "17.72", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.76", bass: "17.72", freqLength: 1024, firstFewFreq: [0, 22, 82, 106, 105]}Object
+[Log] Audio data received: – {avgFreq: "1.70", bass: "17.10", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.70", bass: "17.10", freqLength: 1024, firstFewFreq: [0, 21, 78, 102, 100]}Object
+[Log] Audio data received: – {avgFreq: "1.70", bass: "17.10", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.70", bass: "17.10", freqLength: 1024, firstFewFreq: [0, 21, 78, 102, 100]}Object
+[Log] Audio data received: – {avgFreq: "1.64", bass: "16.48", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.64", bass: "16.48", freqLength: 1024, firstFewFreq: [0, 17, 73, 96, 95]}Object
+[Log] Audio data received: – {avgFreq: "1.64", bass: "16.48", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.64", bass: "16.48", freqLength: 1024, firstFewFreq: [0, 17, 73, 96, 95]}Object
+[Log] Audio data received: – {avgFreq: "1.61", bass: "16.13", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.61", bass: "16.13", freqLength: 1024, firstFewFreq: [0, 16, 69, 92, 90]}Object
+[Log] Audio data received: – {avgFreq: "1.61", bass: "16.13", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.61", bass: "16.13", freqLength: 1024, firstFewFreq: [0, 16, 69, 92, 90]}Object
+[Log] Audio data received: – {avgFreq: "1.64", bass: "16.50", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.64", bass: "16.50", freqLength: 1024, firstFewFreq: [0, 13, 65, 89, 92]}Object
+[Log] Audio data received: – {avgFreq: "1.64", bass: "16.50", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.64", bass: "16.50", freqLength: 1024, firstFewFreq: [0, 13, 65, 89, 92]}Object
+[Log] Audio data received: – {avgFreq: "1.65", bass: "16.60", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.65", bass: "16.60", freqLength: 1024, firstFewFreq: [0, 13, 68, 98, 106]}Object
+[Log] Audio data received: – {avgFreq: "1.65", bass: "16.60", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.65", bass: "16.60", freqLength: 1024, firstFewFreq: [0, 13, 68, 98, 106]}Object
+[Log] Audio data received: – {avgFreq: "1.69", bass: "16.97", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.69", bass: "16.97", freqLength: 1024, firstFewFreq: [0, 29, 85, 112, 114]}Object
+[Log] Audio data received: – {avgFreq: "1.69", bass: "16.97", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.69", bass: "16.97", freqLength: 1024, firstFewFreq: [0, 29, 85, 112, 114]}Object
+[Log] Audio data received: – {avgFreq: "1.69", bass: "16.96", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.69", bass: "16.96", freqLength: 1024, firstFewFreq: [0, 42, 96, 118, 116]}Object
+[Log] Audio data received: – {avgFreq: "1.69", bass: "16.96", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.69", bass: "16.96", freqLength: 1024, firstFewFreq: [0, 42, 96, 118, 116]}Object
+[Log] Audio data received: – {avgFreq: "1.68", bass: "16.88", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.68", bass: "16.88", freqLength: 1024, firstFewFreq: [0, 49, 100, 120, 116]}Object
+[Log] Audio data received: – {avgFreq: "1.68", bass: "16.88", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.68", bass: "16.88", freqLength: 1024, firstFewFreq: [0, 49, 100, 120, 116]}Object
+[Log] Audio data received: – {avgFreq: "1.69", bass: "16.95", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.69", bass: "16.95", freqLength: 1024, firstFewFreq: [0, 50, 100, 118, 112]}Object
+[Log] Audio data received: – {avgFreq: "1.69", bass: "16.95", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.69", bass: "16.95", freqLength: 1024, firstFewFreq: [0, 50, 100, 118, 112]}Object
+[Log] Audio data received: – {avgFreq: "1.74", bass: "17.48", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.74", bass: "17.48", freqLength: 1024, firstFewFreq: [0, 49, 98, 114, 112]}Object
+[Log] Audio data received: – {avgFreq: "1.74", bass: "17.48", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.74", bass: "17.48", freqLength: 1024, firstFewFreq: [0, 49, 98, 114, 112]}Object
+[Log] Audio data received: – {avgFreq: "1.77", bass: "17.73", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.77", bass: "17.73", freqLength: 1024, firstFewFreq: [0, 48, 95, 111, 113]}Object
+[Log] Audio data received: – {avgFreq: "1.77", bass: "17.73", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.77", bass: "17.73", freqLength: 1024, firstFewFreq: [0, 48, 95, 111, 113]}Object
+[Log] Audio data received: – {avgFreq: "1.74", bass: "17.48", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.74", bass: "17.48", freqLength: 1024, firstFewFreq: [0, 45, 94, 109, 110]}Object
+[Log] Audio data received: – {avgFreq: "1.74", bass: "17.48", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.74", bass: "17.48", freqLength: 1024, firstFewFreq: [0, 45, 94, 109, 110]}Object
+[Log] Audio data received: – {avgFreq: "1.69", bass: "16.99", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.69", bass: "16.99", freqLength: 1024, firstFewFreq: [0, 45, 93, 107, 107]}Object
+[Log] Audio data received: – {avgFreq: "1.70", bass: "17.09", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.70", bass: "17.09", freqLength: 1024, firstFewFreq: [0, 45, 93, 106, 107]}Object
+[Log] Audio data received: – {avgFreq: "1.70", bass: "17.09", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.70", bass: "17.09", freqLength: 1024, firstFewFreq: [0, 45, 93, 106, 107]}Object
+[Log] Audio data received: – {avgFreq: "1.70", bass: "17.04", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.70", bass: "17.04", freqLength: 1024, firstFewFreq: [0, 45, 92, 105, 111]}Object
+[Log] Audio data received: – {avgFreq: "1.70", bass: "17.04", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.70", bass: "17.04", freqLength: 1024, firstFewFreq: [0, 45, 92, 105, 111]}Object
+[Log] Audio data received: – {avgFreq: "1.68", bass: "16.85", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.68", bass: "16.85", freqLength: 1024, firstFewFreq: [0, 44, 92, 105, 114]}Object
+[Log] Audio data received: – {avgFreq: "1.68", bass: "16.85", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.68", bass: "16.85", freqLength: 1024, firstFewFreq: [0, 44, 92, 105, 114]}Object
+[Log] Audio data received: – {avgFreq: "1.66", bass: "16.66", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.66", bass: "16.66", freqLength: 1024, firstFewFreq: [0, 42, 90, 103, 115]}Object
+[Log] Audio data received: – {avgFreq: "1.66", bass: "16.66", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.66", bass: "16.66", freqLength: 1024, firstFewFreq: [0, 42, 90, 103, 115]}Object
+[Log] Audio data received: – {avgFreq: "1.62", bass: "16.25", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.62", bass: "16.25", freqLength: 1024, firstFewFreq: [0, 40, 86, 99, 111]}Object
+[Log] Audio data received: – {avgFreq: "1.62", bass: "16.25", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.62", bass: "16.25", freqLength: 1024, firstFewFreq: [0, 40, 86, 99, 111]}Object
+[Log] Audio data received: – {avgFreq: "1.56", bass: "15.66", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.56", bass: "15.66", freqLength: 1024, firstFewFreq: [0, 35, 81, 94, 110]}Object
+[Log] Audio data received: – {avgFreq: "1.56", bass: "15.66", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.56", bass: "15.66", freqLength: 1024, firstFewFreq: [0, 35, 81, 94, 110]}Object
+[Log] Audio data received: – {avgFreq: "1.58", bass: "15.89", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.58", bass: "15.89", freqLength: 1024, firstFewFreq: [0, 32, 76, 94, 112]}Object
+[Log] Audio data received: – {avgFreq: "1.58", bass: "15.89", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.58", bass: "15.89", freqLength: 1024, firstFewFreq: [0, 32, 76, 94, 112]}Object
+[Log] Audio data received: – {avgFreq: "1.57", bass: "15.77", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.57", bass: "15.77", freqLength: 1024, firstFewFreq: [0, 29, 74, 98, 118]}Object
+[Log] Audio data received: – {avgFreq: "1.55", bass: "15.61", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.55", bass: "15.61", freqLength: 1024, firstFewFreq: [0, 32, 81, 107, 120]}Object
+[Log] Audio data received: – {avgFreq: "1.56", bass: "15.70", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.56", bass: "15.70", freqLength: 1024, firstFewFreq: [0, 40, 91, 113, 118]}Object
+[Log] Audio data received: – {avgFreq: "1.56", bass: "15.70", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.56", bass: "15.70", freqLength: 1024, firstFewFreq: [0, 40, 91, 113, 118]}Object
+[Log] Audio data received: – {avgFreq: "1.56", bass: "15.63", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.56", bass: "15.63", freqLength: 1024, firstFewFreq: [0, 44, 95, 116, 116]}Object
+[Log] Audio data received: – {avgFreq: "1.56", bass: "15.63", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.56", bass: "15.63", freqLength: 1024, firstFewFreq: [0, 44, 95, 116, 116]}Object
+[Log] Audio data received: – {avgFreq: "1.59", bass: "15.94", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.59", bass: "15.94", freqLength: 1024, firstFewFreq: [0, 47, 98, 116, 115]}Object
+[Log] Audio data received: – {avgFreq: "1.58", bass: "15.86", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.58", bass: "15.86", freqLength: 1024, firstFewFreq: [0, 48, 99, 117, 114]}Object
+[Log] Audio data received: – {avgFreq: "1.58", bass: "15.86", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.58", bass: "15.86", freqLength: 1024, firstFewFreq: [0, 48, 99, 117, 114]}Object
+[Log] Audio data received: – {avgFreq: "1.57", bass: "15.76", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.57", bass: "15.76", freqLength: 1024, firstFewFreq: [0, 49, 99, 116, 113]}Object
+[Log] Audio data received: – {avgFreq: "1.57", bass: "15.76", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.57", bass: "15.76", freqLength: 1024, firstFewFreq: [0, 49, 99, 116, 113]}Object
+[Log] Audio data received: – {avgFreq: "1.53", bass: "15.38", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.53", bass: "15.38", freqLength: 1024, firstFewFreq: [0, 46, 97, 112, 111]}Object
+[Log] Audio data received: – {avgFreq: "1.53", bass: "15.38", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.53", bass: "15.38", freqLength: 1024, firstFewFreq: [0, 46, 97, 112, 111]}Object
+[Log] Audio data received: – {avgFreq: "1.50", bass: "15.08", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.50", bass: "15.08", freqLength: 1024, firstFewFreq: [0, 44, 93, 107, 109]}Object
+[Log] Audio data received: – {avgFreq: "1.50", bass: "15.08", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.50", bass: "15.08", freqLength: 1024, firstFewFreq: [0, 44, 93, 107, 109]}Object
+[Log] Audio data received: – {avgFreq: "1.51", bass: "15.17", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.51", bass: "15.17", freqLength: 1024, firstFewFreq: [0, 42, 89, 102, 108]}Object
+[Log] Audio data received: – {avgFreq: "1.51", bass: "15.17", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.51", bass: "15.17", freqLength: 1024, firstFewFreq: [0, 42, 89, 102, 108]}Object
+[Log] Audio data received: – {avgFreq: "1.54", bass: "15.45", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.54", bass: "15.45", freqLength: 1024, firstFewFreq: [0, 37, 84, 97, 107]}Object
+[Log] Audio data received: – {avgFreq: "1.54", bass: "15.45", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.54", bass: "15.45", freqLength: 1024, firstFewFreq: [0, 37, 84, 97, 107]}Object
+[Log] Audio data received: – {avgFreq: "1.54", bass: "15.51", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.54", bass: "15.51", freqLength: 1024, firstFewFreq: [0, 33, 79, 94, 108]}Object
+[Log] Audio data received: – {avgFreq: "1.54", bass: "15.51", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.54", bass: "15.51", freqLength: 1024, firstFewFreq: [0, 33, 79, 94, 108]}Object
+[Log] Audio data received: – {avgFreq: "1.51", bass: "15.15", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.51", bass: "15.15", freqLength: 1024, firstFewFreq: [0, 29, 74, 88, 105]}Object
+[Log] Audio data received: – {avgFreq: "1.51", bass: "15.15", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.51", bass: "15.15", freqLength: 1024, firstFewFreq: [0, 29, 74, 88, 105]}Object
+[Log] Audio data received: – {avgFreq: "1.48", bass: "14.87", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.48", bass: "14.87", freqLength: 1024, firstFewFreq: [0, 25, 69, 84, 106]}Object
+[Log] Audio data received: – {avgFreq: "1.48", bass: "14.87", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.48", bass: "14.87", freqLength: 1024, firstFewFreq: [0, 25, 69, 84, 106]}Object
+[Log] Audio data received: – {avgFreq: "1.48", bass: "14.81", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.48", bass: "14.81", freqLength: 1024, firstFewFreq: [0, 21, 64, 80, 102]}Object
+[Log] Audio data received: – {avgFreq: "1.48", bass: "14.81", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.48", bass: "14.81", freqLength: 1024, firstFewFreq: [0, 21, 64, 80, 102]}Object
+[Log] Audio data received: – {avgFreq: "1.46", bass: "14.69", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.46", bass: "14.69", freqLength: 1024, firstFewFreq: [0, 17, 59, 80, 104]}Object
+[Log] Audio data received: – {avgFreq: "1.46", bass: "14.69", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.46", bass: "14.69", freqLength: 1024, firstFewFreq: [0, 17, 59, 80, 104]}Object
+[Log] Audio data received: – {avgFreq: "1.44", bass: "14.44", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.44", bass: "14.44", freqLength: 1024, firstFewFreq: [0, 11, 57, 81, 101]}Object
+[Log] Audio data received: – {avgFreq: "1.45", bass: "14.59", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.45", bass: "14.59", freqLength: 1024, firstFewFreq: [0, 10, 61, 88, 104]}Object
+[Log] Audio data received: – {avgFreq: "1.45", bass: "14.59", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.45", bass: "14.59", freqLength: 1024, firstFewFreq: [0, 10, 61, 88, 104]}Object
+[Log] Audio data received: – {avgFreq: "1.46", bass: "14.64", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.46", bass: "14.64", freqLength: 1024, firstFewFreq: [0, 11, 67, 95, 105]}Object
+[Log] Audio data received: – {avgFreq: "1.46", bass: "14.64", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.46", bass: "14.64", freqLength: 1024, firstFewFreq: [0, 11, 67, 95, 105]}Object
+[Log] Audio data received: – {avgFreq: "1.45", bass: "14.57", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.45", bass: "14.57", freqLength: 1024, firstFewFreq: [0, 11, 70, 99, 107]}Object
+[Log] Audio data received: – {avgFreq: "1.45", bass: "14.57", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.45", bass: "14.57", freqLength: 1024, firstFewFreq: [0, 11, 70, 99, 107]}Object
+[Log] Audio data received: – {avgFreq: "1.42", bass: "14.27", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.42", bass: "14.27", freqLength: 1024, firstFewFreq: [0, 10, 67, 99, 108]}Object
+[Log] Audio data received: – {avgFreq: "1.42", bass: "14.27", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.42", bass: "14.27", freqLength: 1024, firstFewFreq: [0, 10, 67, 99, 108]}Object
+[Log] Audio data received: – {avgFreq: "1.43", bass: "14.31", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.43", bass: "14.31", freqLength: 1024, firstFewFreq: [0, 9, 69, 99, 106]}Object
+[Log] Audio data received: – {avgFreq: "1.43", bass: "14.31", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.43", bass: "14.31", freqLength: 1024, firstFewFreq: [0, 9, 69, 99, 106]}Object
+[Log] Audio data received: – {avgFreq: "1.41", bass: "14.15", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.41", bass: "14.15", freqLength: 1024, firstFewFreq: [0, 12, 68, 95, 101]}Object
+[Log] Audio data received: – {avgFreq: "1.41", bass: "14.15", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.41", bass: "14.15", freqLength: 1024, firstFewFreq: [0, 12, 68, 95, 101]}Object
+[Log] Audio data received: – {avgFreq: "1.36", bass: "13.66", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.36", bass: "13.66", freqLength: 1024, firstFewFreq: [0, 8, 64, 91, 96]}Object
+[Log] Audio data received: – {avgFreq: "1.36", bass: "13.66", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.36", bass: "13.66", freqLength: 1024, firstFewFreq: [0, 8, 64, 91, 96]}Object
+[Log] Audio data received: – {avgFreq: "1.34", bass: "13.43", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.34", bass: "13.43", freqLength: 1024, firstFewFreq: [0, 6, 60, 86, 92]}Object
+[Log] Audio data received: – {avgFreq: "1.34", bass: "13.43", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.34", bass: "13.43", freqLength: 1024, firstFewFreq: [0, 6, 60, 86, 92]}Object
+[Log] Audio data received: – {avgFreq: "1.34", bass: "13.46", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.34", bass: "13.46", freqLength: 1024, firstFewFreq: [0, 5, 56, 82, 89]}Object
+[Log] Audio data received: – {avgFreq: "1.34", bass: "13.46", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.34", bass: "13.46", freqLength: 1024, firstFewFreq: [0, 5, 56, 82, 89]}Object
+[Log] Audio data received: – {avgFreq: "1.31", bass: "13.18", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.31", bass: "13.18", freqLength: 1024, firstFewFreq: [0, 5, 52, 78, 85]}Object
+[Log] Audio data received: – {avgFreq: "1.31", bass: "13.18", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.31", bass: "13.18", freqLength: 1024, firstFewFreq: [0, 5, 52, 78, 85]}Object
+[Log] Audio data received: – {avgFreq: "1.27", bass: "12.79", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.27", bass: "12.79", freqLength: 1024, firstFewFreq: [0, 4, 49, 75, 82]}Object
+[Log] Audio data received: – {avgFreq: "1.25", bass: "12.53", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.25", bass: "12.53", freqLength: 1024, firstFewFreq: [0, 2, 45, 71, 81]}Object
+[Log] Audio data received: – {avgFreq: "1.25", bass: "12.53", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.25", bass: "12.53", freqLength: 1024, firstFewFreq: [0, 2, 45, 71, 81]}Object
+[Log] Audio data received: – {avgFreq: "1.20", bass: "12.01", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.20", bass: "12.01", freqLength: 1024, firstFewFreq: [0, 0, 41, 67, 77]}Object
+[Log] Audio data received: – {avgFreq: "1.20", bass: "12.01", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.20", bass: "12.01", freqLength: 1024, firstFewFreq: [0, 0, 41, 67, 77]}Object
+[Log] Audio data received: – {avgFreq: "1.25", bass: "12.56", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.25", bass: "12.56", freqLength: 1024, firstFewFreq: [0, 0, 39, 65, 77]}Object
+[Log] Audio data received: – {avgFreq: "1.25", bass: "12.56", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.25", bass: "12.56", freqLength: 1024, firstFewFreq: [0, 0, 39, 65, 77]}Object
+[Log] Audio data received: – {avgFreq: "1.36", bass: "13.68", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.36", bass: "13.68", freqLength: 1024, firstFewFreq: [0, 0, 35, 70, 91]}Object
+[Log] Audio data received: – {avgFreq: "1.36", bass: "13.68", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.36", bass: "13.68", freqLength: 1024, firstFewFreq: [0, 0, 35, 70, 91]}Object
+[Log] Audio data received: – {avgFreq: "1.42", bass: "14.23", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.42", bass: "14.23", freqLength: 1024, firstFewFreq: [0, 8, 61, 93, 104]}Object
+[Log] Audio data received: – {avgFreq: "1.42", bass: "14.23", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.42", bass: "14.23", freqLength: 1024, firstFewFreq: [0, 8, 61, 93, 104]}Object
+[Log] Audio data received: – {avgFreq: "1.46", bass: "14.61", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.46", bass: "14.61", freqLength: 1024, firstFewFreq: [0, 30, 86, 111, 113]}Object
+[Log] Audio data received: – {avgFreq: "1.46", bass: "14.61", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.46", bass: "14.61", freqLength: 1024, firstFewFreq: [0, 30, 86, 111, 113]}Object
+[Log] Audio data received: – {avgFreq: "1.51", bass: "15.16", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.51", bass: "15.16", freqLength: 1024, firstFewFreq: [0, 43, 98, 119, 116]}Object
+[Log] Audio data received: – {avgFreq: "1.51", bass: "15.16", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.51", bass: "15.16", freqLength: 1024, firstFewFreq: [0, 43, 98, 119, 116]}Object
+[Log] Audio data received: – {avgFreq: "1.51", bass: "15.17", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.51", bass: "15.17", freqLength: 1024, firstFewFreq: [0, 48, 101, 120, 115]}Object
+[Log] Audio data received: – {avgFreq: "1.51", bass: "15.17", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.51", bass: "15.17", freqLength: 1024, firstFewFreq: [0, 48, 101, 120, 115]}Object
+[Log] Audio data received: – {avgFreq: "1.58", bass: "15.91", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.58", bass: "15.91", freqLength: 1024, firstFewFreq: [0, 49, 102, 121, 113]}Object
+[Log] Audio data received: – {avgFreq: "1.58", bass: "15.91", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.58", bass: "15.91", freqLength: 1024, firstFewFreq: [0, 49, 102, 121, 113]}Object
+[Log] Audio data received: – {avgFreq: "1.57", bass: "15.79", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.57", bass: "15.79", freqLength: 1024, firstFewFreq: [0, 50, 99, 117, 118]}Object
+[Log] Audio data received: – {avgFreq: "1.57", bass: "15.79", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.57", bass: "15.79", freqLength: 1024, firstFewFreq: [0, 50, 99, 117, 118]}Object
+[Log] Audio data received: – {avgFreq: "1.58", bass: "15.84", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.58", bass: "15.84", freqLength: 1024, firstFewFreq: [0, 56, 106, 125, 123]}Object
+[Log] Audio data received: – {avgFreq: "1.58", bass: "15.84", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.58", bass: "15.84", freqLength: 1024, firstFewFreq: [0, 56, 106, 125, 123]}Object
+[Log] Audio data received: – {avgFreq: "1.57", bass: "15.73", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.57", bass: "15.73", freqLength: 1024, firstFewFreq: [0, 63, 113, 130, 125]}Object
+[Log] Audio data received: – {avgFreq: "1.53", bass: "15.33", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.53", bass: "15.33", freqLength: 1024, firstFewFreq: [0, 66, 115, 131, 123]}Object
+[Log] Audio data received: – {avgFreq: "1.53", bass: "15.33", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.53", bass: "15.33", freqLength: 1024, firstFewFreq: [0, 66, 115, 131, 123]}Object
+[Log] Audio data received: – {avgFreq: "2.07", bass: "20.82", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "2.07", bass: "20.82", freqLength: 1024, firstFewFreq: [0, 66, 115, 130, 121]}Object
+[Log] Audio data received: – {avgFreq: "2.07", bass: "20.82", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "2.07", bass: "20.82", freqLength: 1024, firstFewFreq: [0, 66, 115, 130, 121]}Object
+[Log] Audio data received: – {avgFreq: "2.08", bass: "20.93", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "2.08", bass: "20.93", freqLength: 1024, firstFewFreq: [0, 63, 112, 127, 119]}Object
+[Log] Audio data received: – {avgFreq: "2.08", bass: "20.93", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "2.08", bass: "20.93", freqLength: 1024, firstFewFreq: [0, 63, 112, 127, 119]}Object
+[Log] Audio data received: – {avgFreq: "2.02", bass: "20.27", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "2.02", bass: "20.27", freqLength: 1024, firstFewFreq: [0, 59, 108, 123, 113]}Object
+[Log] Audio data received: – {avgFreq: "2.02", bass: "20.27", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "2.02", bass: "20.27", freqLength: 1024, firstFewFreq: [0, 59, 108, 123, 113]}Object
+[Log] Audio data received: – {avgFreq: "2.00", bass: "20.08", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "2.00", bass: "20.08", freqLength: 1024, firstFewFreq: [0, 54, 103, 118, 109]}Object
+[Log] Audio data received: – {avgFreq: "2.00", bass: "20.08", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "2.00", bass: "20.08", freqLength: 1024, firstFewFreq: [0, 54, 103, 118, 109]}Object
+[Log] Audio data received: – {avgFreq: "1.93", bass: "19.40", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.93", bass: "19.40", freqLength: 1024, firstFewFreq: [0, 50, 98, 112, 103]}Object
+[Log] Audio data received: – {avgFreq: "1.93", bass: "19.40", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.93", bass: "19.40", freqLength: 1024, firstFewFreq: [0, 50, 98, 112, 103]}Object
+[Log] Audio data received: – {avgFreq: "1.90", bass: "19.10", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.90", bass: "19.10", freqLength: 1024, firstFewFreq: [0, 45, 93, 108, 99]}Object
+[Log] Audio data received: – {avgFreq: "1.90", bass: "19.10", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.90", bass: "19.10", freqLength: 1024, firstFewFreq: [0, 45, 93, 108, 99]}Object
+[Log] Audio data received: – {avgFreq: "1.88", bass: "18.85", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.88", bass: "18.85", freqLength: 1024, firstFewFreq: [0, 41, 88, 105, 105]}Object
+[Log] Audio data received: – {avgFreq: "1.88", bass: "18.85", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.88", bass: "18.85", freqLength: 1024, firstFewFreq: [0, 41, 88, 105, 105]}Object
+[Log] Audio data received: – {avgFreq: "1.87", bass: "18.79", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.87", bass: "18.79", freqLength: 1024, firstFewFreq: [0, 39, 91, 113, 114]}Object
+[Log] Audio data received: – {avgFreq: "1.87", bass: "18.79", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.87", bass: "18.79", freqLength: 1024, firstFewFreq: [0, 39, 91, 113, 114]}Object
+[Log] Audio data received: – {avgFreq: "1.85", bass: "18.62", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.85", bass: "18.62", freqLength: 1024, firstFewFreq: [0, 47, 101, 123, 121]}Object
+[Log] Audio data received: – {avgFreq: "1.85", bass: "18.62", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.85", bass: "18.62", freqLength: 1024, firstFewFreq: [0, 47, 101, 123, 121]}Object
+[Log] Audio data received: – {avgFreq: "1.85", bass: "18.58", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.85", bass: "18.58", freqLength: 1024, firstFewFreq: [0, 55, 107, 127, 123]}Object
+[Log] Audio data received: – {avgFreq: "1.85", bass: "18.58", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.85", bass: "18.58", freqLength: 1024, firstFewFreq: [0, 55, 107, 127, 123]}Object
+[Log] Audio data received: – {avgFreq: "1.78", bass: "17.84", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.78", bass: "17.84", freqLength: 1024, firstFewFreq: [0, 55, 106, 124, 118]}Object
+[Log] Audio data received: – {avgFreq: "1.78", bass: "17.84", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.78", bass: "17.84", freqLength: 1024, firstFewFreq: [0, 55, 106, 124, 118]}Object
+[Log] Audio data received: – {avgFreq: "1.75", bass: "17.53", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.75", bass: "17.53", freqLength: 1024, firstFewFreq: [0, 55, 106, 123, 117]}Object
+[Log] Audio data received: – {avgFreq: "1.71", bass: "17.13", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.71", bass: "17.13", freqLength: 1024, firstFewFreq: [0, 51, 103, 120, 113]}Object
+[Log] Audio data received: – {avgFreq: "1.71", bass: "17.13", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.71", bass: "17.13", freqLength: 1024, firstFewFreq: [0, 51, 103, 120, 113]}Object
+[Log] Audio data received: – {avgFreq: "1.67", bass: "16.81", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.67", bass: "16.81", freqLength: 1024, firstFewFreq: [0, 47, 97, 115, 108]}Object
+[Log] Audio data received: – {avgFreq: "1.67", bass: "16.81", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.67", bass: "16.81", freqLength: 1024, firstFewFreq: [0, 47, 97, 115, 108]}Object
+[Log] Audio data received: – {avgFreq: "1.61", bass: "16.18", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.61", bass: "16.18", freqLength: 1024, firstFewFreq: [0, 42, 92, 110, 103]}Object
+[Log] Audio data received: – {avgFreq: "1.61", bass: "16.18", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.61", bass: "16.18", freqLength: 1024, firstFewFreq: [0, 42, 92, 110, 103]}Object
+[Log] Audio data received: – {avgFreq: "1.56", bass: "15.68", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.56", bass: "15.68", freqLength: 1024, firstFewFreq: [0, 38, 87, 105, 97]}Object
+[Log] Audio data received: – {avgFreq: "1.56", bass: "15.68", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.56", bass: "15.68", freqLength: 1024, firstFewFreq: [0, 38, 87, 105, 97]}Object
+[Log] Audio data received: – {avgFreq: "1.64", bass: "16.46", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.64", bass: "16.46", freqLength: 1024, firstFewFreq: [0, 33, 83, 102, 96]}Object
+[Log] Audio data received: – {avgFreq: "1.64", bass: "16.46", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.64", bass: "16.46", freqLength: 1024, firstFewFreq: [0, 33, 83, 102, 96]}Object
+[Log] Audio data received: – {avgFreq: "1.61", bass: "16.18", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.61", bass: "16.18", freqLength: 1024, firstFewFreq: [0, 31, 81, 104, 109]}Object
+[Log] Audio data received: – {avgFreq: "1.61", bass: "16.18", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.61", bass: "16.18", freqLength: 1024, firstFewFreq: [0, 31, 81, 104, 109]}Object
+[Log] Audio data received: – {avgFreq: "1.61", bass: "16.18", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.61", bass: "16.18", freqLength: 1024, firstFewFreq: [0, 40, 93, 117, 117]}Object
+[Log] Audio data received: – {avgFreq: "1.61", bass: "16.18", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.61", bass: "16.18", freqLength: 1024, firstFewFreq: [0, 40, 93, 117, 117]}Object
+[Log] Audio data received: – {avgFreq: "1.62", bass: "16.30", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.62", bass: "16.30", freqLength: 1024, firstFewFreq: [0, 52, 104, 125, 121]}Object
+[Log] Audio data received: – {avgFreq: "1.62", bass: "16.30", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.62", bass: "16.30", freqLength: 1024, firstFewFreq: [0, 52, 104, 125, 121]}Object
+[Log] Audio data received: – {avgFreq: "1.65", bass: "16.52", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.65", bass: "16.52", freqLength: 1024, firstFewFreq: [0, 58, 109, 127, 121]}Object
+[Log] Audio data received: – {avgFreq: "1.65", bass: "16.52", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.65", bass: "16.52", freqLength: 1024, firstFewFreq: [0, 58, 109, 127, 121]}Object
+[Log] Audio data received: – {avgFreq: "1.60", bass: "16.11", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.60", bass: "16.11", freqLength: 1024, firstFewFreq: [0, 59, 109, 126, 118]}Object
+[Log] Audio data received: – {avgFreq: "1.60", bass: "16.11", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.60", bass: "16.11", freqLength: 1024, firstFewFreq: [0, 59, 109, 126, 118]}Object
+[Log] Audio data received: – {avgFreq: "1.62", bass: "16.24", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.62", bass: "16.24", freqLength: 1024, firstFewFreq: [0, 58, 106, 123, 115]}Object
+[Log] Audio data received: – {avgFreq: "1.57", bass: "15.73", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.57", bass: "15.73", freqLength: 1024, firstFewFreq: [0, 54, 101, 117, 110]}Object
+[Log] Audio data received: – {avgFreq: "1.57", bass: "15.73", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.57", bass: "15.73", freqLength: 1024, firstFewFreq: [0, 54, 101, 117, 110]}Object
+[Log] Audio data received: – {avgFreq: "1.55", bass: "15.53", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.55", bass: "15.53", freqLength: 1024, firstFewFreq: [0, 51, 99, 114, 106]}Object
+[Log] Audio data received: – {avgFreq: "1.55", bass: "15.53", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.55", bass: "15.53", freqLength: 1024, firstFewFreq: [0, 51, 99, 114, 106]}Object
+[Log] Audio data received: – {avgFreq: "1.56", bass: "15.64", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.56", bass: "15.64", freqLength: 1024, firstFewFreq: [0, 53, 100, 115, 107]}Object
+[Log] Audio data received: – {avgFreq: "1.56", bass: "15.64", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.56", bass: "15.64", freqLength: 1024, firstFewFreq: [0, 53, 100, 115, 107]}Object
+[Log] Audio data received: – {avgFreq: "1.55", bass: "15.61", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.55", bass: "15.61", freqLength: 1024, firstFewFreq: [0, 54, 101, 115, 106]}Object
+[Log] Audio data received: – {avgFreq: "1.55", bass: "15.61", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.55", bass: "15.61", freqLength: 1024, firstFewFreq: [0, 54, 101, 115, 106]}Object
+[Log] Audio data received: – {avgFreq: "1.57", bass: "15.73", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.57", bass: "15.73", freqLength: 1024, firstFewFreq: [0, 56, 102, 116, 103]}Object
+[Log] Audio data received: – {avgFreq: "1.57", bass: "15.73", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.57", bass: "15.73", freqLength: 1024, firstFewFreq: [0, 56, 102, 116, 103]}Object
+[Log] Audio data received: – {avgFreq: "1.55", bass: "15.61", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.55", bass: "15.61", freqLength: 1024, firstFewFreq: [0, 57, 104, 118, 105]}Object
+[Log] Audio data received: – {avgFreq: "1.55", bass: "15.61", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.55", bass: "15.61", freqLength: 1024, firstFewFreq: [0, 57, 104, 118, 105]}Object
+[Log] Audio data received: – {avgFreq: "1.53", bass: "15.36", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.53", bass: "15.36", freqLength: 1024, firstFewFreq: [0, 57, 104, 117, 105]}Object
+[Log] Audio data received: – {avgFreq: "1.53", bass: "15.36", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.53", bass: "15.36", freqLength: 1024, firstFewFreq: [0, 57, 104, 117, 105]}Object
+[Log] Audio data received: – {avgFreq: "1.51", bass: "15.13", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.51", bass: "15.13", freqLength: 1024, firstFewFreq: [0, 54, 101, 115, 104]}Object
+[Log] Audio data received: – {avgFreq: "1.51", bass: "15.13", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.51", bass: "15.13", freqLength: 1024, firstFewFreq: [0, 54, 101, 115, 104]}Object
+[Log] Audio data received: – {avgFreq: "1.47", bass: "14.75", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.47", bass: "14.75", freqLength: 1024, firstFewFreq: [0, 50, 97, 111, 102]}Object
+[Log] Audio data received: – {avgFreq: "1.47", bass: "14.75", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.47", bass: "14.75", freqLength: 1024, firstFewFreq: [0, 50, 97, 111, 102]}Object
+[Log] Audio data received: – {avgFreq: "1.52", bass: "15.29", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.52", bass: "15.29", freqLength: 1024, firstFewFreq: [0, 45, 93, 107, 100]}Object
+[Log] Audio data received: – {avgFreq: "1.52", bass: "15.29", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.52", bass: "15.29", freqLength: 1024, firstFewFreq: [0, 45, 93, 107, 100]}Object
+[Log] Audio data received: – {avgFreq: "1.52", bass: "15.24", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.52", bass: "15.24", freqLength: 1024, firstFewFreq: [0, 41, 88, 102, 98]}Object
+[Log] Audio data received: – {avgFreq: "1.52", bass: "15.24", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.52", bass: "15.24", freqLength: 1024, firstFewFreq: [0, 41, 88, 102, 98]}Object
+[Log] Audio data received: – {avgFreq: "1.47", bass: "14.74", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.47", bass: "14.74", freqLength: 1024, firstFewFreq: [0, 37, 83, 96, 95]}Object
+[Log] Audio data received: – {avgFreq: "1.42", bass: "14.25", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.42", bass: "14.25", freqLength: 1024, firstFewFreq: [0, 31, 77, 91, 93]}Object
+[Log] Audio data received: – {avgFreq: "1.42", bass: "14.25", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.42", bass: "14.25", freqLength: 1024, firstFewFreq: [0, 31, 77, 91, 93]}Object
+[Log] Audio data received: – {avgFreq: "1.35", bass: "13.56", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.35", bass: "13.56", freqLength: 1024, firstFewFreq: [0, 27, 72, 85, 90]}Object
+[Log] Audio data received: – {avgFreq: "1.35", bass: "13.56", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.35", bass: "13.56", freqLength: 1024, firstFewFreq: [0, 27, 72, 85, 90]}Object
+[Log] Audio data received: – {avgFreq: "1.43", bass: "14.33", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.43", bass: "14.33", freqLength: 1024, firstFewFreq: [0, 24, 68, 82, 90]}Object
+[Log] Audio data received: – {avgFreq: "1.43", bass: "14.33", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.43", bass: "14.33", freqLength: 1024, firstFewFreq: [0, 24, 68, 82, 90]}Object
+[Log] Audio data received: – {avgFreq: "1.38", bass: "13.90", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.38", bass: "13.90", freqLength: 1024, firstFewFreq: [0, 18, 63, 80, 88]}Object
+[Log] Audio data received: – {avgFreq: "1.38", bass: "13.90", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.38", bass: "13.90", freqLength: 1024, firstFewFreq: [0, 18, 63, 80, 88]}Object
+[Log] Audio data received: – {avgFreq: "1.38", bass: "13.83", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.38", bass: "13.83", freqLength: 1024, firstFewFreq: [0, 17, 64, 81, 87]}Object
+[Log] Audio data received: – {avgFreq: "1.38", bass: "13.83", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.38", bass: "13.83", freqLength: 1024, firstFewFreq: [0, 17, 64, 81, 87]}Object
+[Log] Audio data received: – {avgFreq: "1.36", bass: "13.63", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.36", bass: "13.63", freqLength: 1024, firstFewFreq: [0, 17, 64, 82, 82]}Object
+[Log] Audio data received: – {avgFreq: "1.36", bass: "13.63", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.36", bass: "13.63", freqLength: 1024, firstFewFreq: [0, 17, 64, 82, 82]}Object
+[Log] Audio data received: – {avgFreq: "1.32", bass: "13.25", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.32", bass: "13.25", freqLength: 1024, firstFewFreq: [0, 19, 64, 80, 82]}Object
+[Log] Audio data received: – {avgFreq: "1.32", bass: "13.25", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.32", bass: "13.25", freqLength: 1024, firstFewFreq: [0, 19, 64, 80, 82]}Object
+[Log] Audio data received: – {avgFreq: "1.31", bass: "13.11", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.31", bass: "13.11", freqLength: 1024, firstFewFreq: [0, 20, 66, 80, 78]}Object
+[Log] Audio data received: – {avgFreq: "1.31", bass: "13.11", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.31", bass: "13.11", freqLength: 1024, firstFewFreq: [0, 20, 66, 80, 78]}Object
+[Log] Audio data received: – {avgFreq: "1.35", bass: "13.55", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.35", bass: "13.55", freqLength: 1024, firstFewFreq: [0, 22, 67, 80, 79]}Object
+[Log] Audio data received: – {avgFreq: "1.35", bass: "13.55", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.35", bass: "13.55", freqLength: 1024, firstFewFreq: [0, 22, 67, 80, 79]}Object
+[Log] Audio data received: – {avgFreq: "1.34", bass: "13.47", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.34", bass: "13.47", freqLength: 1024, firstFewFreq: [0, 24, 70, 83, 76]}Object
+[Log] Audio data received: – {avgFreq: "1.34", bass: "13.47", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.34", bass: "13.47", freqLength: 1024, firstFewFreq: [0, 24, 70, 83, 76]}Object
+[Log] Audio data received: – {avgFreq: "1.36", bass: "13.66", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.36", bass: "13.66", freqLength: 1024, firstFewFreq: [0, 29, 73, 85, 80]}Object
+[Log] Audio data received: – {avgFreq: "1.36", bass: "13.66", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.36", bass: "13.66", freqLength: 1024, firstFewFreq: [0, 29, 73, 85, 80]}Object
+[Log] Audio data received: – {avgFreq: "1.36", bass: "13.65", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.36", bass: "13.65", freqLength: 1024, firstFewFreq: [0, 30, 75, 86, 80]}Object
+[Log] Audio data received: – {avgFreq: "1.40", bass: "14.08", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.40", bass: "14.08", freqLength: 1024, firstFewFreq: [0, 31, 76, 87, 79]}Object
+[Log] Audio data received: – {avgFreq: "1.40", bass: "14.08", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.40", bass: "14.08", freqLength: 1024, firstFewFreq: [0, 31, 76, 87, 79]}Object
+[Log] Audio data received: – {avgFreq: "1.40", bass: "14.07", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.40", bass: "14.07", freqLength: 1024, firstFewFreq: [0, 32, 77, 90, 82]}Object
+[Log] Audio data received: – {avgFreq: "1.40", bass: "14.07", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.40", bass: "14.07", freqLength: 1024, firstFewFreq: [0, 32, 77, 90, 82]}Object
+[Log] Audio data received: – {avgFreq: "1.42", bass: "14.27", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.42", bass: "14.27", freqLength: 1024, firstFewFreq: [0, 34, 78, 89, 81]}Object
+[Log] Audio data received: – {avgFreq: "1.42", bass: "14.27", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.42", bass: "14.27", freqLength: 1024, firstFewFreq: [0, 34, 78, 89, 81]}Object
+[Log] Audio data received: – {avgFreq: "1.40", bass: "14.08", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.40", bass: "14.08", freqLength: 1024, firstFewFreq: [0, 31, 77, 89, 77]}Object
+[Log] Audio data received: – {avgFreq: "1.40", bass: "14.08", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.40", bass: "14.08", freqLength: 1024, firstFewFreq: [0, 31, 77, 89, 77]}Object
+[Log] Audio data received: – {avgFreq: "1.40", bass: "14.10", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.40", bass: "14.10", freqLength: 1024, firstFewFreq: [0, 27, 74, 87, 79]}Object
+[Log] Audio data received: – {avgFreq: "1.40", bass: "14.10", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.40", bass: "14.10", freqLength: 1024, firstFewFreq: [0, 27, 74, 87, 79]}Object
+[Log] Audio data received: – {avgFreq: "1.37", bass: "13.77", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.37", bass: "13.77", freqLength: 1024, firstFewFreq: [0, 25, 71, 83, 73]}Object
+[Log] Audio data received: – {avgFreq: "1.37", bass: "13.77", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.37", bass: "13.77", freqLength: 1024, firstFewFreq: [0, 25, 71, 83, 73]}Object
+[Log] Audio data received: – {avgFreq: "1.39", bass: "13.96", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.39", bass: "13.96", freqLength: 1024, firstFewFreq: [0, 21, 68, 82, 68]}Object
+[Log] Audio data received: – {avgFreq: "1.39", bass: "13.96", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.39", bass: "13.96", freqLength: 1024, firstFewFreq: [0, 21, 68, 82, 68]}Object
+[Log] Audio data received: – {avgFreq: "1.44", bass: "14.43", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.44", bass: "14.43", freqLength: 1024, firstFewFreq: [0, 24, 68, 93, 102]}Object
+[Log] Audio data received: – {avgFreq: "1.44", bass: "14.43", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.44", bass: "14.43", freqLength: 1024, firstFewFreq: [0, 24, 68, 93, 102]}Object
+[Log] Audio data received: – {avgFreq: "1.49", bass: "14.91", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.49", bass: "14.91", freqLength: 1024, firstFewFreq: [0, 35, 87, 113, 117]}Object
+[Log] Audio data received: – {avgFreq: "1.49", bass: "14.91", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.49", bass: "14.91", freqLength: 1024, firstFewFreq: [0, 35, 87, 113, 117]}Object
+[Log] Audio data received: – {avgFreq: "1.50", bass: "15.03", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.50", bass: "15.03", freqLength: 1024, firstFewFreq: [0, 51, 102, 123, 121]}Object
+[Log] Audio data received: – {avgFreq: "1.50", bass: "15.03", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.50", bass: "15.03", freqLength: 1024, firstFewFreq: [0, 51, 102, 123, 121]}Object
+[Log] Audio data received: – {avgFreq: "1.48", bass: "14.85", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.48", bass: "14.85", freqLength: 1024, firstFewFreq: [0, 58, 107, 125, 120]}Object
+[Log] Audio data received: – {avgFreq: "1.48", bass: "14.85", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.48", bass: "14.85", freqLength: 1024, firstFewFreq: [0, 58, 107, 125, 120]}Object
+[Log] Audio data received: – {avgFreq: "1.53", bass: "15.31", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.53", bass: "15.31", freqLength: 1024, firstFewFreq: [0, 60, 108, 126, 118]}Object
+[Log] Audio data received: – {avgFreq: "1.56", bass: "15.62", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.56", bass: "15.62", freqLength: 1024, firstFewFreq: [0, 58, 107, 121, 120]}Object
+[Log] Audio data received: – {avgFreq: "1.56", bass: "15.62", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.56", bass: "15.62", freqLength: 1024, firstFewFreq: [0, 58, 107, 121, 120]}Object
+[Log] Audio data received: – {avgFreq: "1.57", bass: "15.78", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.57", bass: "15.78", freqLength: 1024, firstFewFreq: [0, 55, 109, 128, 128]}Object
+[Log] Audio data received: – {avgFreq: "1.57", bass: "15.78", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.57", bass: "15.78", freqLength: 1024, firstFewFreq: [0, 55, 109, 128, 128]}Object
+[Log] Audio data received: – {avgFreq: "1.54", bass: "15.51", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.54", bass: "15.51", freqLength: 1024, firstFewFreq: [0, 59, 113, 132, 130]}Object
+[Log] Audio data received: – {avgFreq: "1.54", bass: "15.51", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.54", bass: "15.51", freqLength: 1024, firstFewFreq: [0, 59, 113, 132, 130]}Object
+[Log] Audio data received: – {avgFreq: "1.54", bass: "15.42", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.54", bass: "15.42", freqLength: 1024, firstFewFreq: [0, 64, 115, 132, 126]}Object
+[Log] Audio data received: – {avgFreq: "1.54", bass: "15.42", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.54", bass: "15.42", freqLength: 1024, firstFewFreq: [0, 64, 115, 132, 126]}Object
+[Log] Audio data received: – {avgFreq: "1.55", bass: "15.56", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.55", bass: "15.56", freqLength: 1024, firstFewFreq: [0, 65, 116, 133, 126]}Object
+[Log] Audio data received: – {avgFreq: "1.55", bass: "15.56", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.55", bass: "15.56", freqLength: 1024, firstFewFreq: [0, 65, 116, 133, 126]}Object
+[Log] Audio data received: – {avgFreq: "1.59", bass: "15.92", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.59", bass: "15.92", freqLength: 1024, firstFewFreq: [0, 64, 115, 131, 124]}Object
+[Log] Audio data received: – {avgFreq: "1.59", bass: "15.92", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.59", bass: "15.92", freqLength: 1024, firstFewFreq: [0, 64, 115, 131, 124]}Object
+[Log] Audio data received: – {avgFreq: "1.58", bass: "15.82", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.58", bass: "15.82", freqLength: 1024, firstFewFreq: [0, 60, 110, 126, 118]}Object
+[Log] Audio data received: – {avgFreq: "1.58", bass: "15.82", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.58", bass: "15.82", freqLength: 1024, firstFewFreq: [0, 60, 110, 126, 118]}Object
+[Log] Audio data received: – {avgFreq: "1.54", bass: "15.45", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.54", bass: "15.45", freqLength: 1024, firstFewFreq: [0, 55, 105, 121, 113]}Object
+[Log] Audio data received: – {avgFreq: "1.54", bass: "15.45", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.54", bass: "15.45", freqLength: 1024, firstFewFreq: [0, 55, 105, 121, 113]}Object
+[Log] Audio data received: – {avgFreq: "1.51", bass: "15.17", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.51", bass: "15.17", freqLength: 1024, firstFewFreq: [0, 50, 99, 115, 107]}Object
+[Log] Audio data received: – {avgFreq: "1.51", bass: "15.17", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.51", bass: "15.17", freqLength: 1024, firstFewFreq: [0, 50, 99, 115, 107]}Object
+[Log] Audio data received: – {avgFreq: "1.48", bass: "14.85", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.48", bass: "14.85", freqLength: 1024, firstFewFreq: [0, 44, 94, 109, 102]}Object
+[Log] Audio data received: – {avgFreq: "1.48", bass: "14.85", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.48", bass: "14.85", freqLength: 1024, firstFewFreq: [0, 44, 94, 109, 102]}Object
+[Log] Audio data received: – {avgFreq: "1.53", bass: "15.39", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.53", bass: "15.39", freqLength: 1024, firstFewFreq: [0, 39, 88, 105, 101]}Object
+[Log] Audio data received: – {avgFreq: "1.53", bass: "15.39", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.53", bass: "15.39", freqLength: 1024, firstFewFreq: [0, 39, 88, 105, 101]}Object
+[Log] Audio data received: – {avgFreq: "1.51", bass: "15.16", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.51", bass: "15.16", freqLength: 1024, firstFewFreq: [0, 35, 86, 109, 113]}Object
+[Log] Audio data received: – {avgFreq: "1.52", bass: "15.25", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.52", bass: "15.25", freqLength: 1024, firstFewFreq: [0, 43, 96, 119, 121]}Object
+[Log] Audio data received: – {avgFreq: "1.52", bass: "15.25", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.52", bass: "15.25", freqLength: 1024, firstFewFreq: [0, 43, 96, 119, 121]}Object
+[Log] Audio data received: – {avgFreq: "1.53", bass: "15.32", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.53", bass: "15.32", freqLength: 1024, firstFewFreq: [0, 52, 105, 125, 122]}Object
+[Log] Audio data received: – {avgFreq: "1.53", bass: "15.32", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.53", bass: "15.32", freqLength: 1024, firstFewFreq: [0, 52, 105, 125, 122]}Object
+[Log] Audio data received: – {avgFreq: "1.53", bass: "15.37", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.53", bass: "15.37", freqLength: 1024, firstFewFreq: [0, 57, 107, 125, 120]}Object
+[Log] Audio data received: – {avgFreq: "1.53", bass: "15.37", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.53", bass: "15.37", freqLength: 1024, firstFewFreq: [0, 57, 107, 125, 120]}Object
+[Log] Audio data received: – {avgFreq: "1.57", bass: "15.72", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.57", bass: "15.72", freqLength: 1024, firstFewFreq: [0, 57, 106, 124, 116]}Object
+[Log] Audio data received: – {avgFreq: "1.57", bass: "15.72", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.57", bass: "15.72", freqLength: 1024, firstFewFreq: [0, 57, 106, 124, 116]}Object
+[Log] Audio data received: – {avgFreq: "1.54", bass: "15.51", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.54", bass: "15.51", freqLength: 1024, firstFewFreq: [0, 55, 103, 120, 113]}Object
+[Log] Audio data received: – {avgFreq: "1.54", bass: "15.51", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.54", bass: "15.51", freqLength: 1024, firstFewFreq: [0, 55, 103, 120, 113]}Object
+[Log] Audio data received: – {avgFreq: "1.50", bass: "15.03", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.50", bass: "15.03", freqLength: 1024, firstFewFreq: [0, 50, 99, 115, 109]}Object
+[Log] Audio data received: – {avgFreq: "1.50", bass: "15.03", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.50", bass: "15.03", freqLength: 1024, firstFewFreq: [0, 50, 99, 115, 109]}Object
+[Log] Audio data received: – {avgFreq: "1.47", bass: "14.79", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.47", bass: "14.79", freqLength: 1024, firstFewFreq: [0, 47, 96, 111, 104]}Object
+[Log] Audio data received: – {avgFreq: "1.47", bass: "14.79", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.47", bass: "14.79", freqLength: 1024, firstFewFreq: [0, 47, 96, 111, 104]}Object
+[Log] Audio data received: – {avgFreq: "1.46", bass: "14.70", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.46", bass: "14.70", freqLength: 1024, firstFewFreq: [0, 46, 94, 110, 104]}Object
+[Log] Audio data received: – {avgFreq: "1.46", bass: "14.70", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.46", bass: "14.70", freqLength: 1024, firstFewFreq: [0, 46, 94, 110, 104]}Object
+[Log] Audio data received: – {avgFreq: "1.81", bass: "18.19", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.81", bass: "18.19", freqLength: 1024, firstFewFreq: [0, 47, 95, 109, 101]}Object
+[Log] Audio data received: – {avgFreq: "1.81", bass: "18.19", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.81", bass: "18.19", freqLength: 1024, firstFewFreq: [0, 47, 95, 109, 101]}Object
+[Log] Audio data received: – {avgFreq: "2.01", bass: "20.18", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "2.01", bass: "20.18", freqLength: 1024, firstFewFreq: [0, 48, 95, 108, 99]}Object
+[Log] Audio data received: – {avgFreq: "2.01", bass: "20.18", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "2.01", bass: "20.18", freqLength: 1024, firstFewFreq: [0, 48, 95, 108, 99]}Object
+[Log] Audio data received: – {avgFreq: "2.03", bass: "20.36", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "2.03", bass: "20.36", freqLength: 1024, firstFewFreq: [0, 48, 95, 109, 100]}Object
+[Log] Audio data received: – {avgFreq: "2.03", bass: "20.36", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "2.03", bass: "20.36", freqLength: 1024, firstFewFreq: [0, 48, 95, 109, 100]}Object
+[Log] Audio data received: – {avgFreq: "2.02", bass: "20.31", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "2.02", bass: "20.31", freqLength: 1024, firstFewFreq: [0, 47, 94, 107, 95]}Object
+[Log] Audio data received: – {avgFreq: "2.05", bass: "20.60", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "2.05", bass: "20.60", freqLength: 1024, firstFewFreq: [0, 43, 90, 103, 93]}Object
+[Log] Audio data received: – {avgFreq: "2.05", bass: "20.60", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "2.05", bass: "20.60", freqLength: 1024, firstFewFreq: [0, 43, 90, 103, 93]}Object
+[Log] Audio data received: – {avgFreq: "2.07", bass: "20.82", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "2.07", bass: "20.82", freqLength: 1024, firstFewFreq: [0, 41, 86, 98, 90]}Object
+[Log] Audio data received: – {avgFreq: "2.07", bass: "20.82", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "2.07", bass: "20.82", freqLength: 1024, firstFewFreq: [0, 41, 86, 98, 90]}Object
+[Log] Audio data received: – {avgFreq: "2.22", bass: "22.32", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "2.22", bass: "22.32", freqLength: 1024, firstFewFreq: [0, 36, 81, 94, 90]}Object
+[Log] Audio data received: – {avgFreq: "2.22", bass: "22.32", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "2.22", bass: "22.32", freqLength: 1024, firstFewFreq: [0, 36, 81, 94, 90]}Object
+[Log] Audio data received: – {avgFreq: "2.17", bass: "21.79", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "2.17", bass: "21.79", freqLength: 1024, firstFewFreq: [0, 33, 77, 89, 86]}Object
+[Log] Audio data received: – {avgFreq: "2.17", bass: "21.79", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "2.17", bass: "21.79", freqLength: 1024, firstFewFreq: [0, 33, 77, 89, 86]}Object
+[Log] Audio data received: – {avgFreq: "2.09", bass: "21.03", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "2.09", bass: "21.03", freqLength: 1024, firstFewFreq: [0, 28, 72, 85, 84]}Object
+[Log] Audio data received: – {avgFreq: "2.09", bass: "21.03", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "2.09", bass: "21.03", freqLength: 1024, firstFewFreq: [0, 28, 72, 85, 84]}Object
+[Log] Audio data received: – {avgFreq: "2.00", bass: "20.13", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "2.00", bass: "20.13", freqLength: 1024, firstFewFreq: [0, 24, 68, 80, 80]}Object
+[Log] Audio data received: – {avgFreq: "2.00", bass: "20.13", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "2.00", bass: "20.13", freqLength: 1024, firstFewFreq: [0, 24, 68, 80, 80]}Object
+[Log] Audio data received: – {avgFreq: "1.95", bass: "19.55", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.95", bass: "19.55", freqLength: 1024, firstFewFreq: [0, 19, 63, 76, 77]}Object
+[Log] Audio data received: – {avgFreq: "1.95", bass: "19.55", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.95", bass: "19.55", freqLength: 1024, firstFewFreq: [0, 19, 63, 76, 77]}Object
+[Log] Audio data received: – {avgFreq: "1.93", bass: "19.36", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.93", bass: "19.36", freqLength: 1024, firstFewFreq: [0, 15, 58, 73, 74]}Object
+[Log] Audio data received: – {avgFreq: "1.93", bass: "19.36", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.93", bass: "19.36", freqLength: 1024, firstFewFreq: [0, 15, 58, 73, 74]}Object
+[Log] Audio data received: – {avgFreq: "1.91", bass: "19.14", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.91", bass: "19.14", freqLength: 1024, firstFewFreq: [0, 13, 54, 71, 74]}Object
+[Log] Audio data received: – {avgFreq: "1.91", bass: "19.14", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.91", bass: "19.14", freqLength: 1024, firstFewFreq: [0, 13, 54, 71, 74]}Object
+[Log] Audio data received: – {avgFreq: "1.85", bass: "18.57", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.85", bass: "18.57", freqLength: 1024, firstFewFreq: [0, 14, 57, 77, 81]}Object
+[Log] Audio data received: – {avgFreq: "1.85", bass: "18.57", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.85", bass: "18.57", freqLength: 1024, firstFewFreq: [0, 14, 57, 77, 81]}Object
+[Log] Audio data received: – {avgFreq: "1.78", bass: "17.89", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.78", bass: "17.89", freqLength: 1024, firstFewFreq: [0, 15, 61, 83, 86]}Object
+[Log] Audio data received: – {avgFreq: "1.78", bass: "17.89", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.78", bass: "17.89", freqLength: 1024, firstFewFreq: [0, 15, 61, 83, 86]}Object
+[Log] Audio data received: – {avgFreq: "1.72", bass: "17.31", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.72", bass: "17.31", freqLength: 1024, firstFewFreq: [0, 13, 58, 84, 88]}Object
+[Log] Audio data received: – {avgFreq: "1.72", bass: "17.31", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.72", bass: "17.31", freqLength: 1024, firstFewFreq: [0, 13, 58, 84, 88]}Object
+[Log] Audio data received: – {avgFreq: "1.69", bass: "16.97", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.69", bass: "16.97", freqLength: 1024, firstFewFreq: [0, 9, 60, 87, 89]}Object
+[Log] Audio data received: – {avgFreq: "1.71", bass: "17.21", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.71", bass: "17.21", freqLength: 1024, firstFewFreq: [0, 8, 57, 87, 97]}Object
+[Log] Audio data received: – {avgFreq: "1.69", bass: "16.93", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.69", bass: "16.93", freqLength: 1024, firstFewFreq: [0, 4, 52, 82, 97]}Object
+[Log] Audio data received: – {avgFreq: "1.66", bass: "16.69", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.66", bass: "16.69", freqLength: 1024, firstFewFreq: [0, 3, 47, 77, 100]}Object
+[Log] Audio data received: – {avgFreq: "1.66", bass: "16.69", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.66", bass: "16.69", freqLength: 1024, firstFewFreq: [0, 3, 47, 77, 100]}Object
+[Log] Audio data received: – {avgFreq: "1.60", bass: "16.02", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.60", bass: "16.02", freqLength: 1024, firstFewFreq: [0, 0, 43, 73, 104]}Object
+[Log] Audio data received: – {avgFreq: "1.60", bass: "16.02", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.60", bass: "16.02", freqLength: 1024, firstFewFreq: [0, 0, 43, 73, 104]}Object
+[Log] Audio data received: – {avgFreq: "1.55", bass: "15.61", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.55", bass: "15.61", freqLength: 1024, firstFewFreq: [0, 0, 39, 71, 110]}Object
+[Log] Audio data received: – {avgFreq: "1.55", bass: "15.57", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.55", bass: "15.57", freqLength: 1024, firstFewFreq: [0, 0, 41, 79, 116]}Object
+[Log] Audio data received: – {avgFreq: "1.55", bass: "15.57", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.55", bass: "15.57", freqLength: 1024, firstFewFreq: [0, 0, 41, 79, 116]}Object
+[Log] Audio data received: – {avgFreq: "1.57", bass: "15.78", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.57", bass: "15.78", freqLength: 1024, firstFewFreq: [0, 8, 60, 96, 118]}Object
+[Log] Audio data received: – {avgFreq: "1.57", bass: "15.78", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.57", bass: "15.78", freqLength: 1024, firstFewFreq: [0, 8, 60, 96, 118]}Object
+[Log] Audio data received: – {avgFreq: "1.57", bass: "15.78", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.57", bass: "15.78", freqLength: 1024, firstFewFreq: [0, 8, 60, 96, 118]}Object
+[Log] Audio data received: – {avgFreq: "1.62", bass: "16.30", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.62", bass: "16.30", freqLength: 1024, firstFewFreq: [0, 34, 87, 113, 120]}Object
+[Log] Audio data received: – {avgFreq: "1.62", bass: "16.30", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.62", bass: "16.30", freqLength: 1024, firstFewFreq: [0, 34, 87, 113, 120]}Object
+[Log] Audio data received: – {avgFreq: "1.64", bass: "16.46", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.64", bass: "16.46", freqLength: 1024, firstFewFreq: [0, 47, 99, 119, 121]}Object
+[Log] Audio data received: – {avgFreq: "1.64", bass: "16.46", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.64", bass: "16.46", freqLength: 1024, firstFewFreq: [0, 47, 99, 119, 121]}Object
+[Log] Audio data received: – {avgFreq: "1.64", bass: "16.44", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.64", bass: "16.44", freqLength: 1024, firstFewFreq: [0, 54, 103, 120, 121]}Object
+[Log] Audio data received: – {avgFreq: "1.64", bass: "16.44", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.64", bass: "16.44", freqLength: 1024, firstFewFreq: [0, 54, 103, 120, 121]}Object
+[Log] Audio data received: – {avgFreq: "1.98", bass: "19.91", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.98", bass: "19.91", freqLength: 1024, firstFewFreq: [0, 53, 103, 119, 117]}Object
+[Log] Audio data received: – {avgFreq: "2.01", bass: "20.19", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "2.01", bass: "20.19", freqLength: 1024, firstFewFreq: [0, 51, 99, 115, 112]}Object
+[Log] Audio data received: – {avgFreq: "2.01", bass: "20.19", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "2.01", bass: "20.19", freqLength: 1024, firstFewFreq: [0, 51, 99, 115, 112]}Object
+[Log] Audio data received: – {avgFreq: "2.20", bass: "22.06", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "2.20", bass: "22.06", freqLength: 1024, firstFewFreq: [0, 49, 96, 112, 109]}Object
+[Log] Audio data received: – {avgFreq: "2.20", bass: "22.06", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "2.20", bass: "22.06", freqLength: 1024, firstFewFreq: [0, 49, 96, 112, 109]}Object
+[Log] Audio data received: – {avgFreq: "2.22", bass: "22.28", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "2.22", bass: "22.28", freqLength: 1024, firstFewFreq: [0, 48, 95, 111, 108]}Object
+[Log] Audio data received: – {avgFreq: "2.22", bass: "22.28", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "2.22", bass: "22.28", freqLength: 1024, firstFewFreq: [0, 48, 95, 111, 108]}Object
+[Log] Audio data received: – {avgFreq: "2.19", bass: "22.00", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "2.19", bass: "22.00", freqLength: 1024, firstFewFreq: [0, 48, 96, 111, 107]}Object
+[Log] Audio data received: – {avgFreq: "2.19", bass: "22.00", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "2.19", bass: "22.00", freqLength: 1024, firstFewFreq: [0, 48, 96, 111, 107]}Object
+[Log] Audio data received: – {avgFreq: "2.16", bass: "21.71", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "2.16", bass: "21.71", freqLength: 1024, firstFewFreq: [0, 49, 96, 111, 102]}Object
+[Log] Audio data received: – {avgFreq: "2.16", bass: "21.71", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "2.16", bass: "21.71", freqLength: 1024, firstFewFreq: [0, 49, 96, 111, 102]}Object
+[Log] Audio data received: – {avgFreq: "2.07", bass: "20.75", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "2.07", bass: "20.75", freqLength: 1024, firstFewFreq: [0, 51, 98, 112, 102]}Object
+[Log] Audio data received: – {avgFreq: "2.07", bass: "20.75", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "2.07", bass: "20.75", freqLength: 1024, firstFewFreq: [0, 51, 98, 112, 102]}Object
+[Log] Audio data received: – {avgFreq: "2.00", bass: "20.05", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "2.00", bass: "20.05", freqLength: 1024, firstFewFreq: [0, 51, 99, 113, 103]}Object
+[Log] Audio data received: – {avgFreq: "2.00", bass: "20.05", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "2.00", bass: "20.05", freqLength: 1024, firstFewFreq: [0, 51, 99, 113, 103]}Object
+[Log] Audio data received: – {avgFreq: "1.91", bass: "19.19", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.91", bass: "19.19", freqLength: 1024, firstFewFreq: [0, 50, 96, 110, 100]}Object
+[Log] Audio data received: – {avgFreq: "1.91", bass: "19.19", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.91", bass: "19.19", freqLength: 1024, firstFewFreq: [0, 50, 96, 110, 100]}Object
+[Log] Audio data received: – {avgFreq: "1.80", bass: "18.11", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.80", bass: "18.11", freqLength: 1024, firstFewFreq: [0, 45, 92, 106, 95]}Object
+[Log] Audio data received: – {avgFreq: "1.80", bass: "18.11", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.80", bass: "18.11", freqLength: 1024, firstFewFreq: [0, 45, 92, 106, 95]}Object
+[Log] Audio data received: – {avgFreq: "1.75", bass: "17.54", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.75", bass: "17.54", freqLength: 1024, firstFewFreq: [0, 41, 88, 101, 91]}Object
+[Log] Audio data received: – {avgFreq: "1.75", bass: "17.54", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.75", bass: "17.54", freqLength: 1024, firstFewFreq: [0, 41, 88, 101, 91]}Object
+[Log] Audio data received: – {avgFreq: "1.70", bass: "17.10", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.70", bass: "17.10", freqLength: 1024, firstFewFreq: [0, 37, 83, 95, 88]}Object
+[Log] Audio data received: – {avgFreq: "1.70", bass: "17.10", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.70", bass: "17.10", freqLength: 1024, firstFewFreq: [0, 37, 83, 95, 88]}Object
+[Log] Audio data received: – {avgFreq: "1.66", bass: "16.70", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.66", bass: "16.70", freqLength: 1024, firstFewFreq: [0, 31, 77, 90, 84]}Object
+[Log] Audio data received: – {avgFreq: "1.61", bass: "16.20", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.61", bass: "16.20", freqLength: 1024, firstFewFreq: [0, 27, 72, 87, 87]}Object
+[Log] Audio data received: – {avgFreq: "1.61", bass: "16.20", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.61", bass: "16.20", freqLength: 1024, firstFewFreq: [0, 27, 72, 87, 87]}Object
+[Log] Audio data received: – {avgFreq: "1.57", bass: "15.75", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.57", bass: "15.75", freqLength: 1024, firstFewFreq: [0, 22, 67, 82, 84]}Object
+[Log] Audio data received: – {avgFreq: "1.57", bass: "15.75", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.57", bass: "15.75", freqLength: 1024, firstFewFreq: [0, 22, 67, 82, 84]}Object
+[Log] Audio data received: – {avgFreq: "1.54", bass: "15.43", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.54", bass: "15.43", freqLength: 1024, firstFewFreq: [0, 17, 62, 79, 87]}Object
+[Log] Audio data received: – {avgFreq: "1.54", bass: "15.43", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.54", bass: "15.43", freqLength: 1024, firstFewFreq: [0, 17, 62, 79, 87]}Object
+[Log] Audio data received: – {avgFreq: "1.47", bass: "14.75", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.47", bass: "14.75", freqLength: 1024, firstFewFreq: [0, 14, 57, 73, 86]}Object
+[Log] Audio data received: – {avgFreq: "1.47", bass: "14.75", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.47", bass: "14.75", freqLength: 1024, firstFewFreq: [0, 14, 57, 73, 86]}Object
+[Log] Audio data received: – {avgFreq: "1.43", bass: "14.33", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.43", bass: "14.33", freqLength: 1024, firstFewFreq: [0, 12, 53, 69, 81]}Object
+[Log] Audio data received: – {avgFreq: "1.43", bass: "14.33", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.43", bass: "14.33", freqLength: 1024, firstFewFreq: [0, 12, 53, 69, 81]}Object
+[Log] Audio data received: – {avgFreq: "1.38", bass: "13.90", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.38", bass: "13.90", freqLength: 1024, firstFewFreq: [0, 9, 48, 65, 81]}Object
+[Log] Audio data received: – {avgFreq: "1.38", bass: "13.90", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.38", bass: "13.90", freqLength: 1024, firstFewFreq: [0, 9, 48, 65, 81]}Object
+[Log] Audio data received: – {avgFreq: "1.34", bass: "13.43", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.34", bass: "13.43", freqLength: 1024, firstFewFreq: [0, 10, 50, 63, 81]}Object
+[Log] Audio data received: – {avgFreq: "1.34", bass: "13.43", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.34", bass: "13.43", freqLength: 1024, firstFewFreq: [0, 10, 50, 63, 81]}Object
+[Log] Audio data received: – {avgFreq: "1.30", bass: "13.08", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.30", bass: "13.08", freqLength: 1024, firstFewFreq: [0, 6, 49, 65, 80]}Object
+[Log] Audio data received: – {avgFreq: "1.30", bass: "13.08", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.30", bass: "13.08", freqLength: 1024, firstFewFreq: [0, 6, 49, 65, 80]}Object
+[Log] Audio data received: – {avgFreq: "1.43", bass: "14.31", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.43", bass: "14.31", freqLength: 1024, firstFewFreq: [0, 6, 48, 65, 88]}Object
+[Log] Audio data received: – {avgFreq: "1.43", bass: "14.31", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.43", bass: "14.31", freqLength: 1024, firstFewFreq: [0, 6, 48, 65, 88]}Object
+[Log] Audio data received: – {avgFreq: "1.46", bass: "14.69", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.46", bass: "14.69", freqLength: 1024, firstFewFreq: [0, 12, 52, 87, 105]}Object
+[Log] Audio data received: – {avgFreq: "1.46", bass: "14.69", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.46", bass: "14.69", freqLength: 1024, firstFewFreq: [0, 12, 52, 87, 105]}Object
+[Log] Audio data received: – {avgFreq: "1.58", bass: "15.82", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.58", bass: "15.82", freqLength: 1024, firstFewFreq: [0, 35, 86, 115, 123]}Object
+[Log] Audio data received: – {avgFreq: "1.58", bass: "15.82", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.58", bass: "15.82", freqLength: 1024, firstFewFreq: [0, 35, 86, 115, 123]}Object
+[Log] Audio data received: – {avgFreq: "1.64", bass: "16.48", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.64", bass: "16.48", freqLength: 1024, firstFewFreq: [0, 54, 104, 125, 124]}Object
+[Log] Audio data received: – {avgFreq: "1.69", bass: "16.97", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.69", bass: "16.97", freqLength: 1024, firstFewFreq: [0, 67, 115, 132, 127]}Object
+[Log] Audio data received: – {avgFreq: "1.69", bass: "16.97", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.69", bass: "16.97", freqLength: 1024, firstFewFreq: [0, 67, 115, 132, 127]}Object
+[Log] Audio data received: – {avgFreq: "1.72", bass: "17.25", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.72", bass: "17.25", freqLength: 1024, firstFewFreq: [0, 73, 121, 136, 127]}Object
+[Log] Audio data received: – {avgFreq: "1.72", bass: "17.25", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.72", bass: "17.25", freqLength: 1024, firstFewFreq: [0, 73, 121, 136, 127]}Object
+[Log] Audio data received: – {avgFreq: "1.73", bass: "17.36", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.73", bass: "17.36", freqLength: 1024, firstFewFreq: [0, 76, 123, 137, 126]}Object
+[Log] Audio data received: – {avgFreq: "1.73", bass: "17.36", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.73", bass: "17.36", freqLength: 1024, firstFewFreq: [0, 76, 123, 137, 126]}Object
+[Log] Audio data received: – {avgFreq: "1.73", bass: "17.41", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.73", bass: "17.41", freqLength: 1024, firstFewFreq: [0, 77, 124, 138, 124]}Object
+[Log] Audio data received: – {avgFreq: "1.73", bass: "17.41", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.73", bass: "17.41", freqLength: 1024, firstFewFreq: [0, 77, 124, 138, 124]}Object
+[Log] Audio data received: – {avgFreq: "1.72", bass: "17.29", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.72", bass: "17.29", freqLength: 1024, firstFewFreq: [0, 76, 122, 135, 123]}Object
+[Log] Audio data received: – {avgFreq: "1.72", bass: "17.29", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.72", bass: "17.29", freqLength: 1024, firstFewFreq: [0, 76, 122, 135, 123]}Object
+[Log] Audio data received: – {avgFreq: "1.72", bass: "17.25", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.72", bass: "17.25", freqLength: 1024, firstFewFreq: [0, 74, 120, 133, 122]}Object
+[Log] Audio data received: – {avgFreq: "1.72", bass: "17.25", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.72", bass: "17.25", freqLength: 1024, firstFewFreq: [0, 74, 120, 133, 122]}Object
+[Log] Audio data received: – {avgFreq: "1.75", bass: "17.48", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.75", bass: "17.48", freqLength: 1024, firstFewFreq: [0, 71, 116, 129, 121]}Object
+[Log] Audio data received: – {avgFreq: "1.75", bass: "17.48", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.75", bass: "17.48", freqLength: 1024, firstFewFreq: [0, 71, 116, 129, 121]}Object
+[Log] Audio data received: – {avgFreq: "1.76", bass: "17.61", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.76", bass: "17.61", freqLength: 1024, firstFewFreq: [0, 68, 113, 126, 121]}Object
+[Log] Audio data received: – {avgFreq: "1.76", bass: "17.61", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.76", bass: "17.61", freqLength: 1024, firstFewFreq: [0, 68, 113, 126, 121]}Object
+[Log] Audio data received: – {avgFreq: "1.79", bass: "17.96", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.79", bass: "17.96", freqLength: 1024, firstFewFreq: [0, 65, 111, 123, 118]}Object
+[Log] Audio data received: – {avgFreq: "1.79", bass: "17.96", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.79", bass: "17.96", freqLength: 1024, firstFewFreq: [0, 65, 111, 123, 118]}Object
+[Log] Audio data received: – {avgFreq: "1.74", bass: "17.42", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.74", bass: "17.42", freqLength: 1024, firstFewFreq: [0, 62, 108, 120, 118]}Object
+[Log] Audio data received: – {avgFreq: "1.74", bass: "17.42", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.74", bass: "17.42", freqLength: 1024, firstFewFreq: [0, 62, 108, 120, 118]}Object
+[Log] Audio data received: – {avgFreq: "1.72", bass: "17.25", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.72", bass: "17.25", freqLength: 1024, firstFewFreq: [0, 61, 106, 118, 114]}Object
+[Log] Audio data received: – {avgFreq: "1.72", bass: "17.25", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.72", bass: "17.25", freqLength: 1024, firstFewFreq: [0, 61, 106, 118, 114]}Object
+[Log] Audio data received: – {avgFreq: "1.71", bass: "17.14", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.71", bass: "17.14", freqLength: 1024, firstFewFreq: [0, 60, 105, 117, 115]}Object
+[Log] Audio data received: – {avgFreq: "1.73", bass: "17.38", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.73", bass: "17.38", freqLength: 1024, firstFewFreq: [0, 59, 104, 116, 111]}Object
+[Log] Audio data received: – {avgFreq: "1.73", bass: "17.38", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.73", bass: "17.38", freqLength: 1024, firstFewFreq: [0, 59, 104, 116, 111]}Object
+[Log] Audio data received: – {avgFreq: "1.77", bass: "17.74", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.77", bass: "17.74", freqLength: 1024, firstFewFreq: [0, 58, 104, 117, 114]}Object
+[Log] Audio data received: – {avgFreq: "1.77", bass: "17.74", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.77", bass: "17.74", freqLength: 1024, firstFewFreq: [0, 58, 104, 117, 114]}Object
+[Log] Audio data received: – {avgFreq: "1.78", bass: "17.86", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.78", bass: "17.86", freqLength: 1024, firstFewFreq: [0, 59, 104, 115, 114]}Object
+[Log] Audio data received: – {avgFreq: "1.78", bass: "17.86", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.78", bass: "17.86", freqLength: 1024, firstFewFreq: [0, 59, 104, 115, 114]}Object
+[Log] Audio data received: – {avgFreq: "1.79", bass: "17.91", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.79", bass: "17.91", freqLength: 1024, firstFewFreq: [0, 61, 108, 122, 120]}Object
+[Log] Audio data received: – {avgFreq: "1.79", bass: "17.91", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.79", bass: "17.91", freqLength: 1024, firstFewFreq: [0, 61, 108, 122, 120]}Object
+[Log] Audio data received: – {avgFreq: "1.77", bass: "17.81", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.77", bass: "17.81", freqLength: 1024, firstFewFreq: [0, 62, 109, 123, 123]}Object
+[Log] Audio data received: – {avgFreq: "1.77", bass: "17.81", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.77", bass: "17.81", freqLength: 1024, firstFewFreq: [0, 62, 109, 123, 123]}Object
+[Log] Audio data received: – {avgFreq: "1.77", bass: "17.81", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.77", bass: "17.81", freqLength: 1024, firstFewFreq: [0, 62, 108, 122, 120]}Object
+[Log] Audio data received: – {avgFreq: "1.77", bass: "17.81", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.77", bass: "17.81", freqLength: 1024, firstFewFreq: [0, 62, 108, 122, 120]}Object
+[Log] Audio data received: – {avgFreq: "1.81", bass: "18.13", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.81", bass: "18.13", freqLength: 1024, firstFewFreq: [0, 63, 110, 125, 125]}Object
+[Log] Audio data received: – {avgFreq: "1.81", bass: "18.13", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.81", bass: "18.13", freqLength: 1024, firstFewFreq: [0, 63, 110, 125, 125]}Object
+[Log] Audio data received: – {avgFreq: "1.80", bass: "18.08", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.80", bass: "18.08", freqLength: 1024, firstFewFreq: [0, 61, 108, 124, 125]}Object
+[Log] Audio data received: – {avgFreq: "1.80", bass: "18.08", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.80", bass: "18.08", freqLength: 1024, firstFewFreq: [0, 61, 108, 124, 125]}Object
+[Log] Audio data received: – {avgFreq: "1.79", bass: "17.90", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.79", bass: "17.90", freqLength: 1024, firstFewFreq: [0, 58, 104, 120, 124]}Object
+[Log] Audio data received: – {avgFreq: "1.79", bass: "17.90", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.79", bass: "17.90", freqLength: 1024, firstFewFreq: [0, 58, 104, 120, 124]}Object
+[Log] Audio data received: – {avgFreq: "1.78", bass: "17.83", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.78", bass: "17.83", freqLength: 1024, firstFewFreq: [0, 52, 99, 116, 122]}Object
+[Log] Audio data received: – {avgFreq: "1.78", bass: "17.83", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.78", bass: "17.83", freqLength: 1024, firstFewFreq: [0, 52, 99, 116, 122]}Object
+[Log] Audio data received: – {avgFreq: "1.75", bass: "17.56", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.75", bass: "17.56", freqLength: 1024, firstFewFreq: [0, 48, 93, 112, 121]}Object
+[Log] Audio data received: – {avgFreq: "1.75", bass: "17.56", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.75", bass: "17.56", freqLength: 1024, firstFewFreq: [0, 48, 93, 112, 121]}Object
+[Log] Audio data received: – {avgFreq: "1.73", bass: "17.30", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.73", bass: "17.30", freqLength: 1024, firstFewFreq: [0, 42, 87, 108, 119]}Object
+[Log] Audio data received: – {avgFreq: "1.69", bass: "16.92", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.69", bass: "16.92", freqLength: 1024, firstFewFreq: [0, 38, 83, 106, 119]}Object
+[Log] Audio data received: – {avgFreq: "1.69", bass: "16.92", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.69", bass: "16.92", freqLength: 1024, firstFewFreq: [0, 38, 83, 106, 119]}Object
+[Log] Audio data received: – {avgFreq: "1.69", bass: "16.98", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.69", bass: "16.98", freqLength: 1024, firstFewFreq: [0, 33, 79, 104, 118]}Object
+[Log] Audio data received: – {avgFreq: "1.69", bass: "16.98", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.69", bass: "16.98", freqLength: 1024, firstFewFreq: [0, 33, 79, 104, 118]}Object
+[Log] Audio data received: – {avgFreq: "1.67", bass: "16.81", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.67", bass: "16.81", freqLength: 1024, firstFewFreq: [0, 29, 78, 103, 117]}Object
+[Log] Audio data received: – {avgFreq: "1.67", bass: "16.81", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.67", bass: "16.81", freqLength: 1024, firstFewFreq: [0, 29, 78, 103, 117]}Object
+[Log] Audio data received: – {avgFreq: "1.68", bass: "16.84", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.68", bass: "16.84", freqLength: 1024, firstFewFreq: [0, 27, 79, 104, 117]}Object
+[Log] Audio data received: – {avgFreq: "1.68", bass: "16.84", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.68", bass: "16.84", freqLength: 1024, firstFewFreq: [0, 27, 79, 104, 117]}Object
+[Log] Audio data received: – {avgFreq: "1.74", bass: "17.36", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.74", bass: "17.36", freqLength: 1024, firstFewFreq: [0, 26, 79, 106, 119]}Object
+[Log] Audio data received: – {avgFreq: "1.74", bass: "17.36", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.74", bass: "17.36", freqLength: 1024, firstFewFreq: [0, 26, 79, 106, 119]}Object
+[Log] Audio data received: – {avgFreq: "1.72", bass: "17.15", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.72", bass: "17.15", freqLength: 1024, firstFewFreq: [0, 28, 77, 109, 125]}Object
+[Log] Audio data received: – {avgFreq: "1.72", bass: "17.15", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.72", bass: "17.15", freqLength: 1024, firstFewFreq: [0, 28, 77, 109, 125]}Object
+[Log] Audio data received: – {avgFreq: "1.74", bass: "17.36", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.74", bass: "17.36", freqLength: 1024, firstFewFreq: [0, 39, 91, 118, 126]}Object
+[Log] Audio data received: – {avgFreq: "1.74", bass: "17.36", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.74", bass: "17.36", freqLength: 1024, firstFewFreq: [0, 39, 91, 118, 126]}Object
+[Log] Audio data received: – {avgFreq: "1.77", bass: "17.64", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.77", bass: "17.64", freqLength: 1024, firstFewFreq: [0, 53, 105, 127, 131]}Object
+[Log] Audio data received: – {avgFreq: "1.77", bass: "17.64", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.77", bass: "17.64", freqLength: 1024, firstFewFreq: [0, 53, 105, 127, 131]}Object
+[Log] Audio data received: – {avgFreq: "1.79", bass: "17.91", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.79", bass: "17.91", freqLength: 1024, firstFewFreq: [0, 58, 111, 132, 134]}Object
+[Log] Audio data received: – {avgFreq: "1.79", bass: "17.91", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.79", bass: "17.91", freqLength: 1024, firstFewFreq: [0, 58, 111, 132, 134]}Object
+[Log] Audio data received: – {avgFreq: "1.87", bass: "18.63", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.87", bass: "18.63", freqLength: 1024, firstFewFreq: [0, 59, 111, 131, 132]}Object
+[Log] Audio data received: – {avgFreq: "1.87", bass: "18.63", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.87", bass: "18.63", freqLength: 1024, firstFewFreq: [0, 59, 111, 131, 132]}Object
+[Log] Audio data received: – {avgFreq: "1.84", bass: "18.32", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.84", bass: "18.32", freqLength: 1024, firstFewFreq: [0, 57, 108, 125, 133]}Object
+[Log] Audio data received: – {avgFreq: "1.84", bass: "18.32", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.84", bass: "18.32", freqLength: 1024, firstFewFreq: [0, 57, 108, 125, 133]}Object
+[Log] Audio data received: – {avgFreq: "1.84", bass: "18.43", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.84", bass: "18.43", freqLength: 1024, firstFewFreq: [0, 61, 113, 132, 137]}Object
+[Log] Audio data received: – {avgFreq: "1.87", bass: "18.73", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.87", bass: "18.73", freqLength: 1024, firstFewFreq: [0, 66, 119, 138, 141]}Object
+[Log] Audio data received: – {avgFreq: "1.87", bass: "18.73", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.87", bass: "18.73", freqLength: 1024, firstFewFreq: [0, 66, 119, 138, 141]}Object
+[Log] Audio data received: – {avgFreq: "1.87", bass: "18.72", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.87", bass: "18.72", freqLength: 1024, firstFewFreq: [0, 69, 120, 138, 139]}Object
+[Log] Audio data received: – {avgFreq: "2.23", bass: "22.18", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "2.23", bass: "22.18", freqLength: 1024, firstFewFreq: [0, 67, 118, 135, 133]}Object
+[Log] Audio data received: – {avgFreq: "2.35", bass: "23.56", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "2.35", bass: "23.56", freqLength: 1024, firstFewFreq: [0, 64, 113, 130, 129]}Object
+[Log] Audio data received: – {avgFreq: "2.35", bass: "23.56", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "2.35", bass: "23.56", freqLength: 1024, firstFewFreq: [0, 64, 113, 130, 129]}Object
+[Log] Audio data received: – {avgFreq: "2.34", bass: "23.50", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "2.34", bass: "23.50", freqLength: 1024, firstFewFreq: [0, 59, 108, 125, 125]}Object
+[Log] Audio data received: – {avgFreq: "2.34", bass: "23.50", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "2.34", bass: "23.50", freqLength: 1024, firstFewFreq: [0, 59, 108, 125, 125]}Object
+[Log] Audio data received: – {avgFreq: "2.29", bass: "22.95", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "2.29", bass: "22.95", freqLength: 1024, firstFewFreq: [0, 56, 105, 122, 122]}Object
+[Log] Audio data received: – {avgFreq: "2.29", bass: "22.95", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "2.29", bass: "22.95", freqLength: 1024, firstFewFreq: [0, 56, 105, 122, 122]}Object
+[Log] Audio data received: – {avgFreq: "2.23", bass: "22.39", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "2.23", bass: "22.39", freqLength: 1024, firstFewFreq: [0, 52, 101, 118, 117]}Object
+[Log] Audio data received: – {avgFreq: "2.23", bass: "22.39", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "2.23", bass: "22.39", freqLength: 1024, firstFewFreq: [0, 52, 101, 118, 117]}Object
+[Log] Audio data received: – {avgFreq: "2.18", bass: "21.87", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "2.18", bass: "21.87", freqLength: 1024, firstFewFreq: [0, 46, 96, 113, 113]}Object
+[Log] Audio data received: – {avgFreq: "2.18", bass: "21.87", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "2.18", bass: "21.87", freqLength: 1024, firstFewFreq: [0, 46, 96, 113, 113]}Object
+[Log] Audio data received: – {avgFreq: "2.10", bass: "21.05", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "2.10", bass: "21.05", freqLength: 1024, firstFewFreq: [0, 43, 92, 109, 114]}Object
+[Log] Audio data received: – {avgFreq: "2.10", bass: "21.05", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "2.10", bass: "21.05", freqLength: 1024, firstFewFreq: [0, 43, 92, 109, 114]}Object
+[Log] Audio data received: – {avgFreq: "2.04", bass: "20.48", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "2.04", bass: "20.48", freqLength: 1024, firstFewFreq: [0, 40, 90, 116, 126]}Object
+[Log] Audio data received: – {avgFreq: "2.07", bass: "20.75", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "2.07", bass: "20.75", freqLength: 1024, firstFewFreq: [0, 48, 101, 123, 125]}Object
+[Log] Audio data received: – {avgFreq: "2.07", bass: "20.75", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "2.07", bass: "20.75", freqLength: 1024, firstFewFreq: [0, 48, 101, 123, 125]}Object
+[Log] Audio data received: – {avgFreq: "2.07", bass: "20.75", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "2.07", bass: "20.75", freqLength: 1024, firstFewFreq: [0, 48, 101, 123, 125]}Object
+[Log] Audio data received: – {avgFreq: "2.07", bass: "20.81", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "2.07", bass: "20.81", freqLength: 1024, firstFewFreq: [0, 57, 111, 133, 134]}Object
+[Log] Audio data received: – {avgFreq: "2.03", bass: "20.39", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "2.03", bass: "20.39", freqLength: 1024, firstFewFreq: [0, 60, 113, 135, 133]}Object
+[Log] Audio data received: – {avgFreq: "2.03", bass: "20.39", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "2.03", bass: "20.39", freqLength: 1024, firstFewFreq: [0, 60, 113, 135, 133]}Object
+[Log] Audio data received: – {avgFreq: "2.01", bass: "20.17", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "2.01", bass: "20.17", freqLength: 1024, firstFewFreq: [0, 59, 109, 131, 133]}Object
+[Log] Audio data received: – {avgFreq: "2.01", bass: "20.17", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "2.01", bass: "20.17", freqLength: 1024, firstFewFreq: [0, 59, 109, 131, 133]}Object
+[Log] Audio data received: – {avgFreq: "2.02", bass: "20.32", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "2.02", bass: "20.32", freqLength: 1024, firstFewFreq: [0, 55, 107, 131, 135]}Object
+[Log] Audio data received: – {avgFreq: "2.02", bass: "20.32", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "2.02", bass: "20.32", freqLength: 1024, firstFewFreq: [0, 55, 107, 131, 135]}Object
+[Log] Audio data received: – {avgFreq: "2.02", bass: "20.31", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "2.02", bass: "20.31", freqLength: 1024, firstFewFreq: [0, 52, 104, 125, 131]}Object
+[Log] Audio data received: – {avgFreq: "2.02", bass: "20.31", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "2.02", bass: "20.31", freqLength: 1024, firstFewFreq: [0, 52, 104, 125, 131]}Object
+[Log] Audio data received: – {avgFreq: "2.00", bass: "20.13", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "2.00", bass: "20.13", freqLength: 1024, firstFewFreq: [0, 49, 101, 123, 128]}Object
+[Log] Audio data received: – {avgFreq: "2.00", bass: "20.13", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "2.00", bass: "20.13", freqLength: 1024, firstFewFreq: [0, 49, 101, 123, 128]}Object
+[Log] Audio data received: – {avgFreq: "1.96", bass: "19.72", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.96", bass: "19.72", freqLength: 1024, firstFewFreq: [0, 47, 98, 119, 124]}Object
+[Log] Audio data received: – {avgFreq: "1.96", bass: "19.72", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.96", bass: "19.72", freqLength: 1024, firstFewFreq: [0, 47, 98, 119, 124]}Object
+[Log] Audio data received: – {avgFreq: "1.90", bass: "18.90", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.90", bass: "18.90", freqLength: 1024, firstFewFreq: [0, 44, 94, 114, 119]}Object
+[Log] Audio data received: – {avgFreq: "1.90", bass: "18.90", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.90", bass: "18.90", freqLength: 1024, firstFewFreq: [0, 44, 94, 114, 119]}Object
+[Log] Audio data received: – {avgFreq: "1.92", bass: "19.19", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.92", bass: "19.19", freqLength: 1024, firstFewFreq: [0, 41, 90, 111, 120]}Object
+[Log] Audio data received: – {avgFreq: "1.92", bass: "19.19", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.92", bass: "19.19", freqLength: 1024, firstFewFreq: [0, 41, 90, 111, 120]}Object
+[Log] Audio data received: – {avgFreq: "1.92", bass: "19.24", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.92", bass: "19.24", freqLength: 1024, firstFewFreq: [0, 43, 96, 121, 129]}Object
+[Log] Audio data received: – {avgFreq: "1.92", bass: "19.24", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.92", bass: "19.24", freqLength: 1024, firstFewFreq: [0, 43, 96, 121, 129]}Object
+[Log] Audio data received: – {avgFreq: "1.92", bass: "19.25", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.92", bass: "19.25", freqLength: 1024, firstFewFreq: [0, 53, 106, 126, 126]}Object
+[Log] Audio data received: – {avgFreq: "1.92", bass: "19.25", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.92", bass: "19.25", freqLength: 1024, firstFewFreq: [0, 53, 106, 126, 126]}Object
+[Log] Audio data received: – {avgFreq: "1.97", bass: "19.73", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.97", bass: "19.73", freqLength: 1024, firstFewFreq: [0, 61, 113, 131, 130]}Object
+[Log] Audio data received: – {avgFreq: "1.98", bass: "19.86", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.98", bass: "19.86", freqLength: 1024, firstFewFreq: [0, 63, 115, 134, 131]}Object
+[Log] Audio data received: – {avgFreq: "1.98", bass: "19.86", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.98", bass: "19.86", freqLength: 1024, firstFewFreq: [0, 63, 115, 134, 131]}Object
+[Log] Audio data received: – {avgFreq: "1.94", bass: "19.50", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.94", bass: "19.50", freqLength: 1024, firstFewFreq: [0, 62, 113, 131, 127]}Object
+[Log] Audio data received: – {avgFreq: "1.94", bass: "19.50", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.94", bass: "19.50", freqLength: 1024, firstFewFreq: [0, 62, 113, 131, 127]}Object
+[Log] Audio data received: – {avgFreq: "1.87", bass: "18.79", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.87", bass: "18.79", freqLength: 1024, firstFewFreq: [0, 58, 111, 130, 128]}Object
+[Log] Audio data received: – {avgFreq: "1.87", bass: "18.79", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.87", bass: "18.79", freqLength: 1024, firstFewFreq: [0, 58, 111, 130, 128]}Object
+[Log] Audio data received: – {avgFreq: "1.83", bass: "18.35", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.83", bass: "18.35", freqLength: 1024, firstFewFreq: [0, 54, 110, 130, 129]}Object
+[Log] Audio data received: – {avgFreq: "1.83", bass: "18.35", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.83", bass: "18.35", freqLength: 1024, firstFewFreq: [0, 54, 110, 130, 129]}Object
+[Log] Audio data received: – {avgFreq: "1.78", bass: "17.85", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.78", bass: "17.85", freqLength: 1024, firstFewFreq: [0, 55, 110, 130, 126]}Object
+[Log] Audio data received: – {avgFreq: "1.78", bass: "17.85", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.78", bass: "17.85", freqLength: 1024, firstFewFreq: [0, 55, 110, 130, 126]}Object
+[Log] Audio data received: – {avgFreq: "1.77", bass: "17.74", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.77", bass: "17.74", freqLength: 1024, firstFewFreq: [0, 58, 112, 130, 124]}Object
+[Log] Audio data received: – {avgFreq: "1.77", bass: "17.74", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.77", bass: "17.74", freqLength: 1024, firstFewFreq: [0, 58, 112, 130, 124]}Object
+[Log] Audio data received: – {avgFreq: "1.79", bass: "18.00", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.79", bass: "18.00", freqLength: 1024, firstFewFreq: [0, 63, 114, 130, 122]}Object
+[Log] Audio data received: – {avgFreq: "1.79", bass: "18.00", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.79", bass: "18.00", freqLength: 1024, firstFewFreq: [0, 63, 114, 130, 122]}Object
+[Log] Audio data received: – {avgFreq: "1.81", bass: "18.20", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.81", bass: "18.20", freqLength: 1024, firstFewFreq: [0, 66, 116, 132, 125]}Object
+[Log] Audio data received: – {avgFreq: "1.81", bass: "18.20", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.81", bass: "18.20", freqLength: 1024, firstFewFreq: [0, 66, 116, 132, 125]}Object
+[Log] Audio data received: – {avgFreq: "1.85", bass: "18.56", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.85", bass: "18.56", freqLength: 1024, firstFewFreq: [0, 68, 117, 132, 125]}Object
+[Log] Audio data received: – {avgFreq: "1.85", bass: "18.56", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.85", bass: "18.56", freqLength: 1024, firstFewFreq: [0, 68, 117, 132, 125]}Object
+[Log] Audio data received: – {avgFreq: "1.82", bass: "18.29", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.82", bass: "18.29", freqLength: 1024, firstFewFreq: [0, 65, 114, 130, 123]}Object
+[Log] Audio data received: – {avgFreq: "1.82", bass: "18.29", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.82", bass: "18.29", freqLength: 1024, firstFewFreq: [0, 65, 114, 130, 123]}Object
+[Log] Audio data received: – {avgFreq: "1.82", bass: "18.25", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.82", bass: "18.25", freqLength: 1024, firstFewFreq: [0, 62, 111, 126, 120]}Object
+[Log] Audio data received: – {avgFreq: "1.82", bass: "18.25", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.82", bass: "18.25", freqLength: 1024, firstFewFreq: [0, 62, 111, 126, 120]}Object
+[Log] Audio data received: – {avgFreq: "1.79", bass: "17.98", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.79", bass: "17.98", freqLength: 1024, firstFewFreq: [0, 58, 106, 121, 117]}Object
+[Log] Audio data received: – {avgFreq: "1.79", bass: "17.98", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.79", bass: "17.98", freqLength: 1024, firstFewFreq: [0, 58, 106, 121, 117]}Object
+[Log] Audio data received: – {avgFreq: "1.79", bass: "17.95", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.79", bass: "17.95", freqLength: 1024, firstFewFreq: [0, 53, 101, 116, 112]}Object
+[Log] Audio data received: – {avgFreq: "1.75", bass: "17.54", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.75", bass: "17.54", freqLength: 1024, firstFewFreq: [0, 47, 96, 111, 109]}Object
+[Log] Audio data received: – {avgFreq: "1.75", bass: "17.54", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.75", bass: "17.54", freqLength: 1024, firstFewFreq: [0, 47, 96, 111, 109]}Object
+[Log] Audio data received: – {avgFreq: "1.74", bass: "17.46", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.74", bass: "17.46", freqLength: 1024, firstFewFreq: [0, 43, 90, 105, 106]}Object
+[Log] Audio data received: – {avgFreq: "1.74", bass: "17.46", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.74", bass: "17.46", freqLength: 1024, firstFewFreq: [0, 43, 90, 105, 106]}Object
+[Log] Audio data received: – {avgFreq: "1.75", bass: "17.60", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.75", bass: "17.60", freqLength: 1024, firstFewFreq: [0, 37, 85, 100, 102]}Object
+[Log] Audio data received: – {avgFreq: "1.75", bass: "17.60", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.75", bass: "17.60", freqLength: 1024, firstFewFreq: [0, 37, 85, 100, 102]}Object
+[Log] Audio data received: – {avgFreq: "1.73", bass: "17.38", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.73", bass: "17.38", freqLength: 1024, firstFewFreq: [0, 32, 80, 94, 100]}Object
+[Log] Audio data received: – {avgFreq: "1.73", bass: "17.38", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.73", bass: "17.38", freqLength: 1024, firstFewFreq: [0, 32, 80, 94, 100]}Object
+[Log] Audio data received: – {avgFreq: "1.76", bass: "17.68", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.76", bass: "17.68", freqLength: 1024, firstFewFreq: [0, 28, 75, 89, 97]}Object
+[Log] Audio data received: – {avgFreq: "1.75", bass: "17.57", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.75", bass: "17.57", freqLength: 1024, firstFewFreq: [0, 23, 72, 90, 99]}Object
+[Log] Audio data received: – {avgFreq: "1.75", bass: "17.57", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.75", bass: "17.57", freqLength: 1024, firstFewFreq: [0, 23, 72, 90, 99]}Object
+[Log] Audio data received: – {avgFreq: "1.72", bass: "17.31", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.72", bass: "17.31", freqLength: 1024, firstFewFreq: [0, 22, 75, 98, 104]}Object
+[Log] Audio data received: – {avgFreq: "1.72", bass: "17.31", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.72", bass: "17.31", freqLength: 1024, firstFewFreq: [0, 22, 75, 98, 104]}Object
+[Log] Audio data received: – {avgFreq: "1.72", bass: "17.31", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.72", bass: "17.31", freqLength: 1024, firstFewFreq: [0, 22, 75, 98, 104]}Object
+[Log] Audio data received: – {avgFreq: "1.72", bass: "17.23", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.72", bass: "17.23", freqLength: 1024, firstFewFreq: [0, 22, 76, 102, 107]}Object
+[Log] Audio data received: – {avgFreq: "1.71", bass: "17.20", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.71", bass: "17.20", freqLength: 1024, firstFewFreq: [0, 20, 77, 106, 113]}Object
+[Log] Audio data received: – {avgFreq: "1.71", bass: "17.20", freqLength: 1024, …} (TopBar.tsx, line 67)
+{avgFreq: "1.71", bass: "17.20", freqLength: 1024, firstFewFreq: [0, 20, 77, 106, 113]}Object

@@ -43,22 +43,28 @@ export function VisualizationCanvas() {
   const instanceRef = useRef<VisualizationInstance | null>(null);
   const lastTimeRef = useRef<number>(0);
   const animationIdRef = useRef<number | null>(null);
-  const logCountRef = useRef<number>(0);
 
   const activeVisualizationId = useVisualizationStore(state => state.activeVisualizationId);
-  const audioData = useVisualizationStore(state => state.audioData);
-  const sensitivity = useVisualizationStore(state => state.sensitivity);
-  const parameters = useVisualizationStore(state => state.parameters);
-  const demoMode = useVisualizationStore(state => state.demoMode);
-  const isAudioConnected = useVisualizationStore(state => state.isAudioConnected);
+
+  const audioDataRef = useRef<AudioFrameData | null>(null);
+  const sensitivityRef = useRef<number>(1);
+  const demoModeRef = useRef<boolean>(true);
+  const isAudioConnectedRef = useRef<boolean>(false);
+  const activeParamsRef = useRef<Record<string, string | number | boolean>>({});
+
+  useEffect(() => {
+    return useVisualizationStore.subscribe((state) => {
+      audioDataRef.current = state.audioData;
+      sensitivityRef.current = state.sensitivity;
+      demoModeRef.current = state.demoMode;
+      isAudioConnectedRef.current = state.isAudioConnected;
+      activeParamsRef.current = (state.parameters[state.activeVisualizationId] || {}) as Record<string, string | number | boolean>;
+    });
+  }, []);
 
   const activeViz = useMemo(() => {
     return visualizationRegistry.get(activeVisualizationId);
   }, [activeVisualizationId]);
-
-  const activeParams = useMemo(() => {
-    return parameters[activeVisualizationId] || {};
-  }, [parameters, activeVisualizationId]);
 
   const setupCanvas = useCallback((): VisualizationRenderContext | null => {
     const canvas = canvasRef.current;
@@ -123,6 +129,7 @@ export function VisualizationCanvas() {
 
   useEffect(() => {
     let running = true;
+    let frameCount = 0;
 
     const render = (timestamp: number) => {
       if (!running) return;
@@ -157,6 +164,12 @@ export function VisualizationCanvas() {
         deltaTime,
       };
 
+      const audioData = audioDataRef.current;
+      const sensitivity = sensitivityRef.current;
+      const demoMode = demoModeRef.current;
+      const isAudioConnected = isAudioConnectedRef.current;
+      const activeParams = activeParamsRef.current;
+
       let currentAudioData: AudioFrameData;
 
       if (isAudioConnected && audioData) {
@@ -178,13 +191,12 @@ export function VisualizationCanvas() {
           peakFrequency: audioData.peakFrequency,
         };
 
-        logCountRef.current++;
-        if (logCountRef.current % 120 === 0) {
-          console.log('Canvas rendering live audio:', {
+        frameCount++;
+        if (frameCount % 120 === 0) {
+          console.log('Rendering LIVE audio:', {
             avgFreq: currentAudioData.averageFrequency.toFixed(2),
             bass: currentAudioData.bassLevel.toFixed(2),
-            rawAvg: audioData.averageFrequency.toFixed(2),
-            firstFew: Array.from(scaledFrequencyData.slice(0, 8)),
+            first5: Array.from(scaledFrequencyData.slice(0, 5)),
           });
         }
       } else if (demoMode) {
@@ -199,11 +211,6 @@ export function VisualizationCanvas() {
           highLevel: 0,
           peakFrequency: 0,
         };
-        
-        logCountRef.current++;
-        if (logCountRef.current % 120 === 0) {
-          console.log('Canvas: No audio data', { isAudioConnected, hasAudioData: !!audioData, demoMode });
-        }
       }
 
       try {
@@ -224,7 +231,7 @@ export function VisualizationCanvas() {
         animationIdRef.current = null;
       }
     };
-  }, [audioData, activeParams, sensitivity, demoMode, isAudioConnected]);
+  }, []);
 
   return (
     <canvas
