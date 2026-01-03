@@ -1,120 +1,161 @@
 import { VisualizationModule, VisualizationRenderContext, AudioFrameData } from '../../types';
 
 interface Ribbon {
-  phase: number;
-  speed: number;
-  amplitude: number;
-  yOffset: number;
-  hueShift: number;
+  points: { x: number; y: number; targetY: number }[];
+  hue: number;
   thickness: number;
+  speed: number;
+  phase: number;
 }
 
 interface Spark {
-  angle: number;
-  distance: number;
-  speed: number;
+  x: number;
+  y: number;
+  vx: number;
+  vy: number;
+  life: number;
+  maxLife: number;
   size: number;
-  brightness: number;
   hue: number;
+  trail: { x: number; y: number }[];
 }
 
-interface BloomLayer {
+interface Burst {
   x: number;
   y: number;
   radius: number;
-  intensity: number;
+  maxRadius: number;
+  hue: number;
+  life: number;
+}
+
+interface Orb {
+  x: number;
+  y: number;
+  radius: number;
   hue: number;
   pulsePhase: number;
+  vx: number;
+  vy: number;
 }
 
 export const auroraBloom: VisualizationModule = {
   metadata: {
     id: 'aurora-bloom',
     name: 'Aurora Bloom',
-    description: 'Ethereal aurora ribbons with glowing halos and orbiting sparks',
+    description: 'Explosive aurora ribbons with reactive bursts and dancing sparks',
     category: 'geometric',
   },
   audioPreferences: {
-    fftSize: 2048,
-    smoothingTimeConstant: 0.85,
-    minDecibels: -90,
+    fftSize: 512,
+    smoothingTimeConstant: 0.7,
+    minDecibels: -85,
     maxDecibels: -10,
   },
   defaultParameters: {
-    ribbonCount: { type: 'number' as const, label: 'Ribbons', value: 5, min: 2, max: 8, step: 1 },
-    bloomIntensity: { type: 'number' as const, label: 'Bloom', value: 0.7, min: 0, max: 1.5, step: 0.1 },
-    sparkDensity: { type: 'number' as const, label: 'Sparks', value: 30, min: 0, max: 80, step: 5 },
+    ribbonCount: { type: 'number' as const, label: 'Ribbons', value: 6, min: 3, max: 10, step: 1 },
+    intensity: { type: 'number' as const, label: 'Intensity', value: 1.2, min: 0.5, max: 2.0, step: 0.1 },
+    sparkDensity: { type: 'number' as const, label: 'Sparks', value: 50, min: 20, max: 100, step: 10 },
     colorTheme: { type: 'select' as const, label: 'Colors', value: '0', options: [
-      { value: '0', label: 'Purple Aurora' },
-      { value: '1', label: 'Ocean Depths' },
-      { value: '2', label: 'Solar Flare' },
-      { value: '3', label: 'Borealis' },
+      { value: '0', label: 'Cosmic Purple' },
+      { value: '1', label: 'Northern Lights' },
+      { value: '2', label: 'Fire Storm' },
+      { value: '3', label: 'Deep Ocean' },
     ]},
-    motionSpeed: { type: 'number' as const, label: 'Speed', value: 1.0, min: 0.3, max: 2.0, step: 0.1 },
+    chaos: { type: 'number' as const, label: 'Chaos', value: 0.7, min: 0.2, max: 1.5, step: 0.1 },
   },
   createInstance: () => {
     let ribbons: Ribbon[] = [];
     let sparks: Spark[] = [];
-    let bloomLayers: BloomLayer[] = [];
+    let bursts: Burst[] = [];
+    let orbs: Orb[] = [];
     let time = 0;
-    let bassSmooth = 0;
-    let midSmooth = 0;
-    let highSmooth = 0;
+    let lastBassHit = 0;
+    let bassAccumulator = 0;
+    let prevBass = 0;
+    let prevMid = 0;
+    let prevHigh = 0;
+    let globalHueShift = 0;
+    let shakeX = 0;
+    let shakeY = 0;
+    let width = 0;
+    let height = 0;
     
     const colorThemes = [
-      { primary: 280, secondary: 200, accent: 320 },
-      { primary: 160, secondary: 200, accent: 280 },
-      { primary: 20, secondary: 340, accent: 50 },
-      { primary: 180, secondary: 220, accent: 160 },
+      { base: 280, range: 80, accent: 320 },
+      { base: 120, range: 100, accent: 180 },
+      { base: 15, range: 50, accent: 45 },
+      { base: 200, range: 60, accent: 240 },
     ];
 
-    const initRibbons = (count: number, height: number) => {
+    const initRibbons = (count: number, w: number, h: number) => {
       ribbons = [];
+      const segmentCount = 80;
       for (let i = 0; i < count; i++) {
+        const points = [];
+        const baseY = h * (0.2 + (0.6 * i / count));
+        for (let j = 0; j <= segmentCount; j++) {
+          const x = (j / segmentCount) * w;
+          points.push({ x, y: baseY, targetY: baseY });
+        }
         ribbons.push({
+          points,
+          hue: i * (360 / count),
+          thickness: 15 + Math.random() * 25,
+          speed: 0.5 + Math.random() * 0.5,
           phase: Math.random() * Math.PI * 2,
-          speed: 0.3 + Math.random() * 0.4,
-          amplitude: 30 + Math.random() * 50,
-          yOffset: height * 0.3 + (height * 0.4 * i / count),
-          hueShift: i * 30,
-          thickness: 20 + Math.random() * 30,
         });
       }
     };
 
-    const initSparks = (count: number) => {
-      sparks = [];
-      for (let i = 0; i < count; i++) {
-        sparks.push({
-          angle: Math.random() * Math.PI * 2,
-          distance: 100 + Math.random() * 150,
-          speed: 0.5 + Math.random() * 1.5,
-          size: 1 + Math.random() * 3,
-          brightness: 0.5 + Math.random() * 0.5,
-          hue: Math.random() * 60,
-        });
-      }
+    const spawnSpark = (x: number, y: number, intensity: number, hue: number) => {
+      const angle = Math.random() * Math.PI * 2;
+      const speed = (3 + Math.random() * 8) * intensity;
+      sparks.push({
+        x,
+        y,
+        vx: Math.cos(angle) * speed,
+        vy: Math.sin(angle) * speed,
+        life: 1,
+        maxLife: 60 + Math.random() * 60,
+        size: 2 + Math.random() * 4,
+        hue,
+        trail: [],
+      });
     };
 
-    const initBloomLayers = (width: number, height: number) => {
-      bloomLayers = [];
-      for (let i = 0; i < 4; i++) {
-        bloomLayers.push({
-          x: width * (0.2 + Math.random() * 0.6),
-          y: height * (0.3 + Math.random() * 0.4),
-          radius: 80 + Math.random() * 120,
-          intensity: 0.3 + Math.random() * 0.4,
-          hue: i * 90,
+    const spawnBurst = (x: number, y: number, hue: number, size: number) => {
+      bursts.push({
+        x,
+        y,
+        radius: 0,
+        maxRadius: size,
+        hue,
+        life: 1,
+      });
+    };
+
+    const initOrbs = (w: number, h: number) => {
+      orbs = [];
+      for (let i = 0; i < 5; i++) {
+        orbs.push({
+          x: Math.random() * w,
+          y: Math.random() * h,
+          radius: 60 + Math.random() * 100,
+          hue: Math.random() * 360,
           pulsePhase: Math.random() * Math.PI * 2,
+          vx: (Math.random() - 0.5) * 2,
+          vy: (Math.random() - 0.5) * 2,
         });
       }
     };
 
     return {
       init: (ctx: VisualizationRenderContext) => {
-        initRibbons(5, ctx.height);
-        initSparks(30);
-        initBloomLayers(ctx.width, ctx.height);
+        width = ctx.width;
+        height = ctx.height;
+        initRibbons(6, width, height);
+        initOrbs(width, height);
       },
 
       render: (
@@ -122,181 +163,273 @@ export const auroraBloom: VisualizationModule = {
         audio: AudioFrameData,
         params: Record<string, string | number | boolean>
       ) => {
-        const { canvas, ctx: c, width, height } = ctx;
-        const ribbonCount = (params.ribbonCount as number) || 5;
-        const bloomIntensity = (params.bloomIntensity as number) || 0.7;
-        const sparkDensity = (params.sparkDensity as number) || 30;
+        const { ctx: c } = ctx;
+        width = ctx.width;
+        height = ctx.height;
+        
+        const ribbonCount = (params.ribbonCount as number) || 6;
+        const intensity = (params.intensity as number) || 1.2;
+        const sparkDensity = (params.sparkDensity as number) || 50;
         const colorThemeIndex = parseInt(params.colorTheme as string, 10) || 0;
-        const motionSpeed = (params.motionSpeed as number) || 1.0;
+        const chaos = (params.chaos as number) || 0.7;
         
         const theme = colorThemes[colorThemeIndex % colorThemes.length];
-        
-        const smoothing = 0.15;
-        bassSmooth += (audio.bassLevel - bassSmooth) * smoothing;
-        midSmooth += (audio.midLevel - midSmooth) * smoothing;
-        highSmooth += (audio.highLevel - highSmooth) * smoothing;
-        
-        const bassNorm = Math.min(bassSmooth / 200, 1);
-        const midNorm = Math.min(midSmooth / 150, 1);
-        const highNorm = Math.min(highSmooth / 100, 1);
-        
-        time += 0.016 * motionSpeed;
-        
-        if (ribbons.length !== ribbonCount) {
-          initRibbons(ribbonCount, height);
-        }
-        if (sparks.length !== Math.round(sparkDensity)) {
-          initSparks(Math.round(sparkDensity));
+        time += 0.016;
+
+        const bass = audio.bassLevel * intensity;
+        const mid = audio.midLevel * intensity;
+        const high = audio.highLevel * intensity;
+        const avg = audio.averageFrequency * intensity;
+
+        const bassNorm = Math.min(bass / 150, 1);
+        const midNorm = Math.min(mid / 120, 1);
+        const highNorm = Math.min(high / 80, 1);
+        const avgNorm = Math.min(avg / 100, 1);
+
+        const bassDelta = bass - prevBass;
+        const midDelta = mid - prevMid;
+        const highDelta = high - prevHigh;
+        prevBass = bass;
+        prevMid = mid;
+        prevHigh = high;
+
+        if (bassDelta > 15 * chaos && time - lastBassHit > 0.1) {
+          lastBassHit = time;
+          const burstX = width * (0.2 + Math.random() * 0.6);
+          const burstY = height * (0.3 + Math.random() * 0.4);
+          spawnBurst(burstX, burstY, theme.base + Math.random() * theme.range, 150 + bassNorm * 200);
+          
+          for (let i = 0; i < 15 * chaos; i++) {
+            spawnSpark(burstX, burstY, 1 + bassNorm, theme.base + Math.random() * theme.range);
+          }
+          
+          shakeX = (Math.random() - 0.5) * 20 * bassNorm * chaos;
+          shakeY = (Math.random() - 0.5) * 20 * bassNorm * chaos;
         }
 
-        c.fillStyle = 'rgba(0, 0, 0, 0.15)';
-        c.fillRect(0, 0, width, height);
+        if (midDelta > 10 * chaos) {
+          for (let i = 0; i < 5; i++) {
+            const x = Math.random() * width;
+            const y = Math.random() * height;
+            spawnSpark(x, y, 0.5 + midNorm, theme.accent);
+          }
+        }
+
+        if (highNorm > 0.5 && Math.random() < highNorm * 0.3 * chaos) {
+          const x = Math.random() * width;
+          const y = Math.random() * height * 0.5;
+          spawnSpark(x, y, 0.3, theme.base + 60);
+        }
+
+        shakeX *= 0.85;
+        shakeY *= 0.85;
+        globalHueShift += avgNorm * 0.5;
+
+        c.save();
+        c.translate(shakeX, shakeY);
+
+        c.fillStyle = `rgba(0, 0, 0, ${0.15 + (1 - avgNorm) * 0.1})`;
+        c.fillRect(-20, -20, width + 40, height + 40);
 
         c.globalCompositeOperation = 'lighter';
 
-        bloomLayers.forEach((bloom, i) => {
-          const pulse = Math.sin(time * 0.5 + bloom.pulsePhase) * 0.3 + 0.7;
-          const audioBoost = 1 + midNorm * 1.5;
-          const currentRadius = bloom.radius * pulse * audioBoost * bloomIntensity;
-          const intensity = bloom.intensity * (0.5 + midNorm * 0.5) * bloomIntensity;
+        orbs.forEach((orb, i) => {
+          const pulse = Math.sin(time * 2 + orb.pulsePhase) * 0.4 + 0.6;
+          const audioBoost = 1 + midNorm * 2;
+          const currentRadius = orb.radius * pulse * audioBoost;
           
-          const gradient = c.createRadialGradient(
-            bloom.x, bloom.y, 0,
-            bloom.x, bloom.y, currentRadius
-          );
+          orb.x += orb.vx * (1 + bassNorm);
+          orb.y += orb.vy * (1 + bassNorm);
           
-          const hue = (theme.primary + bloom.hue + time * 10) % 360;
-          gradient.addColorStop(0, `hsla(${hue}, 80%, 70%, ${intensity * 0.6})`);
-          gradient.addColorStop(0.3, `hsla(${hue}, 70%, 50%, ${intensity * 0.3})`);
-          gradient.addColorStop(0.6, `hsla(${hue}, 60%, 40%, ${intensity * 0.1})`);
+          if (orb.x < -100) orb.x = width + 100;
+          if (orb.x > width + 100) orb.x = -100;
+          if (orb.y < -100) orb.y = height + 100;
+          if (orb.y > height + 100) orb.y = -100;
+          
+          const hue = (theme.base + orb.hue + globalHueShift) % 360;
+          const gradient = c.createRadialGradient(orb.x, orb.y, 0, orb.x, orb.y, currentRadius);
+          gradient.addColorStop(0, `hsla(${hue}, 100%, 70%, ${0.4 * midNorm + 0.2})`);
+          gradient.addColorStop(0.4, `hsla(${hue}, 80%, 50%, ${0.2 * midNorm + 0.1})`);
           gradient.addColorStop(1, 'hsla(0, 0%, 0%, 0)');
           
           c.fillStyle = gradient;
           c.beginPath();
-          c.arc(bloom.x, bloom.y, currentRadius, 0, Math.PI * 2);
-          c.fill();
-          
-          bloom.x += Math.sin(time * 0.3 + i) * 0.5;
-          bloom.y += Math.cos(time * 0.2 + i) * 0.3;
-          
-          if (bloom.x < 0) bloom.x = width;
-          if (bloom.x > width) bloom.x = 0;
-          if (bloom.y < 0) bloom.y = height;
-          if (bloom.y > height) bloom.y = 0;
-        });
-
-        ribbons.forEach((ribbon, ribbonIndex) => {
-          const waveAmplitude = ribbon.amplitude * (1 + bassNorm * 2);
-          const segments = 100;
-          
-          c.beginPath();
-          
-          for (let i = 0; i <= segments; i++) {
-            const x = (i / segments) * width;
-            const progress = i / segments;
-            
-            const wave1 = Math.sin(progress * Math.PI * 4 + time * ribbon.speed + ribbon.phase);
-            const wave2 = Math.sin(progress * Math.PI * 2 + time * ribbon.speed * 0.7) * 0.5;
-            const wave3 = Math.sin(progress * Math.PI * 8 + time * ribbon.speed * 1.3) * 0.3 * highNorm;
-            
-            const combinedWave = (wave1 + wave2 + wave3) * waveAmplitude;
-            const y = ribbon.yOffset + combinedWave;
-            
-            if (i === 0) {
-              c.moveTo(x, y);
-            } else {
-              c.lineTo(x, y);
-            }
-          }
-
-          for (let i = segments; i >= 0; i--) {
-            const x = (i / segments) * width;
-            const progress = i / segments;
-            
-            const wave1 = Math.sin(progress * Math.PI * 4 + time * ribbon.speed + ribbon.phase);
-            const wave2 = Math.sin(progress * Math.PI * 2 + time * ribbon.speed * 0.7) * 0.5;
-            const wave3 = Math.sin(progress * Math.PI * 8 + time * ribbon.speed * 1.3) * 0.3 * highNorm;
-            
-            const combinedWave = (wave1 + wave2 + wave3) * waveAmplitude;
-            const thickness = ribbon.thickness * (0.5 + midNorm * 0.5);
-            const y = ribbon.yOffset + combinedWave + thickness;
-            
-            c.lineTo(x, y);
-          }
-          
-          c.closePath();
-          
-          const hue = (theme.primary + ribbon.hueShift + time * 5) % 360;
-          const gradient = c.createLinearGradient(0, ribbon.yOffset - 50, 0, ribbon.yOffset + 50);
-          gradient.addColorStop(0, `hsla(${hue}, 80%, 60%, 0)`);
-          gradient.addColorStop(0.3, `hsla(${hue}, 85%, 65%, ${0.4 + bassNorm * 0.3})`);
-          gradient.addColorStop(0.5, `hsla(${(hue + 30) % 360}, 90%, 70%, ${0.6 + bassNorm * 0.3})`);
-          gradient.addColorStop(0.7, `hsla(${hue}, 85%, 65%, ${0.4 + bassNorm * 0.3})`);
-          gradient.addColorStop(1, `hsla(${hue}, 80%, 60%, 0)`);
-          
-          c.fillStyle = gradient;
+          c.arc(orb.x, orb.y, currentRadius, 0, Math.PI * 2);
           c.fill();
         });
 
-        const centerX = width / 2;
-        const centerY = height / 2;
-        
-        sparks.forEach((spark) => {
-          spark.angle += spark.speed * 0.02 * motionSpeed * (1 + highNorm);
+        bursts = bursts.filter(burst => {
+          burst.life -= 0.03;
+          burst.radius += (burst.maxRadius - burst.radius) * 0.15;
           
-          const orbitRadius = spark.distance * (0.8 + bassNorm * 0.4);
-          const x = centerX + Math.cos(spark.angle) * orbitRadius;
-          const y = centerY + Math.sin(spark.angle * 0.7) * orbitRadius * 0.6;
+          if (burst.life <= 0) return false;
           
-          const twinkle = Math.sin(time * 5 + spark.angle) * 0.3 + 0.7;
-          const size = spark.size * (1 + highNorm * 2) * twinkle;
-          const brightness = spark.brightness * (0.5 + highNorm * 0.5);
-          
-          const hue = (theme.accent + spark.hue + time * 20) % 360;
-          
-          const gradient = c.createRadialGradient(x, y, 0, x, y, size * 3);
-          gradient.addColorStop(0, `hsla(${hue}, 100%, 90%, ${brightness})`);
-          gradient.addColorStop(0.3, `hsla(${hue}, 90%, 70%, ${brightness * 0.5})`);
+          const hue = (burst.hue + globalHueShift) % 360;
+          const gradient = c.createRadialGradient(burst.x, burst.y, 0, burst.x, burst.y, burst.radius);
+          gradient.addColorStop(0, `hsla(${hue}, 100%, 80%, ${burst.life * 0.6})`);
+          gradient.addColorStop(0.3, `hsla(${hue}, 90%, 60%, ${burst.life * 0.4})`);
+          gradient.addColorStop(0.6, `hsla(${(hue + 30) % 360}, 80%, 50%, ${burst.life * 0.2})`);
           gradient.addColorStop(1, 'hsla(0, 0%, 0%, 0)');
           
           c.fillStyle = gradient;
           c.beginPath();
-          c.arc(x, y, size * 3, 0, Math.PI * 2);
+          c.arc(burst.x, burst.y, burst.radius, 0, Math.PI * 2);
           c.fill();
           
-          c.fillStyle = `hsla(${hue}, 100%, 95%, ${brightness})`;
-          c.beginPath();
-          c.arc(x, y, size * 0.5, 0, Math.PI * 2);
-          c.fill();
+          return true;
         });
 
-        const peakGlow = audio.averageFrequency / 200;
-        if (peakGlow > 0.3) {
-          const gradient = c.createRadialGradient(
-            centerX, centerY, 0,
-            centerX, centerY, Math.max(width, height) * 0.5
-          );
-          const hue = (theme.secondary + time * 30) % 360;
-          gradient.addColorStop(0, `hsla(${hue}, 70%, 60%, ${peakGlow * 0.15})`);
-          gradient.addColorStop(0.5, `hsla(${hue}, 60%, 40%, ${peakGlow * 0.05})`);
-          gradient.addColorStop(1, 'hsla(0, 0%, 0%, 0)');
-          
-          c.fillStyle = gradient;
-          c.fillRect(0, 0, width, height);
+        if (ribbons.length !== ribbonCount) {
+          initRibbons(ribbonCount, width, height);
         }
 
+        const freqData = audio.frequencyData;
+        const freqBucketSize = Math.floor(freqData.length / 80);
+
+        ribbons.forEach((ribbon, ribbonIndex) => {
+          const ribbonOffset = ribbonIndex * 10;
+          
+          ribbon.points.forEach((point, i) => {
+            const freqIndex = Math.min(Math.floor(i * freqBucketSize) + ribbonOffset, freqData.length - 1);
+            const freqValue = freqData[freqIndex] || 0;
+            const freqNorm = freqValue / 255;
+            
+            const wave1 = Math.sin(i * 0.15 + time * ribbon.speed * 3 + ribbon.phase) * 30;
+            const wave2 = Math.sin(i * 0.08 + time * ribbon.speed * 2) * 20;
+            const wave3 = Math.sin(i * 0.25 + time * ribbon.speed * 5) * 10 * highNorm;
+            
+            const audioWave = freqNorm * 80 * intensity * chaos;
+            const bassWave = bassNorm * 40 * Math.sin(i * 0.1 + time * 4);
+            
+            const baseY = height * (0.2 + (0.6 * ribbonIndex / ribbonCount));
+            point.targetY = baseY + wave1 + wave2 + wave3 + audioWave + bassWave;
+            point.y += (point.targetY - point.y) * 0.15;
+          });
+
+          const dynamicThickness = ribbon.thickness * (0.5 + bassNorm * 1.5 + midNorm * 0.5);
+          
+          c.beginPath();
+          ribbon.points.forEach((point, i) => {
+            if (i === 0) c.moveTo(point.x, point.y);
+            else c.lineTo(point.x, point.y);
+          });
+          for (let i = ribbon.points.length - 1; i >= 0; i--) {
+            const point = ribbon.points[i];
+            c.lineTo(point.x, point.y + dynamicThickness);
+          }
+          c.closePath();
+          
+          const hue = (theme.base + ribbon.hue + globalHueShift) % 360;
+          const gradient = c.createLinearGradient(0, 0, width, 0);
+          
+          for (let i = 0; i <= 10; i++) {
+            const t = i / 10;
+            const freqIdx = Math.floor(t * freqData.length * 0.5);
+            const freqVal = (freqData[freqIdx] || 0) / 255;
+            const localHue = (hue + freqVal * 60) % 360;
+            const alpha = 0.3 + freqVal * 0.5 + bassNorm * 0.2;
+            gradient.addColorStop(t, `hsla(${localHue}, 85%, ${55 + freqVal * 20}%, ${alpha})`);
+          }
+          
+          c.fillStyle = gradient;
+          c.fill();
+
+          c.strokeStyle = `hsla(${hue}, 100%, 80%, ${0.3 + avgNorm * 0.4})`;
+          c.lineWidth = 2;
+          c.beginPath();
+          ribbon.points.forEach((point, i) => {
+            if (i === 0) c.moveTo(point.x, point.y);
+            else c.lineTo(point.x, point.y);
+          });
+          c.stroke();
+        });
+
+        const maxSparks = Math.round(sparkDensity * 2);
+        sparks = sparks.filter(spark => {
+          spark.life -= 1 / spark.maxLife;
+          spark.vy += 0.1;
+          spark.vx *= 0.98;
+          spark.vy *= 0.98;
+          spark.x += spark.vx;
+          spark.y += spark.vy;
+          
+          spark.trail.unshift({ x: spark.x, y: spark.y });
+          if (spark.trail.length > 8) spark.trail.pop();
+          
+          if (spark.life <= 0) return false;
+          
+          const hue = (spark.hue + globalHueShift) % 360;
+          
+          c.beginPath();
+          spark.trail.forEach((pos, i) => {
+            if (i === 0) c.moveTo(pos.x, pos.y);
+            else c.lineTo(pos.x, pos.y);
+          });
+          c.strokeStyle = `hsla(${hue}, 100%, 70%, ${spark.life * 0.5})`;
+          c.lineWidth = spark.size * spark.life * 0.5;
+          c.stroke();
+          
+          const size = spark.size * (0.5 + spark.life * 0.5);
+          const gradient = c.createRadialGradient(spark.x, spark.y, 0, spark.x, spark.y, size * 3);
+          gradient.addColorStop(0, `hsla(${hue}, 100%, 95%, ${spark.life})`);
+          gradient.addColorStop(0.3, `hsla(${hue}, 100%, 70%, ${spark.life * 0.6})`);
+          gradient.addColorStop(1, 'hsla(0, 0%, 0%, 0)');
+          
+          c.fillStyle = gradient;
+          c.beginPath();
+          c.arc(spark.x, spark.y, size * 3, 0, Math.PI * 2);
+          c.fill();
+          
+          return true;
+        });
+
+        while (sparks.length > maxSparks) {
+          sparks.shift();
+        }
+
+        if (avgNorm > 0.3) {
+          const centerX = width / 2;
+          const centerY = height / 2;
+          const pulseRadius = Math.max(width, height) * (0.3 + bassNorm * 0.3);
+          const hue = (theme.accent + globalHueShift) % 360;
+          
+          const gradient = c.createRadialGradient(centerX, centerY, 0, centerX, centerY, pulseRadius);
+          gradient.addColorStop(0, `hsla(${hue}, 80%, 60%, ${avgNorm * 0.15})`);
+          gradient.addColorStop(0.5, `hsla(${hue}, 60%, 40%, ${avgNorm * 0.08})`);
+          gradient.addColorStop(1, 'hsla(0, 0%, 0%, 0)');
+          
+          c.fillStyle = gradient;
+          c.fillRect(-20, -20, width + 40, height + 40);
+        }
+
+        const edgeGradientTop = c.createLinearGradient(0, 0, 0, 100);
+        edgeGradientTop.addColorStop(0, `hsla(${(theme.base + globalHueShift) % 360}, 70%, 50%, ${0.1 + highNorm * 0.2})`);
+        edgeGradientTop.addColorStop(1, 'hsla(0, 0%, 0%, 0)');
+        c.fillStyle = edgeGradientTop;
+        c.fillRect(0, 0, width, 100);
+
+        const edgeGradientBottom = c.createLinearGradient(0, height - 100, 0, height);
+        edgeGradientBottom.addColorStop(0, 'hsla(0, 0%, 0%, 0)');
+        edgeGradientBottom.addColorStop(1, `hsla(${(theme.accent + globalHueShift) % 360}, 70%, 50%, ${0.1 + bassNorm * 0.2})`);
+        c.fillStyle = edgeGradientBottom;
+        c.fillRect(0, height - 100, width, 100);
+
         c.globalCompositeOperation = 'source-over';
+        c.restore();
       },
 
       resize: (ctx: VisualizationRenderContext) => {
-        initBloomLayers(ctx.width, ctx.height);
-        initRibbons(ribbons.length || 5, ctx.height);
+        width = ctx.width;
+        height = ctx.height;
+        initRibbons(ribbons.length || 6, width, height);
+        initOrbs(width, height);
       },
 
       destroy: () => {
         ribbons = [];
         sparks = [];
-        bloomLayers = [];
+        bursts = [];
+        orbs = [];
       },
     };
   },
