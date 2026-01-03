@@ -96,11 +96,13 @@ function createInstance(): VisualizationInstance {
         const barHeight = Math.max(2, barHeights[i]);
 
         const x = i * (barWidth + barGap);
-        const y = mirror ? (height - barHeight) / 2 : height - barHeight;
+        const centerY = height / 2;
+        const y = mirror ? centerY - barHeight : height - barHeight;
+        const drawHeight = mirror ? barHeight * 2 : barHeight;
 
         let gradient;
         if (colorMode === 'gradient') {
-          gradient = context.createLinearGradient(x, y + barHeight, x, y);
+          gradient = context.createLinearGradient(x, y + drawHeight, x, y);
           gradient.addColorStop(0, 'hsl(271, 91%, 65%)');
           gradient.addColorStop(0.5, 'hsl(340, 82%, 52%)');
           gradient.addColorStop(1, 'hsl(43, 96%, 56%)');
@@ -113,16 +115,8 @@ function createInstance(): VisualizationInstance {
 
         context.fillStyle = gradient;
         context.beginPath();
-        context.roundRect(x, y, barWidth, mirror ? barHeight * 2 : barHeight, 2);
+        context.roundRect(x, y, barWidth, drawHeight, 2);
         context.fill();
-
-        if (mirror) {
-          context.globalAlpha = 0.3;
-          context.beginPath();
-          context.roundRect(x, y, barWidth, barHeight * 2, 2);
-          context.fill();
-          context.globalAlpha = 1;
-        }
       }
     },
 
