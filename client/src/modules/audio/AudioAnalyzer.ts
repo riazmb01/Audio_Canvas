@@ -45,6 +45,11 @@ class AudioAnalyzerService {
       }
 
       this.audioContext = new AudioContext();
+      
+      if (this.audioContext.state === 'suspended') {
+        await this.audioContext.resume();
+      }
+      
       this.analyser = this.audioContext.createAnalyser();
       this.applyPreferences(defaultPreferences);
 
@@ -56,6 +61,12 @@ class AudioAnalyzerService {
 
       this.isConnected = true;
       this.startLoop();
+      
+      console.log('Audio connected successfully:', {
+        sampleRate: this.audioContext.sampleRate,
+        fftSize: this.analyser.fftSize,
+        frequencyBinCount: this.analyser.frequencyBinCount,
+      });
     } catch (error) {
       console.error('Failed to connect audio:', error);
       throw error;
@@ -181,8 +192,8 @@ class AudioAnalyzerService {
     const highCount = (len - midEnd) || 1;
 
     return {
-      frequencyData: this.frequencyData,
-      waveformData: this.waveformData,
+      frequencyData: new Uint8Array(this.frequencyData),
+      waveformData: new Uint8Array(this.waveformData),
       averageFrequency: sum / len,
       bassLevel: bassSum / bassCount,
       midLevel: midSum / midCount,
