@@ -28,10 +28,35 @@ const defaultParameters = {
 
 function createInstance(): VisualizationInstance {
   let barHeights: number[] = [];
+  let bandBoundaries: number[] = [];
+
+  function computeBandBoundaries(barCount: number, dataLength: number): number[] {
+    const boundaries: number[] = [];
+    const minFreq = 1;
+    const maxFreq = dataLength;
+    
+    for (let i = 0; i <= barCount; i++) {
+      const ratio = i / barCount;
+      const logBoundary = minFreq * Math.pow(maxFreq / minFreq, ratio);
+      boundaries.push(Math.floor(logBoundary));
+    }
+    
+    for (let i = 1; i <= barCount; i++) {
+      if (boundaries[i] <= boundaries[i - 1]) {
+        boundaries[i] = boundaries[i - 1] + 1;
+      }
+      if (boundaries[i] > dataLength) {
+        boundaries[i] = dataLength;
+      }
+    }
+    
+    return boundaries;
+  }
 
   return {
     init(ctx: VisualizationRenderContext) {
       barHeights = new Array(128).fill(0);
+      bandBoundaries = [];
     },
 
     render(ctx: VisualizationRenderContext, audio: AudioFrameData, params: Record<string, number | string | boolean>) {
@@ -45,13 +70,27 @@ function createInstance(): VisualizationInstance {
 
       context.clearRect(0, 0, width, height);
 
+      if (bandBoundaries.length !== barCount + 1) {
+        bandBoundaries = computeBandBoundaries(barCount, audio.frequencyData.length);
+      }
+
       const barWidth = (width - (barCount - 1) * barGap) / barCount;
-      const step = Math.floor(audio.frequencyData.length / barCount);
 
       for (let i = 0; i < barCount; i++) {
-        const dataIndex = i * step;
-        const value = audio.frequencyData[dataIndex] / 255;
-        const targetHeight = value * height * sensitivity * 0.8;
+        const startIndex = bandBoundaries[i];
+        const endIndex = bandBoundaries[i + 1];
+        
+        let maxValue = 0;
+        for (let j = startIndex; j < endIndex && j < audio.frequencyData.length; j++) {
+          if (audio.frequencyData[j] > maxValue) {
+            maxValue = audio.frequencyData[j];
+          }
+        }
+        
+        const octaveBoost = 1 + (i / barCount) * 0.5;
+        const normalizedValue = Math.min(1, (maxValue / 255) * octaveBoost);
+        
+        const targetHeight = normalizedValue * height * sensitivity * 0.8;
         
         barHeights[i] = barHeights[i] + (targetHeight - barHeights[i]) * 0.3;
         const barHeight = Math.max(2, barHeights[i]);
@@ -89,10 +128,12 @@ function createInstance(): VisualizationInstance {
 
     resize(ctx: VisualizationRenderContext) {
       barHeights = new Array(128).fill(0);
+      bandBoundaries = [];
     },
 
     destroy() {
       barHeights = [];
+      bandBoundaries = [];
     },
   };
 }
