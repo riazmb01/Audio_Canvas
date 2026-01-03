@@ -45,12 +45,26 @@ export function TopBar() {
 
     try {
       setDemoMode(false);
+      
+      console.log('Attempting to connect audio source:', audioSource);
+      
       await audioAnalyzer.connect(audioSource);
+      
+      console.log('Audio connected, setting up subscription...');
+      
       setIsAudioConnected(true);
       
-      audioAnalyzer.subscribe((data) => {
+      const unsubscribe = audioAnalyzer.subscribe((data) => {
+        console.log('Audio data received:', {
+          avgFreq: data.averageFrequency.toFixed(2),
+          bass: data.bassLevel.toFixed(2),
+          freqLength: data.frequencyData.length,
+          firstFewFreq: Array.from(data.frequencyData.slice(0, 5)),
+        });
         setAudioData(data);
       });
+
+      console.log('Subscription set up successfully');
 
       const sourceDesc = audioSource === 'microphone' 
         ? 'microphone' 
@@ -58,7 +72,7 @@ export function TopBar() {
 
       toast({
         title: 'Audio Connected',
-        description: `Now listening to ${sourceDesc}.`,
+        description: `Now listening to ${sourceDesc}. Make some noise!`,
       });
     } catch (error) {
       setDemoMode(true);

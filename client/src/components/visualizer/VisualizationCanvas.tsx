@@ -43,6 +43,7 @@ export function VisualizationCanvas() {
   const instanceRef = useRef<VisualizationInstance | null>(null);
   const lastTimeRef = useRef<number>(0);
   const animationIdRef = useRef<number | null>(null);
+  const logCountRef = useRef<number>(0);
 
   const activeVisualizationId = useVisualizationStore(state => state.activeVisualizationId);
   const audioData = useVisualizationStore(state => state.audioData);
@@ -159,20 +160,33 @@ export function VisualizationCanvas() {
       let currentAudioData: AudioFrameData;
 
       if (isAudioConnected && audioData) {
+        const amplifiedSensitivity = sensitivity * 2.5;
+        
         const scaledFrequencyData = new Uint8Array(audioData.frequencyData.length);
         for (let i = 0; i < audioData.frequencyData.length; i++) {
-          scaledFrequencyData[i] = Math.min(255, Math.round(audioData.frequencyData[i] * sensitivity));
+          const amplified = audioData.frequencyData[i] * amplifiedSensitivity;
+          scaledFrequencyData[i] = Math.min(255, Math.round(amplified));
         }
 
         currentAudioData = {
           frequencyData: scaledFrequencyData,
           waveformData: audioData.waveformData,
-          averageFrequency: audioData.averageFrequency * sensitivity,
-          bassLevel: audioData.bassLevel * sensitivity,
-          midLevel: audioData.midLevel * sensitivity,
-          highLevel: audioData.highLevel * sensitivity,
+          averageFrequency: audioData.averageFrequency * amplifiedSensitivity,
+          bassLevel: audioData.bassLevel * amplifiedSensitivity,
+          midLevel: audioData.midLevel * amplifiedSensitivity,
+          highLevel: audioData.highLevel * amplifiedSensitivity,
           peakFrequency: audioData.peakFrequency,
         };
+
+        logCountRef.current++;
+        if (logCountRef.current % 120 === 0) {
+          console.log('Canvas rendering live audio:', {
+            avgFreq: currentAudioData.averageFrequency.toFixed(2),
+            bass: currentAudioData.bassLevel.toFixed(2),
+            rawAvg: audioData.averageFrequency.toFixed(2),
+            firstFew: Array.from(scaledFrequencyData.slice(0, 8)),
+          });
+        }
       } else if (demoMode) {
         currentAudioData = generateDemoAudioData(timestamp);
       } else {
@@ -185,6 +199,11 @@ export function VisualizationCanvas() {
           highLevel: 0,
           peakFrequency: 0,
         };
+        
+        logCountRef.current++;
+        if (logCountRef.current % 120 === 0) {
+          console.log('Canvas: No audio data', { isAudioConnected, hasAudioData: !!audioData, demoMode });
+        }
       }
 
       try {
