@@ -1,5 +1,5 @@
 import { useRef, useEffect } from 'react';
-import { Sliders } from 'lucide-react';
+import { Sliders, Info } from 'lucide-react';
 import { Slider } from '@/components/ui/slider';
 import { useVisualizationStore } from '@/state/visualizationStore';
 import { visualizationRegistry } from '@/modules/visualizations/registry';
@@ -7,7 +7,7 @@ import { cn } from '@/lib/utils';
 
 function MiniSpectrum() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const { audioData } = useVisualizationStore();
+  const { audioData, demoMode, isAudioConnected } = useVisualizationStore();
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -26,32 +26,82 @@ function MiniSpectrum() {
     
     ctx.clearRect(0, 0, width, height);
 
-    if (!audioData) {
-      for (let i = 0; i < 20; i++) {
+    const barCount = 20;
+
+    if (isAudioConnected && audioData) {
+      const step = Math.floor(audioData.frequencyData.length / barCount);
+      
+      for (let i = 0; i < barCount; i++) {
+        const value = audioData.frequencyData[i * step] / 255;
         const x = i * 5 + 2;
-        const barHeight = Math.random() * 10 + 2;
-        ctx.fillStyle = 'rgba(255, 255, 255, 0.3)';
+        const barHeight = value * height * 0.8 + 2;
+        
+        const gradient = ctx.createLinearGradient(0, height, 0, height - barHeight);
+        gradient.addColorStop(0, 'hsl(271, 91%, 65%)');
+        gradient.addColorStop(1, 'hsl(340, 82%, 52%)');
+        
+        ctx.fillStyle = gradient;
         ctx.fillRect(x, height - barHeight, 3, barHeight);
       }
-      return;
+    } else if (demoMode) {
+      const time = Date.now();
+      for (let i = 0; i < barCount; i++) {
+        const wave = Math.sin(time * 0.003 + i * 0.3) * 0.5 + 0.5;
+        const barHeight = wave * height * 0.7 + 4;
+        const x = i * 5 + 2;
+        
+        const gradient = ctx.createLinearGradient(0, height, 0, height - barHeight);
+        gradient.addColorStop(0, 'hsl(271, 91%, 65%)');
+        gradient.addColorStop(1, 'hsl(340, 82%, 52%)');
+        
+        ctx.fillStyle = gradient;
+        ctx.fillRect(x, height - barHeight, 3, barHeight);
+      }
+    } else {
+      for (let i = 0; i < barCount; i++) {
+        const x = i * 5 + 2;
+        ctx.fillStyle = 'rgba(255, 255, 255, 0.2)';
+        ctx.fillRect(x, height - 4, 3, 4);
+      }
     }
+  }, [audioData, demoMode, isAudioConnected]);
 
-    const barCount = 20;
-    const step = Math.floor(audioData.frequencyData.length / barCount);
+  useEffect(() => {
+    if (!demoMode || isAudioConnected) return;
     
-    for (let i = 0; i < barCount; i++) {
-      const value = audioData.frequencyData[i * step] / 255;
-      const x = i * 5 + 2;
-      const barHeight = value * height * 0.8 + 2;
+    const interval = setInterval(() => {
+      const canvas = canvasRef.current;
+      if (!canvas) return;
       
-      const gradient = ctx.createLinearGradient(0, height, 0, height - barHeight);
-      gradient.addColorStop(0, 'hsl(271, 91%, 65%)');
-      gradient.addColorStop(1, 'hsl(340, 82%, 52%)');
+      const ctx = canvas.getContext('2d');
+      if (!ctx) return;
       
-      ctx.fillStyle = gradient;
-      ctx.fillRect(x, height - barHeight, 3, barHeight);
-    }
-  }, [audioData]);
+      const dpr = window.devicePixelRatio || 1;
+      const width = canvas.offsetWidth;
+      const height = canvas.offsetHeight;
+      
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      ctx.clearRect(0, 0, width, height);
+      
+      const barCount = 20;
+      const time = Date.now();
+      
+      for (let i = 0; i < barCount; i++) {
+        const wave = Math.sin(time * 0.003 + i * 0.3) * 0.5 + 0.5;
+        const barHeight = wave * height * 0.7 + 4;
+        const x = i * 5 + 2;
+        
+        const gradient = ctx.createLinearGradient(0, height, 0, height - barHeight);
+        gradient.addColorStop(0, 'hsl(271, 91%, 65%)');
+        gradient.addColorStop(1, 'hsl(340, 82%, 52%)');
+        
+        ctx.fillStyle = gradient;
+        ctx.fillRect(x, height - barHeight, 3, barHeight);
+      }
+    }, 50);
+    
+    return () => clearInterval(interval);
+  }, [demoMode, isAudioConnected]);
 
   return (
     <canvas 
@@ -70,9 +120,20 @@ export function ControlDock() {
     setSensitivity,
     isAudioConnected,
     audioData,
+    demoMode,
   } = useVisualizationStore();
 
   const activeViz = visualizationRegistry.get(activeVisualizationId);
+
+  const getStatusText = () => {
+    if (isAudioConnected && audioData) {
+      return `Level: ${Math.round((audioData.averageFrequency || 0) / 2.55)}%`;
+    }
+    if (demoMode) {
+      return 'Demo mode - Connect audio for live input';
+    }
+    return 'Not connected';
+  };
 
   return (
     <div 
@@ -91,11 +152,9 @@ export function ControlDock() {
               <span className="text-white font-medium text-sm">
                 {activeViz?.metadata.name || 'No Visualization'}
               </span>
-              <span className="text-white/50 text-xs">
-                {isAudioConnected 
-                  ? `Level: ${Math.round((audioData?.averageFrequency || 0) / 2.55)}%`
-                  : 'Not connected'
-                }
+              <span className="text-white/50 text-xs flex items-center gap-1">
+                {demoMode && !isAudioConnected && <Info className="w-3 h-3" />}
+                {getStatusText()}
               </span>
             </div>
           </div>

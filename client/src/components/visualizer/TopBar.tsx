@@ -1,4 +1,4 @@
-import { Mic, Monitor, Settings, Menu, Eye, EyeOff } from 'lucide-react';
+import { Mic, Monitor, Settings, Menu, Eye, EyeOff, Volume2, VolumeX } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
   Select,
@@ -7,6 +7,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
+import { Badge } from '@/components/ui/badge';
 import { useVisualizationStore } from '@/state/visualizationStore';
 import { audioAnalyzer } from '@/modules/audio/AudioAnalyzer';
 import { useToast } from '@/hooks/use-toast';
@@ -23,6 +24,8 @@ export function TopBar() {
     toggleSettings,
     toggleUI,
     isUIVisible,
+    demoMode,
+    setDemoMode,
   } = useVisualizationStore();
   
   const { toast } = useToast();
@@ -32,14 +35,16 @@ export function TopBar() {
       await audioAnalyzer.disconnect();
       setIsAudioConnected(false);
       setAudioData(null);
+      setDemoMode(true);
       toast({
         title: 'Audio Disconnected',
-        description: 'Audio source has been disconnected.',
+        description: 'Switched back to demo mode.',
       });
       return;
     }
 
     try {
+      setDemoMode(false);
       await audioAnalyzer.connect(audioSource);
       setIsAudioConnected(true);
       
@@ -47,26 +52,47 @@ export function TopBar() {
         setAudioData(data);
       });
 
+      const sourceDesc = audioSource === 'microphone' 
+        ? 'microphone' 
+        : 'screen share (select a tab playing audio)';
+
       toast({
         title: 'Audio Connected',
-        description: `Now listening to ${audioSource === 'microphone' ? 'microphone' : 'screen audio'}.`,
+        description: `Now listening to ${sourceDesc}.`,
       });
     } catch (error) {
+      setDemoMode(true);
+      console.error('Audio connection error:', error);
       toast({
         title: 'Connection Failed',
-        description: 'Could not access audio source. Please check permissions.',
+        description: audioSource === 'screen' 
+          ? 'Could not access screen audio. Make sure to select a browser tab that is playing audio.'
+          : 'Could not access microphone. Please check your browser permissions.',
         variant: 'destructive',
       });
     }
   };
 
-  const handleSourceChange = (value: string) => {
+  const handleSourceChange = async (value: string) => {
     const source = value as 'microphone' | 'screen';
     setAudioSource(source);
     
     if (isAudioConnected) {
-      handleConnect();
+      await audioAnalyzer.disconnect();
+      setIsAudioConnected(false);
+      setAudioData(null);
+      
+      setTimeout(() => {
+        handleConnect();
+      }, 100);
     }
+  };
+
+  const toggleDemoMode = () => {
+    if (isAudioConnected) {
+      return;
+    }
+    setDemoMode(!demoMode);
   };
 
   return (
@@ -95,12 +121,33 @@ export function TopBar() {
             </div>
             <span className="text-white font-semibold text-lg hidden sm:block">Audio Visualizer</span>
           </div>
+
+          {demoMode && !isAudioConnected && (
+            <Badge variant="secondary" className="bg-purple-500/20 text-purple-300 border-purple-500/30">
+              Demo Mode
+            </Badge>
+          )}
         </div>
 
         <div className="flex items-center gap-3">
+          <Button
+            size="icon"
+            variant="ghost"
+            onClick={toggleDemoMode}
+            className={cn(
+              "text-white/80 hover:text-white hover:bg-white/10",
+              isAudioConnected && "opacity-50 cursor-not-allowed"
+            )}
+            disabled={isAudioConnected}
+            data-testid="button-toggle-demo"
+            title={demoMode ? "Demo mode on" : "Demo mode off"}
+          >
+            {demoMode ? <Volume2 className="w-5 h-5" /> : <VolumeX className="w-5 h-5" />}
+          </Button>
+
           <Select value={audioSource} onValueChange={handleSourceChange}>
             <SelectTrigger 
-              className="w-40 bg-white/10 border-white/20 text-white"
+              className="w-44 bg-white/10 border-white/20 text-white"
               data-testid="select-audio-source"
             >
               <SelectValue />
@@ -115,7 +162,7 @@ export function TopBar() {
               <SelectItem value="screen" data-testid="option-screen">
                 <div className="flex items-center gap-2">
                   <Monitor className="w-4 h-4" />
-                  <span>Screen Audio</span>
+                  <span>System Audio</span>
                 </div>
               </SelectItem>
             </SelectContent>

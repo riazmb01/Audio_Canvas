@@ -12,6 +12,7 @@ interface VisualizationState {
   isSidebarOpen: boolean;
   isSettingsOpen: boolean;
   sensitivity: number;
+  demoMode: boolean;
   
   setActiveVisualization: (id: string) => void;
   setParameter: (vizId: string, paramId: string, value: number | string | boolean) => void;
@@ -22,6 +23,7 @@ interface VisualizationState {
   toggleSidebar: () => void;
   toggleSettings: () => void;
   setSensitivity: (value: number) => void;
+  setDemoMode: (enabled: boolean) => void;
 }
 
 const defaultParameters: Record<string, Record<string, number | string | boolean>> = {};
@@ -42,6 +44,7 @@ export const useVisualizationStore = create<VisualizationState>((set) => ({
   isSidebarOpen: false,
   isSettingsOpen: false,
   sensitivity: 1,
+  demoMode: true,
 
   setActiveVisualization: (id) => set({ activeVisualizationId: id }),
   
@@ -68,4 +71,6 @@ export const useVisualizationStore = create<VisualizationState>((set) => ({
   toggleSettings: () => set((state) => ({ isSettingsOpen: !state.isSettingsOpen })),
   
   setSensitivity: (value) => set({ sensitivity: value }),
+  
+  setDemoMode: (enabled) => set({ demoMode: enabled }),
 }));
