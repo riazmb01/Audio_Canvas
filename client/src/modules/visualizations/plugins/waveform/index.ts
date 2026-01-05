@@ -106,26 +106,50 @@ function createInstance(): VisualizationInstance {
         context.lineCap = 'round';
         context.lineJoin = 'round';
         
+        // Primary hue driven by frequency balance - bass=red/orange, mid=green/cyan, treble=blue/purple
+        const bassHue = 0 + bass * 40;      // Red to orange
+        const midHue = 120 + mid * 60;      // Green to cyan  
+        const trebleHue = 240 + treble * 80; // Blue to purple
+        
+        // Blend hues based on which frequency is dominant
+        const total = bass + mid + treble + 0.001;
+        const primaryHue = (bassHue * bass + midHue * mid + trebleHue * treble) / total;
+        
         for (let i = 0; i < points.length - 1; i++) {
           const progress = i / (points.length - 1);
           const localIntensity = points[i].intensity;
           
+          // Sample frequency at this position for local color variation
           const freqIndex = Math.floor(progress * freqLen);
           const localFreq = freqData[Math.min(freqIndex, freqLen - 1)] / 255;
           
-          const baseHue = progress * 300;
-          const hueShift = bass * 60 - treble * 40 + localFreq * 80;
-          const hue = (baseHue + hueShift + energy * 50) % 360;
+          // Determine local frequency band for this segment
+          let localBandHue: number;
+          if (progress < 0.33) {
+            // Left third - bass influenced
+            localBandHue = bassHue + localFreq * 60;
+          } else if (progress < 0.66) {
+            // Middle third - mid influenced  
+            localBandHue = midHue + localFreq * 50;
+          } else {
+            // Right third - treble influenced
+            localBandHue = trebleHue + localFreq * 40;
+          }
           
-          const saturation = 70 + localFreq * 30 + mid * 20;
-          const lightness = 45 + localIntensity * 25 + treble * 20;
+          // Blend between primary hue and local band hue based on local frequency intensity
+          const hue = (primaryHue * 0.4 + localBandHue * 0.6 + localIntensity * 60) % 360;
           
-          const segmentColor = `hsl(${hue}, ${Math.min(100, saturation)}%, ${Math.min(75, lightness)}%)`;
+          // Saturation pulses with energy
+          const saturation = 60 + energy * 40 + localFreq * 20;
+          // Lightness responds to local waveform amplitude and treble
+          const lightness = 40 + localIntensity * 30 + treble * 25;
+          
+          const segmentColor = `hsl(${hue}, ${Math.min(100, saturation)}%, ${Math.min(80, lightness)}%)`;
           
           context.beginPath();
           context.strokeStyle = segmentColor;
-          context.lineWidth = lineWidth + localIntensity * 2 + bass * 2;
-          context.shadowBlur = glowIntensity + localFreq * 15;
+          context.lineWidth = lineWidth + localIntensity * 3 + bass * 3;
+          context.shadowBlur = glowIntensity + energy * 20 + localFreq * 10;
           context.shadowColor = segmentColor;
           
           const p1 = points[i];
@@ -153,13 +177,12 @@ function createInstance(): VisualizationInstance {
         
         if (filled) {
           const gradient = context.createLinearGradient(0, 0, width, 0);
-          for (let i = 0; i <= 10; i++) {
-            const progress = i / 10;
-            const freqIndex = Math.floor(progress * freqLen);
-            const localFreq = freqData[Math.min(freqIndex, freqLen - 1)] / 255;
-            const hue = (progress * 300 + bass * 60 + energy * 50) % 360;
-            gradient.addColorStop(progress, `hsla(${hue}, 80%, 50%, ${0.1 + localFreq * 0.2})`);
-          }
+          // Gradient based on frequency bands
+          gradient.addColorStop(0, `hsla(${bassHue}, ${70 + bass * 30}%, 50%, ${0.15 + bass * 0.2})`);
+          gradient.addColorStop(0.33, `hsla(${(bassHue + midHue) / 2}, ${70 + energy * 30}%, 50%, ${0.1 + mid * 0.15})`);
+          gradient.addColorStop(0.5, `hsla(${midHue}, ${70 + mid * 30}%, 50%, ${0.15 + mid * 0.2})`);
+          gradient.addColorStop(0.66, `hsla(${(midHue + trebleHue) / 2}, ${70 + energy * 30}%, 50%, ${0.1 + treble * 0.15})`);
+          gradient.addColorStop(1, `hsla(${trebleHue}, ${70 + treble * 30}%, 50%, ${0.15 + treble * 0.2})`);
           
           context.beginPath();
           context.moveTo(points[0].x, points[0].y);
@@ -226,8 +249,12 @@ function createInstance(): VisualizationInstance {
       context.shadowBlur = 0;
 
       if (showGridLines) {
+        // Grid color matches the dominant frequency
+        const dominantHue = bass > mid && bass > treble ? (bass * 40) 
+          : mid > treble ? (120 + mid * 60) 
+          : (240 + treble * 80);
         const gridColor = isReactive 
-          ? `hsla(${(energy * 100 + bass * 60) % 360}, 70%, 50%, 0.1)`
+          ? `hsla(${dominantHue}, ${50 + energy * 40}%, 50%, ${0.08 + energy * 0.08})`
           : `${staticColor.replace(')', ', 0.1)').replace('hsl', 'hsla')}`;
         context.strokeStyle = gridColor;
         context.lineWidth = 1;
