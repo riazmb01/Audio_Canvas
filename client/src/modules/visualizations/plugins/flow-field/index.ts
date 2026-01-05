@@ -172,9 +172,29 @@ function createInstance(): VisualizationInstance {
   let smoothedAudio: SmoothedAudio = { bass: 0, mid: 0, treble: 0, energy: 0 };
   let prevBass = 0;
   let beatCooldown = 0;
-  const SMOOTHING = 0.15;
+  let beatFlash = 0;
+  let instantBass = 0;
+  let instantTreble = 0;
+  const SMOOTHING = 0.25;
+  const FAST_SMOOTHING = 0.4;
 
-  function respawnParticle(w: number, h: number, hue: number): Particle {
+  function respawnParticle(w: number, h: number, hue: number, burst = false): Particle {
+    if (burst) {
+      const cx = w / 2;
+      const cy = h / 2;
+      const angle = Math.random() * Math.PI * 2;
+      const dist = Math.random() * 100;
+      return {
+        x: cx + Math.cos(angle) * dist,
+        y: cy + Math.sin(angle) * dist,
+        vx: Math.cos(angle) * (Math.random() * 3 + 2),
+        vy: Math.sin(angle) * (Math.random() * 3 + 2),
+        life: 0,
+        maxLife: Math.random() * 150 + 80,
+        size: Math.random() * 3 + 2,
+        hue: hue,
+      };
+    }
     return {
       x: Math.random() * w,
       y: Math.random() * h,
@@ -205,17 +225,18 @@ function createInstance(): VisualizationInstance {
     };
   }
 
-  function getColorHue(mode: string, baseHue: number, energy: number): number {
+  function getColorHue(mode: string, baseHue: number, energy: number, treble: number): number {
+    const trebleShift = treble * 120;
     switch (mode) {
       case 'ocean':
-        return 180 + baseHue * 0.3 + energy * 40;
+        return 180 + baseHue * 0.3 + energy * 60 + trebleShift * 0.3;
       case 'fire':
-        return baseHue * 0.2 + energy * 30;
+        return baseHue * 0.2 + energy * 50 + trebleShift * 0.2;
       case 'mono':
-        return 260;
+        return 260 + trebleShift * 0.1;
       case 'spectrum':
       default:
-        return (baseHue + energy * 60) % 360;
+        return (baseHue + energy * 120 + trebleShift) % 360;
     }
   }
 
@@ -261,30 +282,48 @@ function createInstance(): VisualizationInstance {
       smoothedAudio.treble += (rawTreble - smoothedAudio.treble) * SMOOTHING;
       smoothedAudio.energy += (rawEnergy - smoothedAudio.energy) * SMOOTHING;
 
+      instantBass += (rawBass / 255 - instantBass) * FAST_SMOOTHING;
+      instantTreble += (rawTreble / 255 - instantTreble) * FAST_SMOOTHING;
+
       const bass = smoothedAudio.bass / 255;
       const mid = smoothedAudio.mid / 255;
       const treble = smoothedAudio.treble / 255;
       const energy = smoothedAudio.energy / 255;
 
-      const fieldStrength = baseFieldStrength * (0.5 + bass * 2);
-      const noiseScale = baseNoiseScale * (0.5 + mid * 1.5);
-      const jitter = treble * 2;
+      const fieldStrength = baseFieldStrength * (0.3 + bass * 4 + instantBass * 2);
+      const noiseScale = baseNoiseScale * (0.3 + mid * 3);
+      const jitter = treble * 6 + instantTreble * 4;
 
-      const isBeat = rawBass > prevBass + 30 && beatCooldown <= 0;
-      if (isBeat) beatCooldown = 10;
+      const isBeat = rawBass > prevBass + 25 && beatCooldown <= 0;
+      if (isBeat) {
+        beatCooldown = 8;
+        beatFlash = 1.0;
+      }
       prevBass = rawBass;
       if (beatCooldown > 0) beatCooldown--;
+      beatFlash *= 0.85;
 
-      time += ctx.deltaTime * timeScale * 0.001;
+      time += ctx.deltaTime * timeScale * 0.001 * (1 + mid * 2);
 
+      const fadeSpeed = showTrails 
+        ? 0.03 + energy * 0.15 + (isBeat ? 0.1 : 0)
+        : 1;
+      
       if (showTrails) {
-        context.fillStyle = `rgba(0, 0, 0, ${0.05 + energy * 0.05})`;
+        context.fillStyle = `rgba(0, 0, 0, ${fadeSpeed})`;
         context.fillRect(0, 0, width, height);
       } else {
         context.clearRect(0, 0, width, height);
       }
 
-      const spawnRate = Math.floor(1 + energy * 5);
+      if (beatFlash > 0.1) {
+        const flashHue = getColorHue(colorMode, 200, energy, treble);
+        context.fillStyle = `hsla(${flashHue}, 80%, 50%, ${beatFlash * 0.15})`;
+        context.fillRect(0, 0, width, height);
+      }
+
+      const spawnRate = Math.floor(2 + energy * 15 + (isBeat ? 30 : 0));
+      
       while (particles.length < targetCount) {
         const centroidHue = (audio.peakFrequency / len) * 360;
         particles.push(respawnParticle(width, height, centroidHue));
@@ -293,9 +332,18 @@ function createInstance(): VisualizationInstance {
         particles.pop();
       }
 
-      for (let i = 0; i < spawnRate && particles.length < targetCount + 20; i++) {
+      if (isBeat) {
+        const burstCount = Math.floor(20 + bass * 40);
+        for (let i = 0; i < burstCount && particles.length < targetCount + 50; i++) {
+          const idx = Math.floor(Math.random() * particles.length);
+          const centroidHue = (audio.peakFrequency / len) * 360;
+          particles[idx] = respawnParticle(width, height, centroidHue, true);
+        }
+      }
+
+      for (let i = 0; i < spawnRate && particles.length > 0; i++) {
         const idx = Math.floor(Math.random() * particles.length);
-        if (particles[idx].life > particles[idx].maxLife * 0.8) {
+        if (particles[idx].life > particles[idx].maxLife * 0.7) {
           const centroidHue = (audio.peakFrequency / len) * 360;
           particles[idx] = respawnParticle(width, height, centroidHue);
         }
@@ -310,21 +358,22 @@ function createInstance(): VisualizationInstance {
         p.vy += curl.vy * fieldStrength;
 
         if (jitter > 0.1) {
-          p.vx += (Math.random() - 0.5) * jitter * 0.5;
-          p.vy += (Math.random() - 0.5) * jitter * 0.5;
+          p.vx += (Math.random() - 0.5) * jitter;
+          p.vy += (Math.random() - 0.5) * jitter;
         }
 
         if (isBeat) {
-          const impulse = bass * 8;
+          const impulse = 15 + bass * 25;
           p.vx += (Math.random() - 0.5) * impulse;
           p.vy += (Math.random() - 0.5) * impulse;
         }
 
-        p.vx *= drag;
-        p.vy *= drag;
+        const dynamicDrag = drag - bass * 0.03;
+        p.vx *= dynamicDrag;
+        p.vy *= dynamicDrag;
 
-        p.x += p.vx;
-        p.y += p.vy;
+        p.x += p.vx * (1 + energy * 0.5);
+        p.y += p.vy * (1 + energy * 0.5);
 
         p.life++;
 
@@ -340,26 +389,47 @@ function createInstance(): VisualizationInstance {
         }
 
         const lifeRatio = p.life / p.maxLife;
-        const alpha = Math.sin(lifeRatio * Math.PI) * (0.4 + energy * 0.4);
-        const size = p.size * (1 + bass * 0.5);
-        const hue = getColorHue(colorMode, p.hue, energy);
+        const baseAlpha = Math.sin(lifeRatio * Math.PI);
+        const alpha = Math.min(1, baseAlpha * (0.5 + energy * 0.5 + instantBass * 0.3));
+        const size = p.size * (1 + instantBass * 2 + beatFlash * 1.5);
+        const hue = getColorHue(colorMode, p.hue, energy, treble);
+        const saturation = 60 + treble * 40;
+        const lightness = 45 + energy * 30 + instantTreble * 15;
 
         context.beginPath();
         context.arc(p.x, p.y, size, 0, Math.PI * 2);
-        context.fillStyle = `hsla(${hue}, 70%, ${50 + energy * 20}%, ${alpha})`;
+        context.fillStyle = `hsla(${hue}, ${saturation}%, ${lightness}%, ${alpha})`;
         context.fill();
       }
 
-      if (bass > 0.4) {
+      if (instantBass > 0.3 || beatFlash > 0.2) {
         context.save();
-        const glowParticles = particles.filter(() => Math.random() < 0.05);
-        for (const p of glowParticles) {
-          const hue = getColorHue(colorMode, p.hue, energy);
-          context.shadowBlur = 15 + bass * 20;
-          context.shadowColor = `hsl(${hue}, 80%, 60%)`;
+        const glowIntensity = Math.max(instantBass, beatFlash);
+        const glowCount = Math.floor(particles.length * (0.03 + glowIntensity * 0.1));
+        
+        for (let i = 0; i < glowCount; i++) {
+          const p = particles[Math.floor(Math.random() * particles.length)];
+          const hue = getColorHue(colorMode, p.hue, energy, treble);
+          context.shadowBlur = 20 + glowIntensity * 40;
+          context.shadowColor = `hsl(${hue}, 90%, 60%)`;
           context.beginPath();
-          context.arc(p.x, p.y, p.size * 1.5, 0, Math.PI * 2);
-          context.fillStyle = `hsla(${hue}, 80%, 70%, 0.8)`;
+          context.arc(p.x, p.y, p.size * (2 + glowIntensity * 2), 0, Math.PI * 2);
+          context.fillStyle = `hsla(${hue}, 90%, 75%, ${0.6 + glowIntensity * 0.4})`;
+          context.fill();
+        }
+        context.restore();
+      }
+
+      if (treble > 0.5) {
+        context.save();
+        const sparkleCount = Math.floor(treble * 30);
+        for (let i = 0; i < sparkleCount; i++) {
+          const sx = Math.random() * width;
+          const sy = Math.random() * height;
+          const sparkleHue = getColorHue(colorMode, Math.random() * 360, energy, treble);
+          context.beginPath();
+          context.arc(sx, sy, 1 + Math.random() * 2, 0, Math.PI * 2);
+          context.fillStyle = `hsla(${sparkleHue}, 100%, 80%, ${0.3 + Math.random() * 0.5})`;
           context.fill();
         }
         context.restore();
