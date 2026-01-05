@@ -22,7 +22,7 @@ const defaultParameters = {
     { label: 'Solid', value: 'solid' },
     { label: 'Rainbow', value: 'rainbow' },
   ]},
-  sensitivity: { type: 'number' as const, label: 'Sensitivity', value: 1.5, min: 0.5, max: 3, step: 0.1 },
+  sensitivity: { type: 'number' as const, label: 'Sensitivity', value: 1.5, min: 0.2, max: 5, step: 0.1 },
   mirror: { type: 'boolean' as const, label: 'Mirror Effect', value: false },
 };
 
