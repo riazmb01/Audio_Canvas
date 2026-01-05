@@ -1,8 +1,6 @@
 import { VisualizationModule } from './types';
 import { frequencyBars } from './plugins/frequency-bars';
 import { waveform } from './plugins/waveform';
-import { circularSpectrum } from './plugins/circular-spectrum';
-import { particles } from './plugins/particles';
 import { flowField } from './plugins/flow-field';
 import { oscillatoryMotion } from './plugins/oscillatory-motion';
 
@@ -12,8 +10,6 @@ class VisualizationRegistry {
   constructor() {
     this.register(frequencyBars);
     this.register(waveform);
-    this.register(circularSpectrum);
-    this.register(particles);
     this.register(flowField);
     this.register(oscillatoryMotion);
   }
