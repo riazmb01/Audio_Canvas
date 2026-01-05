@@ -40,7 +40,7 @@ const audioPreferences = {
 const defaultParameters = {
   particleCount: { type: 'number' as const, label: 'Particles', value: 600, min: 200, max: 1500, step: 100 },
   fieldStrength: { type: 'number' as const, label: 'Field Strength', value: 1.5, min: 0.5, max: 5, step: 0.1 },
-  noiseScale: { type: 'number' as const, label: 'Noise Scale', value: 0.002, min: 0.001, max: 0.005, step: 0.0005 },
+  noiseScale: { type: 'number' as const, label: 'Noise Scale', value: 0.001, min: 0.0005, max: 0.003, step: 0.0002 },
   timeScale: { type: 'number' as const, label: 'Flow Speed', value: 0.4, min: 0.1, max: 1.5, step: 0.1 },
   drag: { type: 'number' as const, label: 'Drag', value: 0.96, min: 0.9, max: 0.99, step: 0.01 },
   trails: { type: 'boolean' as const, label: 'Trails', value: true },
@@ -288,9 +288,13 @@ function createInstance(): VisualizationInstance {
 
       const bass = smoothedAudio.bass;
       const treble = smoothedAudio.treble;
+      const energy = smoothedAudio.energy;
 
       const fieldStrength = baseFieldStrength * (0.5 + bass * 2);
-      const noiseScale = baseNoiseScale;
+      const noiseScale = baseNoiseScale * (0.6 + bass * 0.3);
+      
+      const cx = width * 0.5;
+      const cy = height * 0.5;
 
       const isBeat = rawBass > prevBass + 25 && beatCooldown <= 0;
       if (isBeat) {
@@ -320,6 +324,8 @@ function createInstance(): VisualizationInstance {
         particles.pop();
       }
 
+      const anchors = particles.filter(p => p.type === 'anchor');
+
       for (let i = 0; i < particles.length; i++) {
         const p = particles[i];
         
@@ -332,18 +338,40 @@ function createInstance(): VisualizationInstance {
         p.vx += curl.vx * fieldStrength * typeStrength;
         p.vy += curl.vy * fieldStrength * typeStrength;
 
-        const turbulence = noise.noise3D(
-          p.x * noiseScale * 2,
-          p.y * noiseScale * 2,
-          time + 10
-        );
-        p.vx += Math.cos(turbulence * Math.PI * 2) * treble * 0.8;
-        p.vy += Math.sin(turbulence * Math.PI * 2) * treble * 0.8;
+        const curve = treble * 0.15;
+        p.vx += curl.vx * curve;
+        p.vy += curl.vy * curve;
+
+        const dx = p.x - cx;
+        const dy = p.y - cy;
+        const dist = Math.sqrt(dx * dx + dy * dy) + 0.0001;
+        const globalSpin = 0.0004 * (0.5 + bass);
+        p.vx += -dy / dist * globalSpin;
+        p.vy += dx / dist * globalSpin;
+
+        if (p.type !== 'anchor') {
+          for (const anchor of anchors) {
+            const ax = p.x - anchor.x;
+            const ay = p.y - anchor.y;
+            const d2 = ax * ax + ay * ay + 50;
+            p.vx -= ax / d2 * 0.6;
+            p.vy -= ay / d2 * 0.6;
+          }
+        }
 
         if (isBeat) {
           const impulse = 3 + bass * 6;
           p.vx += curl.vx * impulse;
           p.vy += curl.vy * impulse;
+        }
+
+        const calm = 0.4;
+        p.vx *= (calm + energy * 0.6);
+        p.vy *= (calm + energy * 0.6);
+
+        if (p.type === 'anchor') {
+          p.vx *= 0.85;
+          p.vy *= 0.85;
         }
 
         p.vx *= drag;
@@ -373,23 +401,30 @@ function createInstance(): VisualizationInstance {
         const saturation = Math.min(100, 65 + treble * 35 * colorSensitivity);
         const lightness = Math.min(85, 50 + treble * 20 * colorSensitivity + globalBrightness * 30);
 
-        const dx = p.x - p.px;
-        const dy = p.y - p.py;
-        const dist = Math.sqrt(dx * dx + dy * dy);
+        const moveDx = p.x - p.px;
+        const moveDy = p.y - p.py;
+        const moveDist = Math.sqrt(moveDx * moveDx + moveDy * moveDy);
         
-        if (dist > 0.5) {
+        if (moveDist < 1.2 && p.type !== 'anchor') continue;
+        
+        if (moveDist > 0.5) {
+          const strokeWidth = p.type === 'anchor' 
+            ? p.size * (1.5 + treble * 0.5) 
+            : p.size * (1 + treble * 0.3);
+          
           context.beginPath();
           context.moveTo(p.px, p.py);
           context.lineTo(p.x, p.y);
           context.strokeStyle = `hsla(${hue}, ${saturation}%, ${lightness}%, ${alpha})`;
-          context.lineWidth = p.type === 'anchor' ? p.size * 1.5 : p.size;
+          context.lineWidth = strokeWidth;
           context.lineCap = 'round';
           context.stroke();
         }
 
         if (p.type === 'anchor') {
+          const glowSize = p.size * (2 + treble * 1.5);
           context.beginPath();
-          context.arc(p.x, p.y, p.size * 2, 0, Math.PI * 2);
+          context.arc(p.x, p.y, glowSize, 0, Math.PI * 2);
           context.fillStyle = `hsla(${hue}, ${saturation}%, ${lightness + 10}%, ${alpha * 0.3})`;
           context.fill();
         }
