@@ -25,7 +25,7 @@ interface VisualizationState {
   setSensitivity: (value: number) => void;
   setDemoMode: (enabled: boolean) => void;
 }
-
+ 
 const defaultParameters: Record<string, Record<string, number | string | boolean>> = {};
 visualizationRegistry.getAll().forEach(viz => {
   defaultParameters[viz.metadata.id] = {};

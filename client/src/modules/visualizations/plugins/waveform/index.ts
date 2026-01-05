@@ -15,6 +15,8 @@ const audioPreferences = {
 };
 
 const defaultParameters = {
+  amplitude: { type: 'number' as const, label: 'Amplitude', value: 1, min: 0.2, max: 3, step: 0.1 },
+  smoothness: { type: 'number' as const, label: 'Smoothness', value: 0, min: 0, max: 1, step: 0.1 },
   lineWidth: { type: 'number' as const, label: 'Line Width', value: 3, min: 1, max: 8, step: 0.5 },
   glowIntensity: { type: 'number' as const, label: 'Glow', value: 20, min: 0, max: 50, step: 5 },
   colorMode: { type: 'select' as const, label: 'Color', value: 'cyan', options: [
@@ -33,6 +35,8 @@ function createInstance(): VisualizationInstance {
     render(ctx: VisualizationRenderContext, audio: AudioFrameData, params: Record<string, number | string | boolean>) {
       const { width, height } = ctx;
       const context = ctx.ctx;
+      const amplitude = params.amplitude as number ?? 1;
+      const smoothness = params.smoothness as number ?? 0;
       const lineWidth = params.lineWidth as number || 3;
       const glowIntensity = params.glowIntensity as number || 20;
       const colorMode = params.colorMode as string || 'cyan';
@@ -58,25 +62,41 @@ function createInstance(): VisualizationInstance {
       context.lineCap = 'round';
       context.lineJoin = 'round';
 
-      context.beginPath();
-
-      let x = 0;
+      const centerY = height / 2;
+      const points: { x: number; y: number }[] = [];
+      
       for (let i = 0; i < bufferLength; i++) {
-        const v = audio.waveformData[i] / 128.0;
-        const y = (v * height) / 2;
+        const v = (audio.waveformData[i] / 128.0) - 1;
+        const y = centerY + v * (height / 2) * amplitude;
+        points.push({ x: i * sliceWidth, y });
+      }
 
-        if (i === 0) {
-          context.moveTo(x, y);
-        } else {
-          context.lineTo(x, y);
+      context.beginPath();
+      context.moveTo(points[0].x, points[0].y);
+
+      if (smoothness > 0) {
+        for (let i = 1; i < points.length - 1; i++) {
+          const prev = points[i - 1];
+          const curr = points[i];
+          const next = points[i + 1];
+          
+          const cpX1 = prev.x + (curr.x - prev.x) * (0.5 + smoothness * 0.3);
+          const cpY1 = prev.y + (curr.y - prev.y) * smoothness;
+          const cpX2 = curr.x - (next.x - prev.x) * 0.1 * smoothness;
+          const cpY2 = curr.y;
+          
+          context.bezierCurveTo(cpX1, cpY1, cpX2, cpY2, curr.x, curr.y);
         }
-
-        x += sliceWidth;
+        context.lineTo(points[points.length - 1].x, points[points.length - 1].y);
+      } else {
+        for (let i = 1; i < points.length; i++) {
+          context.lineTo(points[i].x, points[i].y);
+        }
       }
 
       if (filled) {
-        context.lineTo(width, height / 2);
-        context.lineTo(0, height / 2);
+        context.lineTo(width, centerY);
+        context.lineTo(0, centerY);
         context.closePath();
         const gradient = context.createLinearGradient(0, 0, 0, height);
         gradient.addColorStop(0, color.replace(')', ', 0.3)').replace('hsl', 'hsla'));
