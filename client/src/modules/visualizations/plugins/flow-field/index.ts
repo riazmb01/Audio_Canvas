@@ -45,6 +45,7 @@ const defaultParameters = {
     { label: 'Fire', value: 'fire' },
     { label: 'Monochrome', value: 'mono' },
   ]},
+  colorSensitivity: { type: 'number' as const, label: 'Color Sensitivity', value: 1, min: 0.2, max: 3, step: 0.1 },
 };
 
 class SimplexNoise {
@@ -225,18 +226,19 @@ function createInstance(): VisualizationInstance {
     };
   }
 
-  function getColorHue(mode: string, baseHue: number, energy: number, treble: number): number {
-    const trebleShift = treble * 120;
+  function getColorHue(mode: string, baseHue: number, energy: number, treble: number, colorSens: number): number {
+    const trebleShift = treble * 120 * colorSens;
+    const energyShift = energy * colorSens;
     switch (mode) {
       case 'ocean':
-        return 180 + baseHue * 0.3 + energy * 60 + trebleShift * 0.3;
+        return 180 + baseHue * 0.3 + energyShift * 60 + trebleShift * 0.3;
       case 'fire':
-        return baseHue * 0.2 + energy * 50 + trebleShift * 0.2;
+        return baseHue * 0.2 + energyShift * 50 + trebleShift * 0.2;
       case 'mono':
         return 260 + trebleShift * 0.1;
       case 'spectrum':
       default:
-        return (baseHue + energy * 120 + trebleShift) % 360;
+        return (baseHue + energyShift * 120 + trebleShift) % 360;
     }
   }
 
@@ -262,6 +264,7 @@ function createInstance(): VisualizationInstance {
       const drag = params.drag as number || 0.97;
       const showTrails = params.trails as boolean ?? true;
       const colorMode = params.colorMode as string || 'spectrum';
+      const colorSensitivity = params.colorSensitivity as number || 1;
 
       const freqData = audio.frequencyData;
       let bassSum = 0, midSum = 0, trebleSum = 0, totalSum = 0;
@@ -317,7 +320,7 @@ function createInstance(): VisualizationInstance {
       }
 
       if (beatFlash > 0.1) {
-        const flashHue = getColorHue(colorMode, 200, energy, treble);
+        const flashHue = getColorHue(colorMode, 200, energy, treble, colorSensitivity);
         context.fillStyle = `hsla(${flashHue}, 80%, 50%, ${beatFlash * 0.15})`;
         context.fillRect(0, 0, width, height);
       }
@@ -392,9 +395,9 @@ function createInstance(): VisualizationInstance {
         const baseAlpha = Math.sin(lifeRatio * Math.PI);
         const alpha = Math.min(1, baseAlpha * (0.5 + energy * 0.5 + instantBass * 0.3));
         const size = p.size * (1 + instantBass * 2 + beatFlash * 1.5);
-        const hue = getColorHue(colorMode, p.hue, energy, treble);
-        const saturation = 60 + treble * 40;
-        const lightness = 45 + energy * 30 + instantTreble * 15;
+        const hue = getColorHue(colorMode, p.hue, energy, treble, colorSensitivity);
+        const saturation = Math.min(100, 60 + treble * 40 * colorSensitivity);
+        const lightness = Math.min(90, 45 + energy * 30 * colorSensitivity + instantTreble * 15 * colorSensitivity);
 
         context.beginPath();
         context.arc(p.x, p.y, size, 0, Math.PI * 2);
@@ -409,7 +412,7 @@ function createInstance(): VisualizationInstance {
         
         for (let i = 0; i < glowCount; i++) {
           const p = particles[Math.floor(Math.random() * particles.length)];
-          const hue = getColorHue(colorMode, p.hue, energy, treble);
+          const hue = getColorHue(colorMode, p.hue, energy, treble, colorSensitivity);
           context.shadowBlur = 20 + glowIntensity * 40;
           context.shadowColor = `hsl(${hue}, 90%, 60%)`;
           context.beginPath();
@@ -426,7 +429,7 @@ function createInstance(): VisualizationInstance {
         for (let i = 0; i < sparkleCount; i++) {
           const sx = Math.random() * width;
           const sy = Math.random() * height;
-          const sparkleHue = getColorHue(colorMode, Math.random() * 360, energy, treble);
+          const sparkleHue = getColorHue(colorMode, Math.random() * 360, energy, treble, colorSensitivity);
           context.beginPath();
           context.arc(sx, sy, 1 + Math.random() * 2, 0, Math.PI * 2);
           context.fillStyle = `hsla(${sparkleHue}, 100%, 80%, ${0.3 + Math.random() * 0.5})`;
