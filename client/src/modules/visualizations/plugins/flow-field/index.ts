@@ -1,14 +1,19 @@
 import { VisualizationModule, VisualizationInstance, VisualizationRenderContext, AudioFrameData } from '../../types';
 
+type ParticleType = 'tracer' | 'drifter' | 'anchor';
+
 interface Particle {
   x: number;
   y: number;
+  px: number;
+  py: number;
   vx: number;
   vy: number;
   life: number;
   maxLife: number;
   size: number;
   hue: number;
+  type: ParticleType;
 }
 
 interface SmoothedAudio {
@@ -21,7 +26,7 @@ interface SmoothedAudio {
 const metadata = {
   id: 'flow-field',
   name: 'Flow Field',
-  description: 'Particles flowing through audio-reactive curl noise vector fields',
+  description: 'Particles tracing smooth curl noise vector fields',
   category: 'particle' as const,
 };
 
@@ -33,11 +38,11 @@ const audioPreferences = {
 };
 
 const defaultParameters = {
-  particleCount: { type: 'number' as const, label: 'Particles', value: 800, min: 200, max: 2000, step: 100 },
-  fieldStrength: { type: 'number' as const, label: 'Field Strength', value: 1, min: 0.1, max: 10, step: 0.1 },
-  noiseScale: { type: 'number' as const, label: 'Noise Scale', value: 0.003, min: 0.001, max: 0.01, step: 0.001 },
-  timeScale: { type: 'number' as const, label: 'Flow Speed', value: 0.5, min: 0.1, max: 2, step: 0.1 },
-  drag: { type: 'number' as const, label: 'Drag', value: 0.97, min: 0.9, max: 0.99, step: 0.01 },
+  particleCount: { type: 'number' as const, label: 'Particles', value: 600, min: 200, max: 1500, step: 100 },
+  fieldStrength: { type: 'number' as const, label: 'Field Strength', value: 1.5, min: 0.5, max: 5, step: 0.1 },
+  noiseScale: { type: 'number' as const, label: 'Noise Scale', value: 0.002, min: 0.001, max: 0.005, step: 0.0005 },
+  timeScale: { type: 'number' as const, label: 'Flow Speed', value: 0.4, min: 0.1, max: 1.5, step: 0.1 },
+  drag: { type: 'number' as const, label: 'Drag', value: 0.96, min: 0.9, max: 0.99, step: 0.01 },
   trails: { type: 'boolean' as const, label: 'Trails', value: true },
   colorMode: { type: 'select' as const, label: 'Color', value: 'spectrum', options: [
     { label: 'Spectrum', value: 'spectrum' },
@@ -173,38 +178,35 @@ function createInstance(): VisualizationInstance {
   let smoothedAudio: SmoothedAudio = { bass: 0, mid: 0, treble: 0, energy: 0 };
   let prevBass = 0;
   let beatCooldown = 0;
-  let beatFlash = 0;
-  let instantBass = 0;
-  let instantTreble = 0;
-  const SMOOTHING = 0.25;
-  const FAST_SMOOTHING = 0.4;
+  let globalBrightness = 0;
+  const SMOOTHING = 0.15;
 
-  function respawnParticle(w: number, h: number, hue: number, burst = false): Particle {
-    if (burst) {
-      const cx = w / 2;
-      const cy = h / 2;
-      const angle = Math.random() * Math.PI * 2;
-      const dist = Math.random() * 100;
-      return {
-        x: cx + Math.cos(angle) * dist,
-        y: cy + Math.sin(angle) * dist,
-        vx: Math.cos(angle) * (Math.random() * 3 + 2),
-        vy: Math.sin(angle) * (Math.random() * 3 + 2),
-        life: 0,
-        maxLife: Math.random() * 150 + 80,
-        size: Math.random() * 3 + 2,
-        hue: hue,
-      };
-    }
+  function getParticleType(): ParticleType {
+    const r = Math.random();
+    if (r < 0.3) return 'tracer';
+    if (r < 0.7) return 'drifter';
+    return 'anchor';
+  }
+
+  function respawnParticle(w: number, h: number, hue: number): Particle {
+    const type = getParticleType();
+    const baseSize = type === 'anchor' ? 2.5 : type === 'tracer' ? 0.8 : 1.5;
+    const lifeMultiplier = type === 'anchor' ? 1.3 : type === 'tracer' ? 0.8 : 1;
+    
+    const x = Math.random() * w;
+    const y = Math.random() * h;
     return {
-      x: Math.random() * w,
-      y: Math.random() * h,
+      x,
+      y,
+      px: x,
+      py: y,
       vx: 0,
       vy: 0,
       life: 0,
-      maxLife: Math.random() * 200 + 100,
-      size: Math.random() * 2 + 1,
+      maxLife: (Math.random() * 600 + 400) * lifeMultiplier,
+      size: baseSize + Math.random() * 0.5,
       hue: hue,
+      type,
     };
   }
 
@@ -226,19 +228,18 @@ function createInstance(): VisualizationInstance {
     };
   }
 
-  function getColorHue(mode: string, baseHue: number, energy: number, treble: number, colorSens: number): number {
-    const trebleShift = treble * 120 * colorSens;
-    const energyShift = energy * colorSens;
+  function getColorHue(mode: string, baseHue: number, treble: number, colorSens: number): number {
+    const trebleShift = treble * 60 * colorSens;
     switch (mode) {
       case 'ocean':
-        return 180 + baseHue * 0.3 + energyShift * 60 + trebleShift * 0.3;
+        return 180 + baseHue * 0.2 + trebleShift * 0.3;
       case 'fire':
-        return baseHue * 0.2 + energyShift * 50 + trebleShift * 0.2;
+        return baseHue * 0.15 + trebleShift * 0.2;
       case 'mono':
         return 260 + trebleShift * 0.1;
       case 'spectrum':
       default:
-        return (baseHue + energyShift * 120 + trebleShift) % 360;
+        return (baseHue + trebleShift) % 360;
     }
   }
 
@@ -247,7 +248,7 @@ function createInstance(): VisualizationInstance {
       width = ctx.width;
       height = ctx.height;
       noise = new SimplexNoise(Math.random());
-      particles = Array.from({ length: 800 }, () => 
+      particles = Array.from({ length: 600 }, () => 
         respawnParticle(width, height, Math.random() * 360)
       );
     },
@@ -257,11 +258,11 @@ function createInstance(): VisualizationInstance {
       width = ctx.width;
       height = ctx.height;
       
-      const targetCount = params.particleCount as number || 800;
-      const baseFieldStrength = params.fieldStrength as number || 1;
-      const baseNoiseScale = params.noiseScale as number || 0.003;
-      const timeScale = params.timeScale as number || 0.5;
-      const drag = params.drag as number || 0.97;
+      const targetCount = params.particleCount as number || 600;
+      const baseFieldStrength = params.fieldStrength as number || 1.5;
+      const baseNoiseScale = params.noiseScale as number || 0.002;
+      const timeScale = params.timeScale as number || 0.4;
+      const drag = params.drag as number || 0.96;
       const showTrails = params.trails as boolean ?? true;
       const colorMode = params.colorMode as string || 'spectrum';
       const colorSensitivity = params.colorSensitivity as number || 1;
@@ -280,37 +281,29 @@ function createInstance(): VisualizationInstance {
       const rawTreble = trebleSum / 41;
       const rawEnergy = totalSum / len;
 
-      smoothedAudio.bass += (rawBass - smoothedAudio.bass) * SMOOTHING;
-      smoothedAudio.mid += (rawMid - smoothedAudio.mid) * SMOOTHING;
-      smoothedAudio.treble += (rawTreble - smoothedAudio.treble) * SMOOTHING;
-      smoothedAudio.energy += (rawEnergy - smoothedAudio.energy) * SMOOTHING;
+      smoothedAudio.bass += (rawBass / 255 - smoothedAudio.bass) * SMOOTHING;
+      smoothedAudio.mid += (rawMid / 255 - smoothedAudio.mid) * SMOOTHING;
+      smoothedAudio.treble += (rawTreble / 255 - smoothedAudio.treble) * SMOOTHING;
+      smoothedAudio.energy += (rawEnergy / 255 - smoothedAudio.energy) * SMOOTHING;
 
-      instantBass += (rawBass / 255 - instantBass) * FAST_SMOOTHING;
-      instantTreble += (rawTreble / 255 - instantTreble) * FAST_SMOOTHING;
+      const bass = smoothedAudio.bass;
+      const treble = smoothedAudio.treble;
 
-      const bass = smoothedAudio.bass / 255;
-      const mid = smoothedAudio.mid / 255;
-      const treble = smoothedAudio.treble / 255;
-      const energy = smoothedAudio.energy / 255;
-
-      const fieldStrength = baseFieldStrength * (0.3 + bass * 4 + instantBass * 2);
-      const noiseScale = baseNoiseScale * (0.3 + mid * 3);
-      const jitter = treble * 6 + instantTreble * 4;
+      const fieldStrength = baseFieldStrength * (0.5 + bass * 2);
+      const noiseScale = baseNoiseScale;
 
       const isBeat = rawBass > prevBass + 25 && beatCooldown <= 0;
       if (isBeat) {
-        beatCooldown = 8;
-        beatFlash = 1.0;
+        beatCooldown = 10;
+        globalBrightness = 0.15;
       }
       prevBass = rawBass;
       if (beatCooldown > 0) beatCooldown--;
-      beatFlash *= 0.85;
+      globalBrightness *= 0.9;
 
-      time += ctx.deltaTime * timeScale * 0.001 * (1 + mid * 2);
+      time += ctx.deltaTime * timeScale * 0.001 * (0.8 + bass * 0.4);
 
-      const fadeSpeed = showTrails 
-        ? 0.03 + energy * 0.15 + (isBeat ? 0.1 : 0)
-        : 1;
+      const fadeSpeed = showTrails ? 0.04 + globalBrightness * 0.1 : 1;
       
       if (showTrails) {
         context.fillStyle = `rgba(0, 0, 0, ${fadeSpeed})`;
@@ -319,14 +312,6 @@ function createInstance(): VisualizationInstance {
         context.clearRect(0, 0, width, height);
       }
 
-      if (beatFlash > 0.1) {
-        const flashHue = getColorHue(colorMode, 200, energy, treble, colorSensitivity);
-        context.fillStyle = `hsla(${flashHue}, 80%, 50%, ${beatFlash * 0.15})`;
-        context.fillRect(0, 0, width, height);
-      }
-
-      const spawnRate = Math.floor(2 + energy * 15 + (isBeat ? 30 : 0));
-      
       while (particles.length < targetCount) {
         const centroidHue = (audio.peakFrequency / len) * 360;
         particles.push(respawnParticle(width, height, centroidHue));
@@ -335,48 +320,37 @@ function createInstance(): VisualizationInstance {
         particles.pop();
       }
 
-      if (isBeat) {
-        const burstCount = Math.floor(20 + bass * 40);
-        for (let i = 0; i < burstCount && particles.length < targetCount + 50; i++) {
-          const idx = Math.floor(Math.random() * particles.length);
-          const centroidHue = (audio.peakFrequency / len) * 360;
-          particles[idx] = respawnParticle(width, height, centroidHue, true);
-        }
-      }
-
-      for (let i = 0; i < spawnRate && particles.length > 0; i++) {
-        const idx = Math.floor(Math.random() * particles.length);
-        if (particles[idx].life > particles[idx].maxLife * 0.7) {
-          const centroidHue = (audio.peakFrequency / len) * 360;
-          particles[idx] = respawnParticle(width, height, centroidHue);
-        }
-      }
-
       for (let i = 0; i < particles.length; i++) {
         const p = particles[i];
         
+        p.px = p.x;
+        p.py = p.y;
+        
         const curl = getCurlNoise(p.x, p.y, time, noiseScale);
         
-        p.vx += curl.vx * fieldStrength;
-        p.vy += curl.vy * fieldStrength;
+        const typeStrength = p.type === 'tracer' ? 1.4 : p.type === 'anchor' ? 0.4 : 1;
+        p.vx += curl.vx * fieldStrength * typeStrength;
+        p.vy += curl.vy * fieldStrength * typeStrength;
 
-        if (jitter > 0.1) {
-          p.vx += (Math.random() - 0.5) * jitter;
-          p.vy += (Math.random() - 0.5) * jitter;
-        }
+        const turbulence = noise.noise3D(
+          p.x * noiseScale * 2,
+          p.y * noiseScale * 2,
+          time + 10
+        );
+        p.vx += Math.cos(turbulence * Math.PI * 2) * treble * 0.8;
+        p.vy += Math.sin(turbulence * Math.PI * 2) * treble * 0.8;
 
         if (isBeat) {
-          const impulse = 15 + bass * 25;
-          p.vx += (Math.random() - 0.5) * impulse;
-          p.vy += (Math.random() - 0.5) * impulse;
+          const impulse = 3 + bass * 6;
+          p.vx += curl.vx * impulse;
+          p.vy += curl.vy * impulse;
         }
 
-        const dynamicDrag = drag - bass * 0.03;
-        p.vx *= dynamicDrag;
-        p.vy *= dynamicDrag;
+        p.vx *= drag;
+        p.vy *= drag;
 
-        p.x += p.vx * (1 + energy * 0.5);
-        p.y += p.vy * (1 + energy * 0.5);
+        p.x += p.vx;
+        p.y += p.vy;
 
         p.life++;
 
@@ -393,49 +367,32 @@ function createInstance(): VisualizationInstance {
 
         const lifeRatio = p.life / p.maxLife;
         const baseAlpha = Math.sin(lifeRatio * Math.PI);
-        const alpha = Math.min(1, baseAlpha * (0.5 + energy * 0.5 + instantBass * 0.3));
-        const size = p.size * (1 + instantBass * 2 + beatFlash * 1.5);
-        const hue = getColorHue(colorMode, p.hue, energy, treble, colorSensitivity);
-        const saturation = Math.min(100, 60 + treble * 40 * colorSensitivity);
-        const lightness = Math.min(90, 45 + energy * 30 * colorSensitivity + instantTreble * 15 * colorSensitivity);
-
-        context.beginPath();
-        context.arc(p.x, p.y, size, 0, Math.PI * 2);
-        context.fillStyle = `hsla(${hue}, ${saturation}%, ${lightness}%, ${alpha})`;
-        context.fill();
-      }
-
-      if (instantBass > 0.3 || beatFlash > 0.2) {
-        context.save();
-        const glowIntensity = Math.max(instantBass, beatFlash);
-        const glowCount = Math.floor(particles.length * (0.03 + glowIntensity * 0.1));
+        const alpha = Math.min(0.9, baseAlpha * (0.4 + globalBrightness));
         
-        for (let i = 0; i < glowCount; i++) {
-          const p = particles[Math.floor(Math.random() * particles.length)];
-          const hue = getColorHue(colorMode, p.hue, energy, treble, colorSensitivity);
-          context.shadowBlur = 20 + glowIntensity * 40;
-          context.shadowColor = `hsl(${hue}, 90%, 60%)`;
-          context.beginPath();
-          context.arc(p.x, p.y, p.size * (2 + glowIntensity * 2), 0, Math.PI * 2);
-          context.fillStyle = `hsla(${hue}, 90%, 75%, ${0.6 + glowIntensity * 0.4})`;
-          context.fill();
-        }
-        context.restore();
-      }
+        const hue = getColorHue(colorMode, p.hue, treble, colorSensitivity);
+        const saturation = Math.min(100, 65 + treble * 35 * colorSensitivity);
+        const lightness = Math.min(85, 50 + treble * 20 * colorSensitivity + globalBrightness * 30);
 
-      if (treble > 0.5) {
-        context.save();
-        const sparkleCount = Math.floor(treble * 30);
-        for (let i = 0; i < sparkleCount; i++) {
-          const sx = Math.random() * width;
-          const sy = Math.random() * height;
-          const sparkleHue = getColorHue(colorMode, Math.random() * 360, energy, treble, colorSensitivity);
+        const dx = p.x - p.px;
+        const dy = p.y - p.py;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        
+        if (dist > 0.5) {
           context.beginPath();
-          context.arc(sx, sy, 1 + Math.random() * 2, 0, Math.PI * 2);
-          context.fillStyle = `hsla(${sparkleHue}, 100%, 80%, ${0.3 + Math.random() * 0.5})`;
+          context.moveTo(p.px, p.py);
+          context.lineTo(p.x, p.y);
+          context.strokeStyle = `hsla(${hue}, ${saturation}%, ${lightness}%, ${alpha})`;
+          context.lineWidth = p.type === 'anchor' ? p.size * 1.5 : p.size;
+          context.lineCap = 'round';
+          context.stroke();
+        }
+
+        if (p.type === 'anchor') {
+          context.beginPath();
+          context.arc(p.x, p.y, p.size * 2, 0, Math.PI * 2);
+          context.fillStyle = `hsla(${hue}, ${saturation}%, ${lightness + 10}%, ${alpha * 0.3})`;
           context.fill();
         }
-        context.restore();
       }
     },
 
