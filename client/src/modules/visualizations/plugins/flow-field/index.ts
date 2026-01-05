@@ -332,7 +332,7 @@ function createInstance(): VisualizationInstance {
       context.fillRect(0, 0, width, height);
       
       if (showTrails && trailCtx && trailCanvas) {
-        const fadeAmount = 0.96 - globalBrightness * 0.1;
+        const fadeAmount = 0.85 - globalBrightness * 0.1;
         context.globalAlpha = fadeAmount;
         context.drawImage(trailCanvas, 0, 0);
         context.globalAlpha = 1;
@@ -453,8 +453,7 @@ function createInstance(): VisualizationInstance {
       }
 
       if (showTrails && trailCtx) {
-        trailCtx.fillStyle = 'rgb(0, 0, 0)';
-        trailCtx.fillRect(0, 0, width, height);
+        trailCtx.clearRect(0, 0, width, height);
         trailCtx.drawImage(context.canvas, 0, 0);
       }
     },
