@@ -38,6 +38,7 @@ const audioPreferences = {
 };
 
 const defaultParameters = {
+  sensitivity: { type: 'number' as const, label: 'Sensitivity', value: 1.5, min: 0.2, max: 5, step: 0.1 },
   particleCount: { type: 'number' as const, label: 'Particles', value: 600, min: 200, max: 1500, step: 100 },
   fieldStrength: { type: 'number' as const, label: 'Field Strength', value: 1.5, min: 0.5, max: 5, step: 0.1 },
   noiseScale: { type: 'number' as const, label: 'Noise Scale', value: 0.001, min: 0.0005, max: 0.003, step: 0.0002 },
@@ -257,6 +258,7 @@ function createInstance(): VisualizationInstance {
       width = ctx.width;
       height = ctx.height;
       
+      const sensitivity = params.sensitivity as number || 1.5;
       const targetCount = params.particleCount as number || 600;
       const baseFieldStrength = params.fieldStrength as number || 1.5;
       const baseNoiseScale = params.noiseScale as number || 0.002;
@@ -284,9 +286,9 @@ function createInstance(): VisualizationInstance {
       smoothedAudio.treble += (rawTreble / 255 - smoothedAudio.treble) * SMOOTHING;
       smoothedAudio.energy += (rawEnergy / 255 - smoothedAudio.energy) * SMOOTHING;
 
-      const bass = smoothedAudio.bass;
-      const treble = smoothedAudio.treble;
-      const energy = smoothedAudio.energy;
+      const bass = Math.min(1, smoothedAudio.bass * sensitivity);
+      const treble = Math.min(1, smoothedAudio.treble * sensitivity);
+      const energy = Math.min(1, smoothedAudio.energy * sensitivity);
 
       const fieldStrength = baseFieldStrength * (0.5 + bass * 2);
       const noiseScale = baseNoiseScale * (0.6 + bass * 0.3);

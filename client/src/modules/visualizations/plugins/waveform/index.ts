@@ -15,6 +15,7 @@ const audioPreferences = {
 };
 
 const defaultParameters = {
+  sensitivity: { type: 'number' as const, label: 'Sensitivity', value: 1.5, min: 0.2, max: 5, step: 0.1 },
   amplitude: { type: 'number' as const, label: 'Amplitude', value: 1, min: 0.2, max: 3, step: 0.1 },
   smoothness: { type: 'number' as const, label: 'Smoothness', value: 0, min: 0, max: 1, step: 0.1 },
   lineWidth: { type: 'number' as const, label: 'Line Width', value: 3, min: 1, max: 8, step: 0.5 },
@@ -36,7 +37,8 @@ function createInstance(): VisualizationInstance {
     render(ctx: VisualizationRenderContext, audio: AudioFrameData, params: Record<string, number | string | boolean>) {
       const { width, height } = ctx;
       const context = ctx.ctx;
-      const amplitude = params.amplitude as number ?? 1;
+      const sensitivity = params.sensitivity as number || 1.5;
+      const amplitude = (params.amplitude as number ?? 1) * sensitivity;
       const smoothness = params.smoothness as number ?? 0;
       const lineWidth = params.lineWidth as number || 3;
       const glowIntensity = params.glowIntensity as number || 20;

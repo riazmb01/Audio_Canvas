@@ -28,6 +28,7 @@ const audioPreferences = {
 };
 
 const defaultParameters = {
+  sensitivity: { type: 'number' as const, label: 'Sensitivity', value: 1.5, min: 0.2, max: 5, step: 0.1 },
   pointCount: { type: 'number' as const, label: 'Points', value: 64, min: 16, max: 256, step: 8 },
   mode: { type: 'select' as const, label: 'Mode', value: 'rings', options: [
     { label: 'Radial Rings', value: 'rings' },
@@ -156,6 +157,7 @@ export const oscillatoryMotion: VisualizationModule = {
         width = ctx.width;
         height = ctx.height;
 
+        const sensitivity = params.sensitivity as number || 1.5;
         const pointCount = params.pointCount as number || 64;
         const mode = params.mode as string || 'rings';
         const amplitudeMax = params.amplitudeMax as number || 100;
@@ -201,10 +203,10 @@ export const oscillatoryMotion: VisualizationModule = {
         beatCooldown = Math.max(0, beatCooldown - 1);
         prevRawBass = rawBass;
 
-        const bass = smoothed.bass;
-        const mid = smoothed.mid;
-        const treble = smoothed.treble;
-        const energy = smoothed.energy;
+        const bass = Math.min(1, smoothed.bass * sensitivity);
+        const mid = Math.min(1, smoothed.mid * sensitivity);
+        const treble = Math.min(1, smoothed.treble * sensitivity);
+        const energy = Math.min(1, smoothed.energy * sensitivity);
 
         const amplitude = clamp(map(bass, 0, 1, 5, amplitudeMax), 5, amplitudeMax);
         const frequency = map(mid, 0, 1, 0.5, 4.0);

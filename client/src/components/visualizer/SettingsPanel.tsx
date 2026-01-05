@@ -23,8 +23,6 @@ export function SettingsPanel() {
     activeVisualizationId,
     parameters,
     setParameter,
-    sensitivity,
-    setSensitivity,
     showHintLabel,
     setShowHintLabel,
   } = useVisualizationStore();
@@ -146,27 +144,6 @@ export function SettingsPanel() {
             </TabsContent>
 
             <TabsContent value="audio" className="p-4 space-y-6 mt-0">
-              <div className="space-y-2">
-                <Label className="text-white/80">Global Sensitivity</Label>
-                <div className="flex items-center gap-3">
-                  <Slider
-                    value={[sensitivity]}
-                    onValueChange={(val) => setSensitivity(val[0])}
-                    min={0.2}
-                    max={5}
-                    step={0.1}
-                    className="flex-1"
-                    data-testid="slider-global-sensitivity"
-                  />
-                  <span className="text-white/60 text-xs w-10 text-right font-mono">
-                    {sensitivity.toFixed(1)}x
-                  </span>
-                </div>
-                <p className="text-white/40 text-xs">
-                  Adjust how responsive the visualization is to audio levels
-                </p>
-              </div>
-
               <div className="space-y-2">
                 <div className="flex items-center justify-between">
                   <Label className="text-white/80">Show Hint Label</Label>
