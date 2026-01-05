@@ -50,6 +50,7 @@ const defaultParameters = {
     { label: 'Monochrome', value: 'mono' },
   ]},
   colorSensitivity: { type: 'number' as const, label: 'Color Sensitivity', value: 1, min: 0.2, max: 3, step: 0.1 },
+  showLines: { type: 'boolean' as const, label: 'Show Lines', value: true },
 };
 
 class SimplexNoise {
@@ -264,6 +265,7 @@ function createInstance(): VisualizationInstance {
       const drag = params.drag as number || 0.96;
       const colorMode = params.colorMode as string || 'spectrum';
       const colorSensitivity = params.colorSensitivity as number || 1;
+      const showLines = params.showLines as boolean ?? true;
 
       const freqData = audio.frequencyData;
       let bassSum = 0, midSum = 0, trebleSum = 0, totalSum = 0;
@@ -399,7 +401,7 @@ function createInstance(): VisualizationInstance {
         
         if (moveDist < 1.2 && p.type !== 'anchor') continue;
         
-        if (moveDist > 0.5) {
+        if (showLines && moveDist > 0.5) {
           const strokeWidth = p.type === 'anchor' 
             ? p.size * (1.5 + treble * 0.5) 
             : p.size * (1 + treble * 0.3);
