@@ -26,6 +26,7 @@ const defaultParameters = {
     { label: 'Reactive', value: 'reactive' },
   ]},
   filled: { type: 'boolean' as const, label: 'Filled', value: false },
+  showGridLines: { type: 'boolean' as const, label: 'Grid Lines', value: true },
 };
 
 function createInstance(): VisualizationInstance {
@@ -41,6 +42,7 @@ function createInstance(): VisualizationInstance {
       const glowIntensity = params.glowIntensity as number || 20;
       const colorMode = params.colorMode as string || 'cyan';
       const filled = params.filled as boolean || false;
+      const showGridLines = params.showGridLines as boolean ?? true;
 
       context.clearRect(0, 0, width, height);
 
@@ -128,16 +130,18 @@ function createInstance(): VisualizationInstance {
 
       context.shadowBlur = 0;
 
-      context.strokeStyle = `${color.replace(')', ', 0.1)').replace('hsl', 'hsla')}`;
-      context.lineWidth = 1;
-      
-      const gridLines = 5;
-      for (let i = 1; i < gridLines; i++) {
-        const y = (height / gridLines) * i;
-        context.beginPath();
-        context.moveTo(0, y);
-        context.lineTo(width, y);
-        context.stroke();
+      if (showGridLines) {
+        context.strokeStyle = `${color.replace(')', ', 0.1)').replace('hsl', 'hsla')}`;
+        context.lineWidth = 1;
+        
+        const gridLineCount = 5;
+        for (let i = 1; i < gridLineCount; i++) {
+          const y = (height / gridLineCount) * i;
+          context.beginPath();
+          context.moveTo(0, y);
+          context.lineTo(width, y);
+          context.stroke();
+        }
       }
     },
 

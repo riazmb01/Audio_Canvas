@@ -13,6 +13,7 @@ interface VisualizationState {
   isSettingsOpen: boolean;
   sensitivity: number;
   demoMode: boolean;
+  showHintLabel: boolean;
   
   setActiveVisualization: (id: string) => void;
   setParameter: (vizId: string, paramId: string, value: number | string | boolean) => void;
@@ -24,6 +25,7 @@ interface VisualizationState {
   toggleSettings: () => void;
   setSensitivity: (value: number) => void;
   setDemoMode: (enabled: boolean) => void;
+  setShowHintLabel: (show: boolean) => void;
 }
  
 const defaultParameters: Record<string, Record<string, number | string | boolean>> = {};
@@ -45,6 +47,7 @@ export const useVisualizationStore = create<VisualizationState>((set) => ({
   isSettingsOpen: false,
   sensitivity: 1,
   demoMode: true,
+  showHintLabel: true,
 
   setActiveVisualization: (id) => set({ activeVisualizationId: id }),
   
@@ -73,4 +76,6 @@ export const useVisualizationStore = create<VisualizationState>((set) => ({
   setSensitivity: (value) => set({ sensitivity: value }),
   
   setDemoMode: (enabled) => set({ demoMode: enabled }),
+  
+  setShowHintLabel: (show) => set({ showHintLabel: show }),
 }));

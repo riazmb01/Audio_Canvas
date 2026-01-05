@@ -25,6 +25,8 @@ export function SettingsPanel() {
     setParameter,
     sensitivity,
     setSensitivity,
+    showHintLabel,
+    setShowHintLabel,
   } = useVisualizationStore();
 
   const activeViz = visualizationRegistry.get(activeVisualizationId);
@@ -150,8 +152,8 @@ export function SettingsPanel() {
                   <Slider
                     value={[sensitivity]}
                     onValueChange={(val) => setSensitivity(val[0])}
-                    min={0.5}
-                    max={3}
+                    min={0.2}
+                    max={5}
                     step={0.1}
                     className="flex-1"
                     data-testid="slider-global-sensitivity"
@@ -162,6 +164,20 @@ export function SettingsPanel() {
                 </div>
                 <p className="text-white/40 text-xs">
                   Adjust how responsive the visualization is to audio levels
+                </p>
+              </div>
+
+              <div className="space-y-2">
+                <div className="flex items-center justify-between">
+                  <Label className="text-white/80">Show Hint Label</Label>
+                  <Switch
+                    checked={showHintLabel}
+                    onCheckedChange={setShowHintLabel}
+                    data-testid="switch-hint-label"
+                  />
+                </div>
+                <p className="text-white/40 text-xs">
+                  Show "Press H to toggle UI" in the bottom right corner
                 </p>
               </div>
 

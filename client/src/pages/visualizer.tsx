@@ -7,7 +7,7 @@ import { KeyboardHandler } from '@/components/visualizer/KeyboardHandler';
 import { useVisualizationStore } from '@/state/visualizationStore';
 
 export default function Visualizer() {
-  const { toggleUI } = useVisualizationStore();
+  const { toggleUI, showHintLabel } = useVisualizationStore();
 
   const handleCanvasClick = () => {
     toggleUI();
@@ -32,9 +32,11 @@ export default function Visualizer() {
       <ControlDock />
       <SettingsPanel />
 
-      <div className="fixed bottom-4 right-4 z-30 text-white/30 text-xs font-mono pointer-events-none">
-        <span>Press H to toggle UI</span>
-      </div>
+      {showHintLabel && (
+        <div className="fixed bottom-4 right-4 z-30 text-white/30 text-xs font-mono pointer-events-none">
+          <span>Press H to toggle UI</span>
+        </div>
+      )}
     </div>
   );
 }
