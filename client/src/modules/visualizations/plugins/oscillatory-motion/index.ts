@@ -333,8 +333,8 @@ export const oscillatoryMotion: VisualizationModule = {
           
           const delta = treble * Math.PI * 0.5;
           
-          const A = Math.min(width, height) * 0.35 * (0.5 + bass * 0.5);
-          const B = Math.min(width, height) * 0.35 * (0.5 + mid * 0.5);
+          const A = Math.min(width, height) * 0.45 * (0.6 + bass * 0.4);
+          const B = Math.min(width, height) * 0.45 * (0.6 + mid * 0.4);
 
           for (let layer = 0; layer < 3; layer++) {
             const layerPhase = layer * 0.3;
