@@ -180,6 +180,8 @@ function createInstance(): VisualizationInstance {
   let beatCooldown = 0;
   let globalBrightness = 0;
   const SMOOTHING = 0.15;
+  let trailCanvas: HTMLCanvasElement | null = null;
+  let trailCtx: CanvasRenderingContext2D | null = null;
 
   function getParticleType(): ParticleType {
     const r = Math.random();
@@ -251,6 +253,14 @@ function createInstance(): VisualizationInstance {
       particles = Array.from({ length: 600 }, () => 
         respawnParticle(width, height, Math.random() * 360)
       );
+      trailCanvas = document.createElement('canvas');
+      trailCanvas.width = width;
+      trailCanvas.height = height;
+      trailCtx = trailCanvas.getContext('2d');
+      if (trailCtx) {
+        trailCtx.fillStyle = 'rgb(0, 0, 0)';
+        trailCtx.fillRect(0, 0, width, height);
+      }
     },
 
     render(ctx: VisualizationRenderContext, audio: AudioFrameData, params: Record<string, number | string | boolean>) {
@@ -307,18 +317,25 @@ function createInstance(): VisualizationInstance {
 
       time += ctx.deltaTime * timeScale * 0.001 * (0.8 + bass * 0.4);
 
-      if (showTrails) {
-        const fadeAmount = 0.04 + globalBrightness * 0.1;
-        context.globalCompositeOperation = 'destination-in';
-        context.fillStyle = `rgba(0, 0, 0, ${1 - fadeAmount})`;
-        context.fillRect(0, 0, width, height);
-        context.globalCompositeOperation = 'destination-over';
-        context.fillStyle = 'rgb(0, 0, 0)';
-        context.fillRect(0, 0, width, height);
-        context.globalCompositeOperation = 'source-over';
-      } else {
-        context.fillStyle = 'rgb(0, 0, 0)';
-        context.fillRect(0, 0, width, height);
+      if (!trailCanvas || trailCanvas.width !== width || trailCanvas.height !== height) {
+        trailCanvas = document.createElement('canvas');
+        trailCanvas.width = width;
+        trailCanvas.height = height;
+        trailCtx = trailCanvas.getContext('2d');
+        if (trailCtx) {
+          trailCtx.fillStyle = 'rgb(0, 0, 0)';
+          trailCtx.fillRect(0, 0, width, height);
+        }
+      }
+
+      context.fillStyle = 'rgb(0, 0, 0)';
+      context.fillRect(0, 0, width, height);
+      
+      if (showTrails && trailCtx && trailCanvas) {
+        const fadeAmount = 0.96 - globalBrightness * 0.1;
+        context.globalAlpha = fadeAmount;
+        context.drawImage(trailCanvas, 0, 0);
+        context.globalAlpha = 1;
       }
 
       while (particles.length < targetCount) {
@@ -349,10 +366,10 @@ function createInstance(): VisualizationInstance {
 
         const dx = p.x - cx;
         const dy = p.y - cy;
-        const dist = Math.sqrt(dx * dx + dy * dy) + 0.0001;
+        const distToCenter = Math.sqrt(dx * dx + dy * dy) + 0.0001;
         const globalSpin = 0.0004 * (0.5 + bass);
-        p.vx += -dy / dist * globalSpin;
-        p.vy += dx / dist * globalSpin;
+        p.vx += -dy / distToCenter * globalSpin;
+        p.vy += dx / distToCenter * globalSpin;
 
         if (p.type !== 'anchor') {
           for (const anchor of anchors) {
@@ -434,6 +451,12 @@ function createInstance(): VisualizationInstance {
           context.fill();
         }
       }
+
+      if (showTrails && trailCtx) {
+        trailCtx.fillStyle = 'rgb(0, 0, 0)';
+        trailCtx.fillRect(0, 0, width, height);
+        trailCtx.drawImage(context.canvas, 0, 0);
+      }
     },
 
     resize(ctx: VisualizationRenderContext) {
@@ -443,6 +466,8 @@ function createInstance(): VisualizationInstance {
 
     destroy() {
       particles = [];
+      trailCanvas = null;
+      trailCtx = null;
     },
   };
 }

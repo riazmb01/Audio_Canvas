@@ -104,6 +104,9 @@ export const oscillatoryMotion: VisualizationModule = {
     let lissajousA = 2;
     let lissajousB = 3;
     
+    let trailCanvas: HTMLCanvasElement | null = null;
+    let trailCtx: CanvasRenderingContext2D | null = null;
+    
     interface Particle {
       baseX: number;
       baseY: number;
@@ -218,18 +221,25 @@ export const oscillatoryMotion: VisualizationModule = {
 
         time += 0.016 * baseSpeed;
 
-        if (showTrails) {
-          const fadeAmount = clamp(0.08 + energy * 0.12, 0, 0.2);
-          context.globalCompositeOperation = 'destination-in';
-          context.fillStyle = `rgba(0, 0, 0, ${1 - fadeAmount})`;
-          context.fillRect(0, 0, width, height);
-          context.globalCompositeOperation = 'destination-over';
-          context.fillStyle = 'rgb(0, 0, 0)';
-          context.fillRect(0, 0, width, height);
-          context.globalCompositeOperation = 'source-over';
-        } else {
-          context.fillStyle = 'rgb(0, 0, 0)';
-          context.fillRect(0, 0, width, height);
+        if (!trailCanvas || trailCanvas.width !== width || trailCanvas.height !== height) {
+          trailCanvas = document.createElement('canvas');
+          trailCanvas.width = width;
+          trailCanvas.height = height;
+          trailCtx = trailCanvas.getContext('2d');
+          if (trailCtx) {
+            trailCtx.fillStyle = 'rgb(0, 0, 0)';
+            trailCtx.fillRect(0, 0, width, height);
+          }
+        }
+
+        context.fillStyle = 'rgb(0, 0, 0)';
+        context.fillRect(0, 0, width, height);
+        
+        if (showTrails && trailCtx && trailCanvas) {
+          const fadeAmount = 0.92 - energy * 0.08;
+          context.globalAlpha = fadeAmount;
+          context.drawImage(trailCanvas, 0, 0);
+          context.globalAlpha = 1;
         }
 
         const cx = width / 2;
@@ -365,6 +375,12 @@ export const oscillatoryMotion: VisualizationModule = {
             context.fill();
           }
         }
+
+        if (showTrails && trailCtx) {
+          trailCtx.fillStyle = 'rgb(0, 0, 0)';
+          trailCtx.fillRect(0, 0, width, height);
+          trailCtx.drawImage(context.canvas, 0, 0);
+        }
       },
 
       resize(ctx: VisualizationRenderContext) {
@@ -376,6 +392,8 @@ export const oscillatoryMotion: VisualizationModule = {
       destroy() {
         particles = [];
         oscillators.length = 0;
+        trailCanvas = null;
+        trailCtx = null;
       },
     };
   },
