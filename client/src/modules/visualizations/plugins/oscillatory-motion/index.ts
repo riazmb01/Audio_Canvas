@@ -219,11 +219,17 @@ export const oscillatoryMotion: VisualizationModule = {
         time += 0.016 * baseSpeed;
 
         if (showTrails) {
-          const fadeSpeed = clamp(0.08 + energy * 0.12, 0, 0.2);
-          context.fillStyle = `rgba(0, 0, 0, ${fadeSpeed})`;
+          const fadeAmount = clamp(0.08 + energy * 0.12, 0, 0.2);
+          context.globalCompositeOperation = 'destination-in';
+          context.fillStyle = `rgba(0, 0, 0, ${1 - fadeAmount})`;
           context.fillRect(0, 0, width, height);
+          context.globalCompositeOperation = 'destination-over';
+          context.fillStyle = 'rgb(0, 0, 0)';
+          context.fillRect(0, 0, width, height);
+          context.globalCompositeOperation = 'source-over';
         } else {
-          context.clearRect(0, 0, width, height);
+          context.fillStyle = 'rgb(0, 0, 0)';
+          context.fillRect(0, 0, width, height);
         }
 
         const cx = width / 2;

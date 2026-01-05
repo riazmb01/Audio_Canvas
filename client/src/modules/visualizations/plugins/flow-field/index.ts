@@ -307,13 +307,18 @@ function createInstance(): VisualizationInstance {
 
       time += ctx.deltaTime * timeScale * 0.001 * (0.8 + bass * 0.4);
 
-      const fadeSpeed = showTrails ? 0.04 + globalBrightness * 0.1 : 1;
-      
       if (showTrails) {
-        context.fillStyle = `rgba(0, 0, 0, ${fadeSpeed})`;
+        const fadeAmount = 0.04 + globalBrightness * 0.1;
+        context.globalCompositeOperation = 'destination-in';
+        context.fillStyle = `rgba(0, 0, 0, ${1 - fadeAmount})`;
         context.fillRect(0, 0, width, height);
+        context.globalCompositeOperation = 'destination-over';
+        context.fillStyle = 'rgb(0, 0, 0)';
+        context.fillRect(0, 0, width, height);
+        context.globalCompositeOperation = 'source-over';
       } else {
-        context.clearRect(0, 0, width, height);
+        context.fillStyle = 'rgb(0, 0, 0)';
+        context.fillRect(0, 0, width, height);
       }
 
       while (particles.length < targetCount) {
