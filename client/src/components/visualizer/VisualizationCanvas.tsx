@@ -181,9 +181,16 @@ export function VisualizationCanvas() {
           scaledFrequencyData[i] = Math.min(255, Math.round(amplified));
         }
 
+        const scaledWaveformData = new Uint8Array(audioData.waveformData.length);
+        for (let i = 0; i < audioData.waveformData.length; i++) {
+          const centered = audioData.waveformData[i] - 128;
+          const scaled = centered * sensitivity;
+          scaledWaveformData[i] = Math.max(0, Math.min(255, Math.round(128 + scaled)));
+        }
+
         currentAudioData = {
           frequencyData: scaledFrequencyData,
-          waveformData: audioData.waveformData,
+          waveformData: scaledWaveformData,
           averageFrequency: audioData.averageFrequency * amplifiedSensitivity,
           bassLevel: audioData.bassLevel * amplifiedSensitivity,
           midLevel: audioData.midLevel * amplifiedSensitivity,
