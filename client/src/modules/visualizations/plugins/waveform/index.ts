@@ -63,32 +63,50 @@ function createInstance(): VisualizationInstance {
       context.lineJoin = 'round';
 
       const centerY = height / 2;
+      
+      const sampleStep = Math.max(1, Math.floor(1 + smoothness * 31));
       const points: { x: number; y: number }[] = [];
       
-      for (let i = 0; i < bufferLength; i++) {
-        const v = (audio.waveformData[i] / 128.0) - 1;
+      for (let i = 0; i < bufferLength; i += sampleStep) {
+        let sum = 0;
+        let count = 0;
+        for (let j = i; j < Math.min(i + sampleStep, bufferLength); j++) {
+          sum += audio.waveformData[j];
+          count++;
+        }
+        const avg = sum / count;
+        const v = (avg / 128.0) - 1;
         const y = centerY + v * (height / 2) * amplitude;
-        points.push({ x: i * sliceWidth, y });
+        points.push({ x: (i + sampleStep / 2) * sliceWidth, y });
+      }
+      
+      if (points.length > 0) {
+        points[0].x = 0;
+        points[points.length - 1].x = width;
       }
 
       context.beginPath();
-      context.moveTo(points[0].x, points[0].y);
-
-      if (smoothness > 0) {
-        for (let i = 1; i < points.length - 1; i++) {
-          const prev = points[i - 1];
-          const curr = points[i];
-          const next = points[i + 1];
+      
+      if (smoothness > 0.3 && points.length >= 4) {
+        const tension = 0.3 + smoothness * 0.4;
+        
+        context.moveTo(points[0].x, points[0].y);
+        
+        for (let i = 0; i < points.length - 1; i++) {
+          const p0 = points[Math.max(0, i - 1)];
+          const p1 = points[i];
+          const p2 = points[Math.min(points.length - 1, i + 1)];
+          const p3 = points[Math.min(points.length - 1, i + 2)];
           
-          const cpX1 = prev.x + (curr.x - prev.x) * (0.5 + smoothness * 0.3);
-          const cpY1 = prev.y + (curr.y - prev.y) * smoothness;
-          const cpX2 = curr.x - (next.x - prev.x) * 0.1 * smoothness;
-          const cpY2 = curr.y;
+          const cp1x = p1.x + (p2.x - p0.x) * tension / 3;
+          const cp1y = p1.y + (p2.y - p0.y) * tension / 3;
+          const cp2x = p2.x - (p3.x - p1.x) * tension / 3;
+          const cp2y = p2.y - (p3.y - p1.y) * tension / 3;
           
-          context.bezierCurveTo(cpX1, cpY1, cpX2, cpY2, curr.x, curr.y);
+          context.bezierCurveTo(cp1x, cp1y, cp2x, cp2y, p2.x, p2.y);
         }
-        context.lineTo(points[points.length - 1].x, points[points.length - 1].y);
       } else {
+        context.moveTo(points[0].x, points[0].y);
         for (let i = 1; i < points.length; i++) {
           context.lineTo(points[i].x, points[i].y);
         }
