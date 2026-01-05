@@ -334,7 +334,7 @@ function createInstance(): VisualizationInstance {
         
         if (trails) {
           p.history.push({ x: p.x, y: p.y });
-          if (p.history.length > trailLength) {
+          while (p.history.length > trailLength) {
             p.history.shift();
           }
         } else {
