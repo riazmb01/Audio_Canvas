@@ -3,6 +3,7 @@ import { frequencyBars } from './plugins/frequency-bars';
 import { waveform } from './plugins/waveform';
 import { circularSpectrum } from './plugins/circular-spectrum';
 import { particles } from './plugins/particles';
+import { flowField } from './plugins/flow-field';
 
 class VisualizationRegistry {
   private visualizations: Map<string, VisualizationModule> = new Map();
@@ -12,6 +13,7 @@ class VisualizationRegistry {
     this.register(waveform);
     this.register(circularSpectrum);
     this.register(particles);
+    this.register(flowField);
   }
 
   register(module: VisualizationModule): void {
