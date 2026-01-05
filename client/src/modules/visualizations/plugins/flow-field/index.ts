@@ -34,7 +34,7 @@ const audioPreferences = {
 
 const defaultParameters = {
   particleCount: { type: 'number' as const, label: 'Particles', value: 800, min: 200, max: 2000, step: 100 },
-  fieldStrength: { type: 'number' as const, label: 'Field Strength', value: 1, min: 0.2, max: 3, step: 0.1 },
+  fieldStrength: { type: 'number' as const, label: 'Field Strength', value: 1, min: 0.1, max: 10, step: 0.1 },
   noiseScale: { type: 'number' as const, label: 'Noise Scale', value: 0.003, min: 0.001, max: 0.01, step: 0.001 },
   timeScale: { type: 'number' as const, label: 'Flow Speed', value: 0.5, min: 0.1, max: 2, step: 0.1 },
   drag: { type: 'number' as const, label: 'Drag', value: 0.97, min: 0.9, max: 0.99, step: 0.01 },
