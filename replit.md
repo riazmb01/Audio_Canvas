@@ -7,12 +7,20 @@ A real-time audio visualization web application with an extensible plugin-based 
 This application captures audio from your microphone or screen share and renders beautiful, reactive visualizations in real-time using the Web Audio API and HTML5 Canvas.
 
 ### Features
-- **Multiple Visualization Styles**: Frequency Bars, Waveform, Circular Spectrum, and Particle Storm
+- **Multiple Visualization Styles**: Frequency Bars, Waveform, Circular Spectrum, Particle Storm, Flow Field, and Oscillatory Motion
 - **Audio Source Options**: Microphone input or screen audio capture
 - **Customizable Parameters**: Each visualization has adjustable settings
 - **Keyboard Shortcuts**: Quick access to all features
 - **Dark Theme**: Full-screen immersive experience
 - **Extensible Architecture**: Easy to add new visualization plugins
+
+### Oscillatory Motion
+The Oscillatory Motion visualization features rhythmic, breathing visuals synchronized to music:
+- **Multi-oscillator formula**: `lerp(osc1, osc1 + 0.5*osc2, energyBlend)`
+- **Audio mapping**: Bass→amplitude, Mid→frequency, Treble→phase velocity, Energy→oscillator blend
+- **Beat-locked phase resets**: Phase snaps to 0 or π/2 on detected beats for strong accents
+- **Three modes**: Radial Rings, Particles, Lissajous figures
+- **Lissajous mode**: Audio-driven ratios (a=bass 1-5, b=mid 2-7, delta=treble*π/2)
 
 ## Architecture
 
@@ -38,7 +46,9 @@ client/src/
 │           ├── frequency-bars/
 │           ├── waveform/
 │           ├── circular-spectrum/
-│           └── particles/
+│           ├── particles/
+│           ├── flow-field/
+│           └── oscillatory-motion/
 ├── state/
 │   └── visualizationStore.ts   # Zustand state management
 ├── components/visualizer/
