@@ -14,7 +14,6 @@ interface Particle {
   size: number;
   hue: number;
   type: ParticleType;
-  history: { x: number; y: number }[];
 }
 
 interface SmoothedAudio {
@@ -51,9 +50,6 @@ const defaultParameters = {
     { label: 'Monochrome', value: 'mono' },
   ]},
   colorSensitivity: { type: 'number' as const, label: 'Color Sensitivity', value: 1, min: 0.2, max: 3, step: 0.1 },
-  showLines: { type: 'boolean' as const, label: 'Show Lines', value: true },
-  trails: { type: 'boolean' as const, label: 'Trails', value: true },
-  trailLength: { type: 'number' as const, label: 'Trail Length', value: 20, min: 5, max: 50, step: 5 },
 };
 
 class SimplexNoise {
@@ -210,7 +206,6 @@ function createInstance(): VisualizationInstance {
       size: baseSize + Math.random() * 0.5,
       hue: hue,
       type,
-      history: [],
     };
   }
 
@@ -269,9 +264,6 @@ function createInstance(): VisualizationInstance {
       const drag = params.drag as number || 0.96;
       const colorMode = params.colorMode as string || 'spectrum';
       const colorSensitivity = params.colorSensitivity as number || 1;
-      const showLines = params.showLines as boolean ?? true;
-      const trails = params.trails as boolean ?? true;
-      const trailLength = params.trailLength as number || 20;
 
       const freqData = audio.frequencyData;
       let bassSum = 0, midSum = 0, trebleSum = 0, totalSum = 0;
@@ -331,15 +323,6 @@ function createInstance(): VisualizationInstance {
         
         p.px = p.x;
         p.py = p.y;
-        
-        if (trails) {
-          p.history.push({ x: p.x, y: p.y });
-          while (p.history.length > trailLength) {
-            p.history.shift();
-          }
-        } else {
-          p.history = [];
-        }
         
         const curl = getCurlNoise(p.x, p.y, time, noiseScale);
         
@@ -416,46 +399,18 @@ function createInstance(): VisualizationInstance {
         
         if (moveDist < 1.2 && p.type !== 'anchor') continue;
         
-        if (showLines) {
+        if (moveDist > 0.5) {
           const strokeWidth = p.type === 'anchor' 
             ? p.size * (1.5 + treble * 0.5) 
             : p.size * (1 + treble * 0.3);
           
-          if (trails && p.history.length > 1) {
-            context.lineCap = 'round';
-            context.lineJoin = 'round';
-            
-            for (let j = 1; j < p.history.length; j++) {
-              const prev = p.history[j - 1];
-              const curr = p.history[j];
-              const segmentAlpha = alpha * (j / p.history.length);
-              
-              context.beginPath();
-              context.moveTo(prev.x, prev.y);
-              context.lineTo(curr.x, curr.y);
-              context.strokeStyle = `hsla(${hue}, ${saturation}%, ${lightness}%, ${segmentAlpha})`;
-              context.lineWidth = strokeWidth * (0.3 + 0.7 * (j / p.history.length));
-              context.stroke();
-            }
-            
-            if (p.history.length > 0) {
-              const last = p.history[p.history.length - 1];
-              context.beginPath();
-              context.moveTo(last.x, last.y);
-              context.lineTo(p.x, p.y);
-              context.strokeStyle = `hsla(${hue}, ${saturation}%, ${lightness}%, ${alpha})`;
-              context.lineWidth = strokeWidth;
-              context.stroke();
-            }
-          } else if (moveDist > 0.5) {
-            context.beginPath();
-            context.moveTo(p.px, p.py);
-            context.lineTo(p.x, p.y);
-            context.strokeStyle = `hsla(${hue}, ${saturation}%, ${lightness}%, ${alpha})`;
-            context.lineWidth = strokeWidth;
-            context.lineCap = 'round';
-            context.stroke();
-          }
+          context.beginPath();
+          context.moveTo(p.px, p.py);
+          context.lineTo(p.x, p.y);
+          context.strokeStyle = `hsla(${hue}, ${saturation}%, ${lightness}%, ${alpha})`;
+          context.lineWidth = strokeWidth;
+          context.lineCap = 'round';
+          context.stroke();
         }
 
         if (p.type === 'anchor') {
