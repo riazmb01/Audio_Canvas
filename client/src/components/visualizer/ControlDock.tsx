@@ -164,8 +164,8 @@ export function ControlDock() {
             <Slider
               value={[sensitivity]}
               onValueChange={(val) => setSensitivity(val[0])}
-              min={0.5}
-              max={3}
+              min={0.2}
+              max={5}
               step={0.1}
               className="w-24"
               data-testid="slider-sensitivity"
