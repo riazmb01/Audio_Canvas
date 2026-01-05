@@ -4,6 +4,7 @@ import { waveform } from './plugins/waveform';
 import { circularSpectrum } from './plugins/circular-spectrum';
 import { particles } from './plugins/particles';
 import { flowField } from './plugins/flow-field';
+import { oscillatoryMotion } from './plugins/oscillatory-motion';
 
 class VisualizationRegistry {
   private visualizations: Map<string, VisualizationModule> = new Map();
@@ -14,6 +15,7 @@ class VisualizationRegistry {
     this.register(circularSpectrum);
     this.register(particles);
     this.register(flowField);
+    this.register(oscillatoryMotion);
   }
 
   register(module: VisualizationModule): void {
