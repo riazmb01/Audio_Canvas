@@ -90,7 +90,8 @@ function createInstance(): VisualizationInstance {
         const octaveBoost = 1 + (i / barCount) * 0.5;
         const normalizedValue = Math.min(1, (maxValue / 255) * octaveBoost);
         
-        const targetHeight = normalizedValue * height * sensitivity * 0.8;
+        const visualScale = 0.3 + Math.sqrt(sensitivity) * 0.35;
+        const targetHeight = Math.min(height * 0.95, normalizedValue * height * visualScale);
         
         barHeights[i] = barHeights[i] + (targetHeight - barHeights[i]) * 0.3;
         const barHeight = Math.max(2, barHeights[i]);
