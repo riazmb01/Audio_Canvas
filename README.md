@@ -68,6 +68,28 @@ Bass drives amplitude, mids control frequency, and treble adjusts phase velocity
 - Web Audio API
 - HTML5 Canvas
 
+## Deployment
+
+### GitHub Pages
+
+This project includes a GitHub Actions workflow for automatic deployment:
+
+1. Push your code to a GitHub repository
+2. Go to **Settings > Pages** and set the source to "GitHub Actions"
+3. Push to the `main` branch to trigger a deployment
+
+The workflow automatically detects your repository name and sets the correct base path. Your site will be available at `https://username.github.io/repo-name/`.
+
+### Manual Build
+
+To build for static hosting:
+
+```bash
+npx vite build --config vite.config.gh-pages.ts
+```
+
+The output will be in the `dist` folder, ready to deploy to any static host.
+
 ---
 
 MIT License
