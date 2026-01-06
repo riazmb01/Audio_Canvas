@@ -80,6 +80,8 @@ This project includes a GitHub Actions workflow for automatic deployment:
 
 The workflow automatically detects your repository name and sets the correct base path. Your site will be available at `https://username.github.io/repo-name/`.
 
+Additionally, this project can be found live at https://riazmb01.github.io/Audio_Canvas/
+
 ### Manual Build
 
 To build for static hosting:
