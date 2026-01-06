@@ -28,24 +28,24 @@ const audioPreferences = {
 };
 
 const defaultParameters = {
-  sensitivity: { type: 'number' as const, label: 'Sensitivity', value: 1.5, min: 0.2, max: 5, step: 0.1 },
-  pointCount: { type: 'number' as const, label: 'Points', value: 64, min: 16, max: 256, step: 8 },
-  mode: { type: 'select' as const, label: 'Mode', value: 'rings', options: [
+  sensitivity: { type: 'number' as const, label: 'Sensitivity', value: 4.5, min: 0.2, max: 5, step: 0.1 },
+  pointCount: { type: 'number' as const, label: 'Points', value: 160, min: 16, max: 256, step: 8 },
+  mode: { type: 'select' as const, label: 'Mode', value: 'lissajous', options: [
     { label: 'Radial Rings', value: 'rings' },
     { label: 'Particles', value: 'particles' },
     { label: 'Lissajous', value: 'lissajous' },
   ]},
-  amplitudeMax: { type: 'number' as const, label: 'Max Amplitude', value: 100, min: 20, max: 200, step: 10 },
-  baseSpeed: { type: 'number' as const, label: 'Base Speed', value: 1, min: 0.1, max: 3, step: 0.1 },
-  ringCount: { type: 'number' as const, label: 'Ring Count', value: 5, min: 1, max: 12, step: 1 },
-  trails: { type: 'boolean' as const, label: 'Trails', value: false },
+  amplitudeMax: { type: 'number' as const, label: 'Max Amplitude', value: 120, min: 20, max: 200, step: 10 },
+  baseSpeed: { type: 'number' as const, label: 'Base Speed', value: 1.5, min: 0.1, max: 3, step: 0.1 },
+  ringCount: { type: 'number' as const, label: 'Ring Count', value: 8, min: 1, max: 12, step: 1 },
+  trails: { type: 'boolean' as const, label: 'Trails', value: true },
   colorMode: { type: 'select' as const, label: 'Color', value: 'spectrum', options: [
     { label: 'Spectrum', value: 'spectrum' },
     { label: 'Ocean', value: 'ocean' },
     { label: 'Fire', value: 'fire' },
     { label: 'Mono', value: 'mono' },
   ]},
-  colorSensitivity: { type: 'number' as const, label: 'Color Sensitivity', value: 1, min: 0.2, max: 3, step: 0.1 },
+  colorSensitivity: { type: 'number' as const, label: 'Color Sensitivity', value: 1.5, min: 0.2, max: 3, step: 0.1 },
 };
 
 function map(value: number, inMin: number, inMax: number, outMin: number, outMax: number): number {

@@ -45,7 +45,7 @@ export const useVisualizationStore = create<VisualizationState>((set) => ({
   isUIVisible: true,
   isSidebarOpen: false,
   isSettingsOpen: false,
-  sensitivity: 1,
+  sensitivity: 4,
   demoMode: true,
   showHintLabel: true,
 

@@ -15,16 +15,16 @@ const audioPreferences = {
 };
 
 const defaultParameters = {
-  barCount: { type: 'number' as const, label: 'Bar Count', value: 64, min: 16, max: 128, step: 8 },
-  barGap: { type: 'number' as const, label: 'Gap Size', value: 2, min: 0, max: 8, step: 1 },
+  barCount: { type: 'number' as const, label: 'Bar Count', value: 128, min: 16, max: 128, step: 8 },
+  barGap: { type: 'number' as const, label: 'Gap Size', value: 5, min: 0, max: 8, step: 1 },
   colorMode: { type: 'select' as const, label: 'Color Mode', value: 'gradient', options: [
     { label: 'Gradient', value: 'gradient' },
     { label: 'Solid', value: 'solid' },
     { label: 'Rainbow', value: 'rainbow' },
     { label: 'Reactive', value: 'reactive' },
   ]},
-  sensitivity: { type: 'number' as const, label: 'Sensitivity', value: 1.5, min: 0.2, max: 5, step: 0.1 },
-  mirror: { type: 'boolean' as const, label: 'Mirror Effect', value: false },
+  sensitivity: { type: 'number' as const, label: 'Sensitivity', value: 1, min: 0.2, max: 5, step: 0.1 },
+  mirror: { type: 'boolean' as const, label: 'Mirror Effect', value: true },
 };
 
 function createInstance(): VisualizationInstance {

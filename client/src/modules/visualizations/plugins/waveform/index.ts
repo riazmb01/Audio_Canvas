@@ -15,18 +15,18 @@ const audioPreferences = {
 };
 
 const defaultParameters = {
-  sensitivity: { type: 'number' as const, label: 'Sensitivity', value: 1.5, min: 0.2, max: 5, step: 0.1 },
-  amplitude: { type: 'number' as const, label: 'Amplitude', value: 1, min: 0.2, max: 3, step: 0.1 },
-  smoothness: { type: 'number' as const, label: 'Smoothness', value: 0, min: 0, max: 1, step: 0.1 },
+  sensitivity: { type: 'number' as const, label: 'Sensitivity', value: 1, min: 0.2, max: 5, step: 0.1 },
+  amplitude: { type: 'number' as const, label: 'Amplitude', value: 0.7, min: 0.2, max: 3, step: 0.1 },
+  smoothness: { type: 'number' as const, label: 'Smoothness', value: 0.8, min: 0, max: 1, step: 0.1 },
   lineWidth: { type: 'number' as const, label: 'Line Width', value: 3, min: 1, max: 8, step: 0.5 },
-  glowIntensity: { type: 'number' as const, label: 'Glow', value: 20, min: 0, max: 50, step: 5 },
-  colorMode: { type: 'select' as const, label: 'Color', value: 'cyan', options: [
+  glowIntensity: { type: 'number' as const, label: 'Glow', value: 40, min: 0, max: 50, step: 5 },
+  colorMode: { type: 'select' as const, label: 'Color', value: 'reactive', options: [
     { label: 'Cyan', value: 'cyan' },
     { label: 'Purple', value: 'purple' },
     { label: 'Green', value: 'green' },
     { label: 'Reactive', value: 'reactive' },
   ]},
-  filled: { type: 'boolean' as const, label: 'Filled', value: false },
+  filled: { type: 'boolean' as const, label: 'Filled', value: true },
   showGridLines: { type: 'boolean' as const, label: 'Grid Lines', value: true },
 };
 
