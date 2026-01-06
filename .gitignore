@@ -4,3 +4,19 @@ dist
 server/public
 vite.config.ts.*
 *.tar.gz
+
+# Replit files
+replit.md
+.replit
+replit.nix
+.replit.nix
+.breakpoints
+.cache
+.upm
+
+# AI/Generated content markers
+design_guidelines.md
+.cursor
+.aider*
+.claude*
+.ai_*
