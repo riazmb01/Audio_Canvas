@@ -1,0 +1,238 @@
+2026-01-06T05:13:47.1278330Z Current runner version: '2.330.0'
+2026-01-06T05:13:47.1302459Z ##[group]Runner Image Provisioner
+2026-01-06T05:13:47.1303234Z Hosted Compute Agent
+2026-01-06T05:13:47.1303729Z Version: 20251211.462
+2026-01-06T05:13:47.1304420Z Commit: 6cbad8c2bb55d58165063d031ccabf57e2d2db61
+2026-01-06T05:13:47.1305076Z Build Date: 2025-12-11T16:28:49Z
+2026-01-06T05:13:47.1305929Z Worker ID: {bee0000b-f0e5-4237-acf4-39277e7050c4}
+2026-01-06T05:13:47.1306714Z ##[endgroup]
+2026-01-06T05:13:47.1307232Z ##[group]Operating System
+2026-01-06T05:13:47.1307760Z Ubuntu
+2026-01-06T05:13:47.1308573Z 24.04.3
+2026-01-06T05:13:47.1309025Z LTS
+2026-01-06T05:13:47.1309432Z ##[endgroup]
+2026-01-06T05:13:47.1310013Z ##[group]Runner Image
+2026-01-06T05:13:47.1310503Z Image: ubuntu-24.04
+2026-01-06T05:13:47.1310997Z Version: 20251215.174.1
+2026-01-06T05:13:47.1312033Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20251215.174/images/ubuntu/Ubuntu2404-Readme.md
+2026-01-06T05:13:47.1313589Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20251215.174
+2026-01-06T05:13:47.1314626Z ##[endgroup]
+2026-01-06T05:13:47.1315644Z ##[group]GITHUB_TOKEN Permissions
+2026-01-06T05:13:47.1317502Z Contents: read
+2026-01-06T05:13:47.1318017Z Metadata: read
+2026-01-06T05:13:47.1318682Z Pages: write
+2026-01-06T05:13:47.1319250Z ##[endgroup]
+2026-01-06T05:13:47.1321243Z Secret source: Actions
+2026-01-06T05:13:47.1321912Z Prepare workflow directory
+2026-01-06T05:13:47.1715012Z Prepare all required actions
+2026-01-06T05:13:47.1770483Z Getting action download info
+2026-01-06T05:13:47.5760980Z Download action repository 'actions/checkout@v4' (SHA:34e114876b0b11c390a56381ad16ebd13914f8d5)
+2026-01-06T05:13:47.7093398Z Download action repository 'actions/setup-node@v4' (SHA:49933ea5288caeca8642d1e84afbd3f7d6820020)
+2026-01-06T05:13:47.7994541Z Download action repository 'actions/configure-pages@v4' (SHA:1f0c5cde4bc74cd7e1254d0cb4de8d49e9068c7d)
+2026-01-06T05:13:48.3524387Z Download action repository 'actions/upload-pages-artifact@v3' (SHA:56afc609e74202658d3ffba0e8f6dda462b719fa)
+2026-01-06T05:13:48.7557807Z Getting action download info
+2026-01-06T05:13:48.8996291Z Download action repository 'actions/upload-artifact@v4' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+2026-01-06T05:13:49.0452219Z Complete job name: build
+2026-01-06T05:13:49.1252769Z ##[group]Run actions/checkout@v4
+2026-01-06T05:13:49.1254035Z with:
+2026-01-06T05:13:49.1254776Z   repository: riazmb01/Audio_Canvas
+2026-01-06T05:13:49.1256009Z   token: ***
+2026-01-06T05:13:49.1256741Z   ssh-strict: true
+2026-01-06T05:13:49.1257489Z   ssh-user: git
+2026-01-06T05:13:49.1258412Z   persist-credentials: true
+2026-01-06T05:13:49.1259285Z   clean: true
+2026-01-06T05:13:49.1260072Z   sparse-checkout-cone-mode: true
+2026-01-06T05:13:49.1261016Z   fetch-depth: 1
+2026-01-06T05:13:49.1261754Z   fetch-tags: false
+2026-01-06T05:13:49.1262518Z   show-progress: true
+2026-01-06T05:13:49.1263299Z   lfs: false
+2026-01-06T05:13:49.1264060Z   submodules: false
+2026-01-06T05:13:49.1264858Z   set-safe-directory: true
+2026-01-06T05:13:49.1265963Z ##[endgroup]
+2026-01-06T05:13:49.2400494Z Syncing repository: riazmb01/Audio_Canvas
+2026-01-06T05:13:49.2403034Z ##[group]Getting Git version info
+2026-01-06T05:13:49.2404597Z Working directory is '/home/runner/work/Audio_Canvas/Audio_Canvas'
+2026-01-06T05:13:49.2406856Z [command]/usr/bin/git version
+2026-01-06T05:13:49.2477561Z git version 2.52.0
+2026-01-06T05:13:49.2505303Z ##[endgroup]
+2026-01-06T05:13:49.2528510Z Temporarily overriding HOME='/home/runner/work/_temp/e96f13b8-4f6c-46eb-a767-c158ccd35be1' before making global git config changes
+2026-01-06T05:13:49.2531624Z Adding repository directory to the temporary git global config as a safe directory
+2026-01-06T05:13:49.2534433Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/Audio_Canvas/Audio_Canvas
+2026-01-06T05:13:49.2577353Z Deleting the contents of '/home/runner/work/Audio_Canvas/Audio_Canvas'
+2026-01-06T05:13:49.2580562Z ##[group]Initializing the repository
+2026-01-06T05:13:49.2584955Z [command]/usr/bin/git init /home/runner/work/Audio_Canvas/Audio_Canvas
+2026-01-06T05:13:49.2687782Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-01-06T05:13:49.2690321Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-01-06T05:13:49.2693268Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-01-06T05:13:49.2695579Z hint: call:
+2026-01-06T05:13:49.2696476Z hint:
+2026-01-06T05:13:49.2697752Z hint: 	git config --global init.defaultBranch <name>
+2026-01-06T05:13:49.2699338Z hint:
+2026-01-06T05:13:49.2700968Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-01-06T05:13:49.2702958Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-01-06T05:13:49.2704586Z hint:
+2026-01-06T05:13:49.2705806Z hint: 	git branch -m <name>
+2026-01-06T05:13:49.2706831Z hint:
+2026-01-06T05:13:49.2708321Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-01-06T05:13:49.2710471Z Initialized empty Git repository in /home/runner/work/Audio_Canvas/Audio_Canvas/.git/
+2026-01-06T05:13:49.2713640Z [command]/usr/bin/git remote add origin https://github.com/riazmb01/Audio_Canvas
+2026-01-06T05:13:49.2742856Z ##[endgroup]
+2026-01-06T05:13:49.2744185Z ##[group]Disabling automatic garbage collection
+2026-01-06T05:13:49.2746233Z [command]/usr/bin/git config --local gc.auto 0
+2026-01-06T05:13:49.2776166Z ##[endgroup]
+2026-01-06T05:13:49.2777422Z ##[group]Setting up auth
+2026-01-06T05:13:49.2782762Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-01-06T05:13:49.2813260Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-01-06T05:13:49.3165960Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-01-06T05:13:49.3196257Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-01-06T05:13:49.3425373Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-01-06T05:13:49.3473224Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-01-06T05:13:49.3707709Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-01-06T05:13:49.3744576Z ##[endgroup]
+2026-01-06T05:13:49.3745914Z ##[group]Fetching the repository
+2026-01-06T05:13:49.3754095Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +6f2e615d99bf2f289058c043caef685bcae67fc4:refs/remotes/origin/main
+2026-01-06T05:13:49.6948801Z From https://github.com/riazmb01/Audio_Canvas
+2026-01-06T05:13:49.6950449Z  * [new ref]         6f2e615d99bf2f289058c043caef685bcae67fc4 -> origin/main
+2026-01-06T05:13:49.6982339Z ##[endgroup]
+2026-01-06T05:13:49.6984571Z ##[group]Determining the checkout info
+2026-01-06T05:13:49.6987136Z ##[endgroup]
+2026-01-06T05:13:49.6990472Z [command]/usr/bin/git sparse-checkout disable
+2026-01-06T05:13:49.7034454Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-01-06T05:13:49.7064626Z ##[group]Checking out the ref
+2026-01-06T05:13:49.7068854Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+2026-01-06T05:13:49.7171872Z Switched to a new branch 'main'
+2026-01-06T05:13:49.7174310Z branch 'main' set up to track 'origin/main'.
+2026-01-06T05:13:49.7182707Z ##[endgroup]
+2026-01-06T05:13:49.7217993Z [command]/usr/bin/git log -1 --format=%H
+2026-01-06T05:13:49.7240826Z 6f2e615d99bf2f289058c043caef685bcae67fc4
+2026-01-06T05:13:49.7531571Z ##[group]Run actions/setup-node@v4
+2026-01-06T05:13:49.7532532Z with:
+2026-01-06T05:13:49.7533458Z   node-version: 20
+2026-01-06T05:13:49.7534168Z   cache: npm
+2026-01-06T05:13:49.7534864Z   always-auth: false
+2026-01-06T05:13:49.7535619Z   check-latest: false
+2026-01-06T05:13:49.7536602Z   token: ***
+2026-01-06T05:13:49.7537283Z ##[endgroup]
+2026-01-06T05:13:49.9325940Z Found in cache @ /opt/hostedtoolcache/node/20.19.6/x64
+2026-01-06T05:13:49.9332191Z ##[group]Environment details
+2026-01-06T05:13:50.3349719Z node: v20.19.6
+2026-01-06T05:13:50.3350368Z npm: 10.8.2
+2026-01-06T05:13:50.3350764Z yarn: 1.22.22
+2026-01-06T05:13:50.3351663Z ##[endgroup]
+2026-01-06T05:13:50.3375407Z [command]/opt/hostedtoolcache/node/20.19.6/x64/bin/npm config get cache
+2026-01-06T05:13:50.4610299Z /home/runner/.npm
+2026-01-06T05:13:50.6557134Z Cache hit for: node-cache-Linux-x64-npm-918bbcda9b8b778accd212a97a445a7d2f6e58b92e99be701a8a2bb212aa2b07
+2026-01-06T05:13:51.8566391Z Received 71875802 of 71875802 (100.0%), 68.3 MBs/sec
+2026-01-06T05:13:51.8569378Z Cache Size: ~69 MB (71875802 B)
+2026-01-06T05:13:51.8597911Z [command]/usr/bin/tar -xf /home/runner/work/_temp/30573f35-3a7e-4504-82e6-aba33c129b27/cache.tzst -P -C /home/runner/work/Audio_Canvas/Audio_Canvas --use-compress-program unzstd
+2026-01-06T05:13:52.0639256Z Cache restored successfully
+2026-01-06T05:13:52.0785701Z Cache restored from key: node-cache-Linux-x64-npm-918bbcda9b8b778accd212a97a445a7d2f6e58b92e99be701a8a2bb212aa2b07
+2026-01-06T05:13:52.0939347Z ##[group]Run npm ci
+2026-01-06T05:13:52.0939639Z [36;1mnpm ci[0m
+2026-01-06T05:13:52.0984279Z shell: /usr/bin/bash -e {0}
+2026-01-06T05:13:52.0984556Z ##[endgroup]
+2026-01-06T05:13:58.1193768Z 
+2026-01-06T05:13:58.1201765Z added 479 packages, and audited 480 packages in 6s
+2026-01-06T05:13:58.1202705Z 
+2026-01-06T05:13:58.1206182Z 67 packages are looking for funding
+2026-01-06T05:13:58.1209417Z   run `npm fund` for details
+2026-01-06T05:13:58.1354210Z 
+2026-01-06T05:13:58.1355225Z 3 high severity vulnerabilities
+2026-01-06T05:13:58.1357314Z 
+2026-01-06T05:13:58.1358514Z To address all issues, run:
+2026-01-06T05:13:58.1359007Z   npm audit fix
+2026-01-06T05:13:58.1359254Z 
+2026-01-06T05:13:58.1359467Z Run `npm audit` for details.
+2026-01-06T05:13:58.1915353Z ##[group]Run npx vite build --config vite.config.gh-pages.ts
+2026-01-06T05:13:58.1915830Z [36;1mnpx vite build --config vite.config.gh-pages.ts[0m
+2026-01-06T05:13:58.1949788Z shell: /usr/bin/bash -e {0}
+2026-01-06T05:13:58.1950037Z env:
+2026-01-06T05:13:58.1950221Z   REPO_NAME: Audio_Canvas
+2026-01-06T05:13:58.1950454Z ##[endgroup]
+2026-01-06T05:13:58.7586495Z [36mvite v7.3.0 [32mbuilding client environment for production...[36m[39m
+2026-01-06T05:13:58.8165640Z transforming...
+2026-01-06T05:13:59.9662445Z 
+2026-01-06T05:13:59.9664038Z A PostCSS plugin did not pass the `from` option to `postcss.parse`. This may cause imported assets to be incorrectly transformed. If you've recently added a PostCSS plugin that raised this warning, please contact the package author to fix the issue.
+2026-01-06T05:14:02.1884060Z [32m✓[39m 1731 modules transformed.
+2026-01-06T05:14:02.4093578Z rendering chunks...
+2026-01-06T05:14:02.4165431Z computing gzip size...
+2026-01-06T05:14:02.4291047Z [2m../dist/[22m[32mindex.html                 [39m[1m[2m  2.38 kB[22m[1m[22m[2m │ gzip:   0.93 kB[22m
+2026-01-06T05:14:02.4292418Z [2m../dist/[22m[2massets/[22m[35mindex-DfJIZkfa.css  [39m[1m[2m 74.66 kB[22m[1m[22m[2m │ gzip:  12.00 kB[22m
+2026-01-06T05:14:02.4293681Z [2m../dist/[22m[2massets/[22m[36mindex-DaJ7EeR6.js   [39m[1m[2m371.09 kB[22m[1m[22m[2m │ gzip: 121.27 kB[22m
+2026-01-06T05:14:02.4294663Z [32m✓ built in 3.65s[39m
+2026-01-06T05:14:02.4832365Z ##[group]Run actions/configure-pages@v4
+2026-01-06T05:14:02.4832660Z with:
+2026-01-06T05:14:02.4832966Z   token: ***
+2026-01-06T05:14:02.4833157Z   enablement: false
+2026-01-06T05:14:02.4833351Z ##[endgroup]
+2026-01-06T05:14:02.7941858Z ##[group]Run actions/upload-pages-artifact@v3
+2026-01-06T05:14:02.7942175Z with:
+2026-01-06T05:14:02.7942359Z   path: ./dist
+2026-01-06T05:14:02.7942750Z   name: github-pages
+2026-01-06T05:14:02.7942965Z   retention-days: 1
+2026-01-06T05:14:02.7943149Z env:
+2026-01-06T05:14:02.7943323Z   GITHUB_PAGES: true
+2026-01-06T05:14:02.7943529Z ##[endgroup]
+2026-01-06T05:14:02.8015141Z ##[group]Run echo ::group::Archive artifact
+2026-01-06T05:14:02.8015455Z [36;1mecho ::group::Archive artifact[0m
+2026-01-06T05:14:02.8015704Z [36;1mtar \[0m
+2026-01-06T05:14:02.8015926Z [36;1m  --dereference --hard-dereference \[0m
+2026-01-06T05:14:02.8016223Z [36;1m  --directory "$INPUT_PATH" \[0m
+2026-01-06T05:14:02.8016505Z [36;1m  -cvf "$RUNNER_TEMP/artifact.tar" \[0m
+2026-01-06T05:14:02.8016773Z [36;1m  --exclude=.git \[0m
+2026-01-06T05:14:02.8016998Z [36;1m  --exclude=.github \[0m
+2026-01-06T05:14:02.8017217Z [36;1m  .[0m
+2026-01-06T05:14:02.8017412Z [36;1mecho ::endgroup::[0m
+2026-01-06T05:14:02.8206981Z shell: /usr/bin/sh -e {0}
+2026-01-06T05:14:02.8207256Z env:
+2026-01-06T05:14:02.8207468Z   GITHUB_PAGES: true
+2026-01-06T05:14:02.8207717Z   INPUT_PATH: ./dist
+2026-01-06T05:14:02.8207961Z ##[endgroup]
+2026-01-06T05:14:02.8276617Z ##[group]Archive artifact
+2026-01-06T05:14:02.8288989Z ./
+2026-01-06T05:14:02.8289342Z ./index.html
+2026-01-06T05:14:02.8289675Z ./assets/
+2026-01-06T05:14:02.8289913Z ./assets/index-DaJ7EeR6.js
+2026-01-06T05:14:02.8294096Z ./assets/index-DfJIZkfa.css
+2026-01-06T05:14:02.8294903Z ./favicon.png
+2026-01-06T05:14:02.8298035Z ##[endgroup]
+2026-01-06T05:14:02.8363914Z ##[group]Run actions/upload-artifact@v4
+2026-01-06T05:14:02.8364168Z with:
+2026-01-06T05:14:02.8364343Z   name: github-pages
+2026-01-06T05:14:02.8364573Z   path: /home/runner/work/_temp/artifact.tar
+2026-01-06T05:14:02.8364843Z   retention-days: 1
+2026-01-06T05:14:02.8365037Z   if-no-files-found: error
+2026-01-06T05:14:02.8365253Z   compression-level: 6
+2026-01-06T05:14:02.8365452Z   overwrite: false
+2026-01-06T05:14:02.8365658Z   include-hidden-files: false
+2026-01-06T05:14:02.8365875Z env:
+2026-01-06T05:14:02.8366048Z   GITHUB_PAGES: true
+2026-01-06T05:14:02.8366232Z ##[endgroup]
+2026-01-06T05:14:03.0516487Z With the provided path, there will be 1 file uploaded
+2026-01-06T05:14:03.0521480Z Artifact name is valid!
+2026-01-06T05:14:03.0522692Z Root directory input is valid!
+2026-01-06T05:14:03.2036099Z Beginning upload of artifact content to blob storage
+2026-01-06T05:14:03.5145255Z Uploaded bytes 136144
+2026-01-06T05:14:03.5639095Z Finished uploading artifact content to blob storage!
+2026-01-06T05:14:03.5642936Z SHA256 digest of uploaded artifact zip is 7226ee1be6663fb21aaaef5dcffd7f17ad20792177c7a79cb31794fe4545f9d1
+2026-01-06T05:14:03.5645033Z Finalizing artifact upload
+2026-01-06T05:14:03.6643277Z Artifact github-pages.zip successfully finalized. Artifact ID 5033021355
+2026-01-06T05:14:03.6644864Z Artifact github-pages has been successfully uploaded! Final size is 136144 bytes. Artifact ID is 5033021355
+2026-01-06T05:14:03.6652994Z Artifact download URL: https://github.com/riazmb01/Audio_Canvas/actions/runs/20738680700/artifacts/5033021355
+2026-01-06T05:14:03.6812542Z Post job cleanup.
+2026-01-06T05:14:03.8354343Z Cache hit occurred on the primary key node-cache-Linux-x64-npm-918bbcda9b8b778accd212a97a445a7d2f6e58b92e99be701a8a2bb212aa2b07, not saving cache.
+2026-01-06T05:14:03.8453569Z Post job cleanup.
+2026-01-06T05:14:03.9388901Z [command]/usr/bin/git version
+2026-01-06T05:14:03.9426557Z git version 2.52.0
+2026-01-06T05:14:03.9469529Z Temporarily overriding HOME='/home/runner/work/_temp/60b8590b-fe70-4874-a571-4a3f34d13b95' before making global git config changes
+2026-01-06T05:14:03.9470491Z Adding repository directory to the temporary git global config as a safe directory
+2026-01-06T05:14:03.9474934Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/Audio_Canvas/Audio_Canvas
+2026-01-06T05:14:03.9515298Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-01-06T05:14:03.9547559Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-01-06T05:14:03.9778291Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-01-06T05:14:03.9799588Z http.https://github.com/.extraheader
+2026-01-06T05:14:03.9812457Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-01-06T05:14:03.9843202Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-01-06T05:14:04.0066725Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-01-06T05:14:04.0097591Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-01-06T05:14:04.0424391Z Cleaning up orphan processes
