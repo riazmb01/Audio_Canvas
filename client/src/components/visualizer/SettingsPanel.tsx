@@ -91,22 +91,27 @@ export function SettingsPanel() {
                       <div key={key} className="space-y-2">
                         <Label className="text-white/80">{param.label}</Label>
                         
-                        {param.type === 'number' && (
-                          <div className="flex items-center gap-3">
-                            <Slider
-                              value={[currentParams[key] as number || param.value as number]}
-                              onValueChange={(val) => setParameter(activeVisualizationId, key, val[0])}
-                              min={param.min}
-                              max={param.max}
-                              step={param.step}
-                              className="flex-1"
-                              data-testid={`slider-param-${key}`}
-                            />
-                            <span className="text-white/60 text-xs w-10 text-right font-mono">
-                              {(currentParams[key] as number || param.value as number).toFixed(1)}
-                            </span>
-                          </div>
-                        )}
+                        {param.type === 'number' && (() => {
+                          const value = currentParams[key] as number ?? param.value as number;
+                          const step = param.step || 0.1;
+                          const decimals = Math.max(0, Math.ceil(-Math.log10(step)));
+                          return (
+                            <div className="flex items-center gap-3">
+                              <Slider
+                                value={[value]}
+                                onValueChange={(val) => setParameter(activeVisualizationId, key, val[0])}
+                                min={param.min}
+                                max={param.max}
+                                step={step}
+                                className="flex-1"
+                                data-testid={`slider-param-${key}`}
+                              />
+                              <span className="text-white/60 text-xs w-14 text-right font-mono">
+                                {value.toFixed(decimals)}
+                              </span>
+                            </div>
+                          );
+                        })()}
 
                         {param.type === 'boolean' && (
                           <Switch
