@@ -97,6 +97,18 @@ function createInstance(): VisualizationInstance {
       smoothedTreble += (rawTreble - smoothedTreble) * SMOOTH_FACTOR;
       smoothedEnergy += (rawEnergy - smoothedEnergy) * SMOOTH_FACTOR;
 
+      const waveData = audio.waveformData;
+      const waveLen = waveData.length;
+      let weightedWaveSum = 0;
+      let totalWeight = 0;
+      for (let w = 0; w < waveLen; w++) {
+        const weight = 0.5 + (w / waveLen) * 1.5;
+        const centered = (waveData[w] - 128) / 128;
+        weightedWaveSum += Math.abs(centered) * weight;
+        totalWeight += weight;
+      }
+      const waveInfluence = weightedWaveSum / totalWeight;
+
       context.clearRect(0, 0, width, height);
 
       if (bandBoundaries.length !== barCount + 1) {
@@ -140,17 +152,16 @@ function createInstance(): VisualizationInstance {
           gradient = `hsl(${hue}, 80%, 60%)`;
         } else if (colorMode === 'reactive') {
           const barIntensity = normalizedValue;
-          const bassHue = smoothedBass * 120;
-          const trebleHue = smoothedTreble * 180;
-          const intensityHue = barIntensity * 90;
-          const baseHue = (270 + bassHue - trebleHue + intensityHue) % 360;
+          const waveHue = waveInfluence * 360;
+          const intensityHue = barIntensity * 60;
+          const baseHue = (waveHue + intensityHue) % 360;
           const sat = 75 + barIntensity * 25;
-          const lit = 45 + barIntensity * 25 + smoothedEnergy * 15;
+          const lit = 45 + barIntensity * 25 + waveInfluence * 20;
           
           gradient = context.createLinearGradient(x, y + drawHeight, x, y);
           gradient.addColorStop(0, `hsl(${baseHue}, ${Math.min(100, sat)}%, ${lit * 0.7}%)`);
-          gradient.addColorStop(0.5, `hsl(${(baseHue + 60) % 360}, ${Math.min(100, sat)}%, ${lit}%)`);
-          gradient.addColorStop(1, `hsl(${(baseHue + 120) % 360}, ${Math.min(100, sat)}%, ${Math.min(75, lit + 10)}%)`);
+          gradient.addColorStop(0.5, `hsl(${(baseHue + 40) % 360}, ${Math.min(100, sat)}%, ${lit}%)`);
+          gradient.addColorStop(1, `hsl(${(baseHue + 80) % 360}, ${Math.min(100, sat)}%, ${Math.min(75, lit + 10)}%)`);
         } else {
           gradient = 'hsl(271, 91%, 65%)';
         }
