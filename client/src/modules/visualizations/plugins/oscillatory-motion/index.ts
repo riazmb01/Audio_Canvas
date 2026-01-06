@@ -38,7 +38,6 @@ const defaultParameters = {
   amplitudeMax: { type: 'number' as const, label: 'Max Amplitude', value: 100, min: 20, max: 200, step: 10 },
   baseSpeed: { type: 'number' as const, label: 'Base Speed', value: 1, min: 0.1, max: 3, step: 0.1 },
   ringCount: { type: 'number' as const, label: 'Ring Count', value: 5, min: 1, max: 12, step: 1 },
-  trails: { type: 'boolean' as const, label: 'Trails', value: false },
   colorMode: { type: 'select' as const, label: 'Color', value: 'spectrum', options: [
     { label: 'Spectrum', value: 'spectrum' },
     { label: 'Ocean', value: 'ocean' },
@@ -105,9 +104,6 @@ export const oscillatoryMotion: VisualizationModule = {
     let lissajousA = 2;
     let lissajousB = 3;
     
-    let trailCanvas: HTMLCanvasElement | null = null;
-    let trailCtx: CanvasRenderingContext2D | null = null;
-    
     interface Particle {
       baseX: number;
       baseY: number;
@@ -163,7 +159,6 @@ export const oscillatoryMotion: VisualizationModule = {
         const amplitudeMax = params.amplitudeMax as number || 100;
         const baseSpeed = params.baseSpeed as number || 1;
         const ringCount = params.ringCount as number || 5;
-        const showTrails = params.trails as boolean ?? false;
         const colorMode = params.colorMode as string || 'spectrum';
         const colorSensitivity = params.colorSensitivity as number || 1;
 
@@ -223,26 +218,8 @@ export const oscillatoryMotion: VisualizationModule = {
 
         time += 0.016 * baseSpeed;
 
-        if (!trailCanvas || trailCanvas.width !== width || trailCanvas.height !== height) {
-          trailCanvas = document.createElement('canvas');
-          trailCanvas.width = width;
-          trailCanvas.height = height;
-          trailCtx = trailCanvas.getContext('2d');
-          if (trailCtx) {
-            trailCtx.fillStyle = 'rgb(0, 0, 0)';
-            trailCtx.fillRect(0, 0, width, height);
-          }
-        }
-
         context.fillStyle = 'rgb(0, 0, 0)';
         context.fillRect(0, 0, width, height);
-        
-        if (showTrails && trailCtx && trailCanvas) {
-          const fadeAmount = 0.92 - energy * 0.08;
-          context.globalAlpha = fadeAmount;
-          context.drawImage(trailCanvas, 0, 0);
-          context.globalAlpha = 1;
-        }
 
         const cx = width / 2;
         const cy = height / 2;
@@ -378,11 +355,6 @@ export const oscillatoryMotion: VisualizationModule = {
           }
         }
 
-        if (showTrails && trailCtx) {
-          trailCtx.fillStyle = 'rgb(0, 0, 0)';
-          trailCtx.fillRect(0, 0, width, height);
-          trailCtx.drawImage(context.canvas, 0, 0);
-        }
       },
 
       resize(ctx: VisualizationRenderContext) {
@@ -394,8 +366,6 @@ export const oscillatoryMotion: VisualizationModule = {
       destroy() {
         particles = [];
         oscillators.length = 0;
-        trailCanvas = null;
-        trailCtx = null;
       },
     };
   },
