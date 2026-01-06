@@ -108,6 +108,7 @@ export const oscillatoryMotion: VisualizationModule = {
     
     let trailCanvas: HTMLCanvasElement | null = null;
     let trailCtx: CanvasRenderingContext2D | null = null;
+    let frameCount = 0;
     
     interface Particle {
       baseX: number;
@@ -238,9 +239,16 @@ export const oscillatoryMotion: VisualizationModule = {
           }
           
           if (trailCtx) {
-            const fadeAlpha = 1 - trailLength;
-            trailCtx.fillStyle = `rgba(0, 0, 0, ${fadeAlpha})`;
-            trailCtx.fillRect(0, 0, width, height);
+            frameCount++;
+            if (frameCount >= 120) {
+              trailCtx.fillStyle = 'rgb(0, 0, 0)';
+              trailCtx.fillRect(0, 0, width, height);
+              frameCount = 0;
+            } else {
+              const fadeAlpha = 1 - trailLength;
+              trailCtx.fillStyle = `rgba(0, 0, 0, ${fadeAlpha})`;
+              trailCtx.fillRect(0, 0, width, height);
+            }
           }
         }
 
