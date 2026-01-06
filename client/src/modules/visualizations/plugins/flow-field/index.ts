@@ -38,12 +38,12 @@ const audioPreferences = {
 };
 
 const defaultParameters = {
-  sensitivity: { type: 'number' as const, label: 'Sensitivity', value: 3, min: 0.2, max: 5, step: 0.1 },
+  sensitivity: { type: 'number' as const, label: 'Sensitivity', value: 1.4, min: 0.2, max: 5, step: 0.1 },
   particleCount: { type: 'number' as const, label: 'Particles', value: 1000, min: 200, max: 1500, step: 100 },
   fieldStrength: { type: 'number' as const, label: 'Field Strength', value: 1, min: 0.5, max: 5, step: 0.1 },
   noiseScale: { type: 'number' as const, label: 'Noise Scale', value: 0.0027, min: 0.0005, max: 0.003, step: 0.0002 },
-  timeScale: { type: 'number' as const, label: 'Flow Speed', value: 1, min: 0.1, max: 1.5, step: 0.1 },
-  drag: { type: 'number' as const, label: 'Drag', value: 0.95, min: 0.9, max: 0.99, step: 0.01 },
+  timeScale: { type: 'number' as const, label: 'Flow Speed', value: 0.7, min: 0.1, max: 1.5, step: 0.1 },
+  drag: { type: 'number' as const, label: 'Drag', value: 0.92, min: 0.9, max: 0.99, step: 0.01 },
   trails: { type: 'boolean' as const, label: 'Trails', value: true },
   colorMode: { type: 'select' as const, label: 'Color', value: 'spectrum', options: [
     { label: 'Spectrum', value: 'spectrum' },
