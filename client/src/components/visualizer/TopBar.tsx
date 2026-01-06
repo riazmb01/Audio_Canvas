@@ -54,13 +54,7 @@ export function TopBar() {
       
       setIsAudioConnected(true);
       
-      const unsubscribe = audioAnalyzer.subscribe((data) => {
-        console.log('Audio data received:', {
-          avgFreq: data.averageFrequency.toFixed(2),
-          bass: data.bassLevel.toFixed(2),
-          freqLength: data.frequencyData.length,
-          firstFewFreq: Array.from(data.frequencyData.slice(0, 5)),
-        });
+      const unsubscribe = audioAnalyzer.subscribe((data) => {);
         setAudioData(data);
       });
 
