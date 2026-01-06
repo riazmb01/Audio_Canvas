@@ -127,7 +127,13 @@ export function ControlDock() {
 
   const getStatusText = () => {
     if (isAudioConnected && audioData) {
-      return `Level: ${Math.round((audioData.averageFrequency || 0) / 2.55)}%`;
+      const bass = audioData.bassLevel || 0;
+      const mid = audioData.midLevel || 0;
+      const high = audioData.highLevel || 0;
+      const weightedLevel = (bass * 0.5 + mid * 0.35 + high * 0.15);
+      const normalized = weightedLevel / 255;
+      const logLevel = normalized > 0 ? (Math.log10(normalized * 9 + 1) / Math.log10(10)) * 100 : 0;
+      return `Level: ${Math.round(Math.min(100, logLevel * 1.2))}%`;
     }
     if (demoMode) {
       return 'Demo mode - Connect audio for live input';
