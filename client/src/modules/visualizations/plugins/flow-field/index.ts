@@ -329,7 +329,7 @@ function createInstance(): VisualizationInstance {
         
         if (trailCtx) {
           frameCount++;
-          if (frameCount >= 120) {
+          if (frameCount >= 20) {
             trailCtx.fillStyle = 'rgb(0, 0, 0)';
             trailCtx.fillRect(0, 0, width, height);
             frameCount = 0;
