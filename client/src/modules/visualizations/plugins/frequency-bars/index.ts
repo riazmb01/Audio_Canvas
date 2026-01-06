@@ -140,18 +140,17 @@ function createInstance(): VisualizationInstance {
           gradient = `hsl(${hue}, 80%, 60%)`;
         } else if (colorMode === 'reactive') {
           const barIntensity = normalizedValue;
-          const bassInfluence = smoothedBass * 300;
-          const trebleInfluence = smoothedTreble * 200;
-          const energyInfluence = smoothedEnergy * 150;
-          const intensityHue = barIntensity * 120;
-          const baseHue = (bassInfluence + trebleInfluence + energyInfluence + intensityHue) % 360;
-          const sat = 65 + barIntensity * 35 + smoothedEnergy * 20;
-          const lit = 40 + barIntensity * 30 + smoothedTreble * 20;
+          const bassHue = smoothedBass * 120;
+          const trebleHue = smoothedTreble * 180;
+          const intensityHue = barIntensity * 90;
+          const baseHue = (270 + bassHue - trebleHue + intensityHue) % 360;
+          const sat = 75 + barIntensity * 25;
+          const lit = 45 + barIntensity * 25 + smoothedEnergy * 15;
           
           gradient = context.createLinearGradient(x, y + drawHeight, x, y);
           gradient.addColorStop(0, `hsl(${baseHue}, ${Math.min(100, sat)}%, ${lit * 0.7}%)`);
-          gradient.addColorStop(0.5, `hsl(${(baseHue + 45) % 360}, ${Math.min(100, sat + 10)}%, ${lit}%)`);
-          gradient.addColorStop(1, `hsl(${(baseHue + 90) % 360}, ${Math.min(100, sat)}%, ${Math.min(80, lit + 15)}%)`);
+          gradient.addColorStop(0.5, `hsl(${(baseHue + 60) % 360}, ${Math.min(100, sat)}%, ${lit}%)`);
+          gradient.addColorStop(1, `hsl(${(baseHue + 120) % 360}, ${Math.min(100, sat)}%, ${Math.min(75, lit + 10)}%)`);
         } else {
           gradient = 'hsl(271, 91%, 65%)';
         }
