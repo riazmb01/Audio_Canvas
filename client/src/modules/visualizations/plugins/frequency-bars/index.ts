@@ -87,11 +87,13 @@ function createInstance(): VisualizationInstance {
           }
         }
         
-        const octaveBoost = 1 + (i / barCount) * 0.5;
-        const normalizedValue = Math.min(1, (maxValue / 255) * octaveBoost);
+        const positionRatio = i / (barCount - 1);
+        const bassAttenuation = 0.3 + positionRatio * 0.7;
+        const trebleBoost = 1 + positionRatio * 0.4;
+        const normalizedValue = Math.min(1, (maxValue / 255) * bassAttenuation * trebleBoost);
         
-        const visualScale = 0.3 + Math.sqrt(sensitivity) * 0.35;
-        const targetHeight = Math.min(height * 0.95, normalizedValue * height * visualScale);
+        const visualScale = 0.4 + Math.sqrt(sensitivity) * 0.4;
+        const targetHeight = Math.min(height * 0.9, normalizedValue * height * visualScale);
         
         barHeights[i] = barHeights[i] + (targetHeight - barHeights[i]) * 0.3;
         const barHeight = Math.max(2, barHeights[i]);
