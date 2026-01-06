@@ -235,18 +235,19 @@ function createInstance(): VisualizationInstance {
     };
   }
 
-  function getColorHue(mode: string, baseHue: number, treble: number, colorSens: number): number {
-    const trebleShift = treble * 60 * colorSens;
+  function getColorHue(mode: string, baseHue: number, energy: number, treble: number, colorSens: number): number {
+    const trebleShift = treble * 80 * colorSens;
+    const energyShift = energy * 50 * colorSens;
     switch (mode) {
       case 'ocean':
-        return 180 + baseHue * 0.2 + trebleShift * 0.3;
+        return 180 + trebleShift * 0.5 + energyShift * 0.4;
       case 'fire':
-        return baseHue * 0.15 + trebleShift * 0.2;
+        return (30 + trebleShift * 0.4 + energyShift * 0.3) % 60;
       case 'mono':
-        return 260 + trebleShift * 0.1;
+        return 220 + trebleShift * 0.15;
       case 'spectrum':
       default:
-        return (baseHue + trebleShift) % 360;
+        return (baseHue + trebleShift + energyShift) % 360;
     }
   }
 
@@ -441,9 +442,10 @@ function createInstance(): VisualizationInstance {
         const baseAlpha = Math.sin(lifeRatio * Math.PI);
         const alpha = Math.min(0.9, baseAlpha * (0.4 + globalBrightness));
         
-        const hue = getColorHue(colorMode, p.hue, treble, colorSensitivity);
-        const saturation = Math.min(100, 65 + treble * 35 * colorSensitivity);
-        const lightness = Math.min(85, 50 + treble * 20 * colorSensitivity + globalBrightness * 30);
+        const animatedHue = (p.hue + time * 15) % 360;
+        const hue = getColorHue(colorMode, animatedHue, energy, treble, colorSensitivity);
+        const saturation = Math.min(100, 70 + treble * 30 * colorSensitivity + energy * 15 * colorSensitivity);
+        const lightness = Math.min(85, 50 + treble * 20 * colorSensitivity + energy * 15 * colorSensitivity + globalBrightness * 30);
 
         const moveDx = p.x - p.px;
         const moveDy = p.y - p.py;
