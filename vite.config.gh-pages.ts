@@ -3,7 +3,7 @@ import react from "@vitejs/plugin-react";
 import path from "path";
 
 // Set your GitHub repository name here (or use environment variable)
-const repoName = process.env.REPO_NAME || 'audio-visualizer';
+const repoName = process.env.REPO_NAME || 'Audio_Canvas';
 
 export default defineConfig({
   base: `/${repoName}/`,
