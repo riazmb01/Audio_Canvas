@@ -51,6 +51,7 @@ export function VisualizationCanvas() {
   const demoModeRef = useRef<boolean>(true);
   const isAudioConnectedRef = useRef<boolean>(false);
   const activeParamsRef = useRef<Record<string, string | number | boolean>>({});
+  const activeVizIdRef = useRef<string>(activeVisualizationId);
 
   useEffect(() => {
     return useVisualizationStore.subscribe((state) => {
@@ -59,6 +60,7 @@ export function VisualizationCanvas() {
       demoModeRef.current = state.demoMode;
       isAudioConnectedRef.current = state.isAudioConnected;
       activeParamsRef.current = (state.parameters[state.activeVisualizationId] || {}) as Record<string, string | number | boolean>;
+      activeVizIdRef.current = state.activeVisualizationId;
     });
   }, []);
 
@@ -169,41 +171,56 @@ export function VisualizationCanvas() {
       const demoMode = demoModeRef.current;
       const isAudioConnected = isAudioConnectedRef.current;
       const activeParams = activeParamsRef.current;
+      const currentVizId = activeVizIdRef.current;
 
       let currentAudioData: AudioFrameData;
 
       if (isAudioConnected && audioData) {
-        const amplifiedSensitivity = sensitivity * 2.5;
+        const skipGlobalSensitivity = currentVizId === 'frequency-bars';
         
-        const scaledFrequencyData = new Uint8Array(audioData.frequencyData.length);
-        for (let i = 0; i < audioData.frequencyData.length; i++) {
-          const amplified = audioData.frequencyData[i] * amplifiedSensitivity;
-          scaledFrequencyData[i] = Math.min(255, Math.round(amplified));
-        }
+        if (skipGlobalSensitivity) {
+          currentAudioData = {
+            frequencyData: audioData.frequencyData,
+            waveformData: audioData.waveformData,
+            averageFrequency: audioData.averageFrequency,
+            bassLevel: audioData.bassLevel,
+            midLevel: audioData.midLevel,
+            highLevel: audioData.highLevel,
+            peakFrequency: audioData.peakFrequency,
+          };
+        } else {
+          const amplifiedSensitivity = sensitivity * 2.5;
+          
+          const scaledFrequencyData = new Uint8Array(audioData.frequencyData.length);
+          for (let i = 0; i < audioData.frequencyData.length; i++) {
+            const amplified = audioData.frequencyData[i] * amplifiedSensitivity;
+            scaledFrequencyData[i] = Math.min(255, Math.round(amplified));
+          }
 
-        const scaledWaveformData = new Uint8Array(audioData.waveformData.length);
-        for (let i = 0; i < audioData.waveformData.length; i++) {
-          const centered = audioData.waveformData[i] - 128;
-          const scaled = centered * sensitivity;
-          scaledWaveformData[i] = Math.max(0, Math.min(255, Math.round(128 + scaled)));
-        }
+          const scaledWaveformData = new Uint8Array(audioData.waveformData.length);
+          for (let i = 0; i < audioData.waveformData.length; i++) {
+            const centered = audioData.waveformData[i] - 128;
+            const scaled = centered * sensitivity;
+            scaledWaveformData[i] = Math.max(0, Math.min(255, Math.round(128 + scaled)));
+          }
 
-        currentAudioData = {
-          frequencyData: scaledFrequencyData,
-          waveformData: scaledWaveformData,
-          averageFrequency: audioData.averageFrequency * amplifiedSensitivity,
-          bassLevel: audioData.bassLevel * amplifiedSensitivity,
-          midLevel: audioData.midLevel * amplifiedSensitivity,
-          highLevel: audioData.highLevel * amplifiedSensitivity,
-          peakFrequency: audioData.peakFrequency,
-        };
+          currentAudioData = {
+            frequencyData: scaledFrequencyData,
+            waveformData: scaledWaveformData,
+            averageFrequency: audioData.averageFrequency * amplifiedSensitivity,
+            bassLevel: audioData.bassLevel * amplifiedSensitivity,
+            midLevel: audioData.midLevel * amplifiedSensitivity,
+            highLevel: audioData.highLevel * amplifiedSensitivity,
+            peakFrequency: audioData.peakFrequency,
+          };
+        }
 
         frameCount++;
         if (frameCount % 120 === 0) {
           console.log('Rendering LIVE audio:', {
             avgFreq: currentAudioData.averageFrequency.toFixed(2),
             bass: currentAudioData.bassLevel.toFixed(2),
-            first5: Array.from(scaledFrequencyData.slice(0, 5)),
+            first5: Array.from(currentAudioData.frequencyData.slice(0, 5)),
           });
         }
       } else if (demoMode) {
