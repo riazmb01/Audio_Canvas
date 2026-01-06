@@ -46,7 +46,8 @@ function createInstance(): VisualizationInstance {
       const filled = params.filled as boolean || false;
       const showGridLines = params.showGridLines as boolean ?? true;
 
-      context.clearRect(0, 0, width, height);
+      context.fillStyle = 'rgb(0, 0, 0)';
+      context.fillRect(0, 0, width, height);
 
       const colors: Record<string, string> = {
         cyan: 'hsl(190, 95%, 50%)',
