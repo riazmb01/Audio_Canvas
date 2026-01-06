@@ -175,6 +175,10 @@ export function SettingsPanel() {
                     <kbd className="px-2 py-1 bg-white/10 rounded text-white/80">G</kbd>
                   </div>
                   <div className="flex items-center justify-between text-white/60">
+                    <span>Open Settings</span>
+                    <kbd className="px-2 py-1 bg-white/10 rounded text-white/80">S</kbd>
+                  </div>
+                  <div className="flex items-center justify-between text-white/60">
                     <span>Next Visualization</span>
                     <kbd className="px-2 py-1 bg-white/10 rounded text-white/80">Arrow Right</kbd>
                   </div>
