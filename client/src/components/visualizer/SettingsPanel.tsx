@@ -89,7 +89,9 @@ export function SettingsPanel() {
                   <div className="space-y-4">
                     {Object.entries(activeViz.defaultParameters).map(([key, param]) => (
                       <div key={key} className="space-y-2">
-                        <Label className="text-white/80">{param.label}</Label>
+                        {param.type !== 'boolean' && (
+                          <Label className="text-white/80">{param.label}</Label>
+                        )}
                         
                         {param.type === 'number' && (() => {
                           const value = currentParams[key] as number ?? param.value as number;
@@ -121,11 +123,14 @@ export function SettingsPanel() {
                         })()}
 
                         {param.type === 'boolean' && (
-                          <Switch
-                            checked={currentParams[key] as boolean ?? param.value as boolean}
-                            onCheckedChange={(val) => setParameter(activeVisualizationId, key, val)}
-                            data-testid={`switch-param-${key}`}
-                          />
+                          <div className="flex items-center justify-between gap-4 py-1">
+                            <Label className="text-white/80">{param.label}</Label>
+                            <Switch
+                              checked={currentParams[key] as boolean ?? param.value as boolean}
+                              onCheckedChange={(val) => setParameter(activeVisualizationId, key, val)}
+                              data-testid={`switch-param-${key}`}
+                            />
+                          </div>
                         )}
 
                         {param.type === 'select' && param.options && (
