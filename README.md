@@ -2,6 +2,10 @@
 
 A real-time audio visualization app that transforms sound into mesmerizing visuals. Built with the Web Audio API and HTML5 Canvas, it captures audio from your microphone or screen and renders reactive graphics at 60fps.
 
+This project can be found live at https://riazmb01.github.io/Audio_Canvas/
+
+The system audio feature is currently under work, if you'd like to try the site please connect using your microphone.
+
 ## Features
 
 - **Four visualization modes**: Frequency Bars, Waveform, Flow Field, and Oscillatory Motion
@@ -80,7 +84,6 @@ This project includes a GitHub Actions workflow for automatic deployment:
 
 The workflow automatically detects your repository name and sets the correct base path. Your site will be available at `https://username.github.io/repo-name/`.
 
-Additionally, this project can be found live at https://riazmb01.github.io/Audio_Canvas/
 
 ### Manual Build
 
