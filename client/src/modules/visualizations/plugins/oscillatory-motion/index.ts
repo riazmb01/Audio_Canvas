@@ -238,11 +238,9 @@ export const oscillatoryMotion: VisualizationModule = {
           }
           
           if (trailCtx) {
-            trailCtx.save();
-            trailCtx.globalCompositeOperation = 'destination-in';
-            trailCtx.fillStyle = `rgba(255, 255, 255, ${trailLength})`;
+            const fadeAlpha = 1 - trailLength;
+            trailCtx.fillStyle = `rgba(0, 0, 0, ${fadeAlpha})`;
             trailCtx.fillRect(0, 0, width, height);
-            trailCtx.restore();
           }
         }
 
