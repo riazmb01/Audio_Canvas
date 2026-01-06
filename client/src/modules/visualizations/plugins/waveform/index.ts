@@ -60,10 +60,6 @@ function createInstance(): VisualizationInstance {
       const bufferLength = audio.waveformData.length;
       const sliceWidth = width / bufferLength;
 
-      context.shadowBlur = glowIntensity;
-      context.shadowColor = color;
-      context.lineWidth = lineWidth;
-      context.strokeStyle = color;
       context.lineCap = 'round';
       context.lineJoin = 'round';
 
@@ -90,32 +86,51 @@ function createInstance(): VisualizationInstance {
         points[points.length - 1].x = width;
       }
 
-      context.beginPath();
-      
-      if (smoothness > 0.3 && points.length >= 4) {
-        const tension = 0.3 + smoothness * 0.4;
-        
-        context.moveTo(points[0].x, points[0].y);
-        
-        for (let i = 0; i < points.length - 1; i++) {
-          const p0 = points[Math.max(0, i - 1)];
-          const p1 = points[i];
-          const p2 = points[Math.min(points.length - 1, i + 1)];
-          const p3 = points[Math.min(points.length - 1, i + 2)];
-          
-          const cp1x = p1.x + (p2.x - p0.x) * tension / 3;
-          const cp1y = p1.y + (p2.y - p0.y) * tension / 3;
-          const cp2x = p2.x - (p3.x - p1.x) * tension / 3;
-          const cp2y = p2.y - (p3.y - p1.y) * tension / 3;
-          
-          context.bezierCurveTo(cp1x, cp1y, cp2x, cp2y, p2.x, p2.y);
+      const drawPath = () => {
+        context.beginPath();
+        if (smoothness > 0.3 && points.length >= 4) {
+          const tension = 0.3 + smoothness * 0.4;
+          context.moveTo(points[0].x, points[0].y);
+          for (let i = 0; i < points.length - 1; i++) {
+            const p0 = points[Math.max(0, i - 1)];
+            const p1 = points[i];
+            const p2 = points[Math.min(points.length - 1, i + 1)];
+            const p3 = points[Math.min(points.length - 1, i + 2)];
+            const cp1x = p1.x + (p2.x - p0.x) * tension / 3;
+            const cp1y = p1.y + (p2.y - p0.y) * tension / 3;
+            const cp2x = p2.x - (p3.x - p1.x) * tension / 3;
+            const cp2y = p2.y - (p3.y - p1.y) * tension / 3;
+            context.bezierCurveTo(cp1x, cp1y, cp2x, cp2y, p2.x, p2.y);
+          }
+        } else {
+          context.moveTo(points[0].x, points[0].y);
+          for (let i = 1; i < points.length; i++) {
+            context.lineTo(points[i].x, points[i].y);
+          }
         }
-      } else {
-        context.moveTo(points[0].x, points[0].y);
-        for (let i = 1; i < points.length; i++) {
-          context.lineTo(points[i].x, points[i].y);
+      };
+
+      if (glowIntensity > 0) {
+        const glowPasses = [
+          { blur: glowIntensity * 2, alpha: 0.15, widthMult: 4 },
+          { blur: glowIntensity * 1.5, alpha: 0.25, widthMult: 2.5 },
+          { blur: glowIntensity, alpha: 0.4, widthMult: 1.5 },
+        ];
+        
+        for (const pass of glowPasses) {
+          context.shadowBlur = pass.blur;
+          context.shadowColor = color;
+          context.strokeStyle = color.replace(')', `, ${pass.alpha})`).replace('hsl', 'hsla');
+          context.lineWidth = lineWidth * pass.widthMult;
+          drawPath();
+          context.stroke();
         }
       }
+
+      context.shadowBlur = 0;
+      context.strokeStyle = color;
+      context.lineWidth = lineWidth;
+      drawPath();
 
       if (filled) {
         context.lineTo(width, centerY);
@@ -130,8 +145,6 @@ function createInstance(): VisualizationInstance {
       }
 
       context.stroke();
-
-      context.shadowBlur = 0;
 
       if (showGridLines) {
         context.strokeStyle = `${color.replace(')', ', 0.1)').replace('hsl', 'hsla')}`;
