@@ -96,20 +96,27 @@ export function SettingsPanel() {
                           const step = param.step || 0.1;
                           const decimals = Math.max(0, Math.ceil(-Math.log10(step)));
                           return (
-                            <div className="flex items-center gap-3">
-                              <Slider
-                                value={[value]}
-                                onValueChange={(val) => setParameter(activeVisualizationId, key, val[0])}
-                                min={param.min}
-                                max={param.max}
-                                step={step}
-                                className="flex-1"
-                                data-testid={`slider-param-${key}`}
-                              />
-                              <span className="text-white/60 text-xs w-14 text-right font-mono">
-                                {value.toFixed(decimals)}
-                              </span>
-                            </div>
+                            <>
+                              <div className="flex items-center gap-3">
+                                <Slider
+                                  value={[value]}
+                                  onValueChange={(val) => setParameter(activeVisualizationId, key, val[0])}
+                                  min={param.min}
+                                  max={param.max}
+                                  step={step}
+                                  className="flex-1"
+                                  data-testid={`slider-param-${key}`}
+                                />
+                                <span className="text-white/60 text-xs w-14 text-right font-mono">
+                                  {value.toFixed(decimals)}
+                                </span>
+                              </div>
+                              {activeVisualizationId === 'frequency-bars' && key === 'sensitivity' && (
+                                <p className="text-white/40 text-xs mt-1">
+                                  Frequency Bars uses only this slider, not the global sensitivity.
+                                </p>
+                              )}
+                            </>
                           );
                         })()}
 
