@@ -31,11 +31,17 @@ const defaultParameters = {
 };
 
 function createInstance(): VisualizationInstance {
+  let smoothedBass = 0;
+  let smoothedTreble = 0;
+  let smoothedEnergy = 0;
+  let time = 0;
+  const SMOOTH_FACTOR = 0.15;
+
   return {
     init(ctx: VisualizationRenderContext) {},
 
     render(ctx: VisualizationRenderContext, audio: AudioFrameData, params: Record<string, number | string | boolean>) {
-      const { width, height } = ctx;
+      const { width, height, deltaTime } = ctx;
       const context = ctx.ctx;
       const sensitivity = params.sensitivity as number || 1.5;
       const amplitude = (params.amplitude as number ?? 1) * sensitivity;
@@ -46,14 +52,44 @@ function createInstance(): VisualizationInstance {
       const filled = params.filled as boolean || false;
       const showGridLines = params.showGridLines as boolean ?? true;
 
+      time += deltaTime * 0.001;
+
+      const freqData = audio.frequencyData;
+      const len = freqData.length;
+      const bassEnd = Math.floor(len * 0.15);
+      const midEnd = Math.floor(len * 0.5);
+      
+      let bassSum = 0, trebleSum = 0, totalSum = 0;
+      for (let i = 0; i < len; i++) {
+        const val = freqData[i];
+        if (i < bassEnd) bassSum += val;
+        else if (i >= midEnd) trebleSum += val;
+        totalSum += val;
+      }
+      
+      const rawBass = bassEnd > 0 ? bassSum / bassEnd / 255 : 0;
+      const rawTreble = (len - midEnd) > 0 ? trebleSum / (len - midEnd) / 255 : 0;
+      const rawEnergy = totalSum / len / 255;
+      
+      smoothedBass += (rawBass - smoothedBass) * SMOOTH_FACTOR;
+      smoothedTreble += (rawTreble - smoothedTreble) * SMOOTH_FACTOR;
+      smoothedEnergy += (rawEnergy - smoothedEnergy) * SMOOTH_FACTOR;
+
       context.fillStyle = 'rgb(0, 0, 0)';
       context.fillRect(0, 0, width, height);
+
+      const trebleShift = smoothedTreble * 120;
+      const energyShift = smoothedEnergy * 80;
+      const timeShift = time * 15;
+      const reactiveHue = (190 + trebleShift + energyShift + timeShift) % 360;
+      const reactiveSat = 80 + smoothedEnergy * 20;
+      const reactiveLit = 50 + smoothedTreble * 15;
 
       const colors: Record<string, string> = {
         cyan: 'hsl(190, 95%, 50%)',
         purple: 'hsl(271, 91%, 65%)',
         green: 'hsl(142, 76%, 45%)',
-        reactive: `hsl(${190 + audio.averageFrequency * 0.5}, 90%, 55%)`,
+        reactive: `hsl(${reactiveHue}, ${reactiveSat}%, ${reactiveLit}%)`,
       };
 
       const color = colors[colorMode] || colors.cyan;
