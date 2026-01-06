@@ -39,7 +39,6 @@ const defaultParameters = {
   baseSpeed: { type: 'number' as const, label: 'Base Speed', value: 1, min: 0.1, max: 3, step: 0.1 },
   ringCount: { type: 'number' as const, label: 'Ring Count', value: 5, min: 1, max: 12, step: 1 },
   trails: { type: 'boolean' as const, label: 'Trails', value: false },
-  trailLength: { type: 'number' as const, label: 'Trail Length', value: 0.92, min: 0.8, max: 0.98, step: 0.01 },
   colorMode: { type: 'select' as const, label: 'Color', value: 'spectrum', options: [
     { label: 'Spectrum', value: 'spectrum' },
     { label: 'Ocean', value: 'ocean' },
@@ -108,7 +107,6 @@ export const oscillatoryMotion: VisualizationModule = {
     
     let trailCanvas: HTMLCanvasElement | null = null;
     let trailCtx: CanvasRenderingContext2D | null = null;
-    let frameCount = 0;
     
     interface Particle {
       baseX: number;
@@ -166,7 +164,6 @@ export const oscillatoryMotion: VisualizationModule = {
         const baseSpeed = params.baseSpeed as number || 1;
         const ringCount = params.ringCount as number || 5;
         const showTrails = params.trails as boolean ?? false;
-        const trailLength = params.trailLength as number || 0.92;
         const colorMode = params.colorMode as string || 'spectrum';
         const colorSensitivity = params.colorSensitivity as number || 1;
 
@@ -226,36 +223,26 @@ export const oscillatoryMotion: VisualizationModule = {
 
         time += 0.016 * baseSpeed;
 
-        if (showTrails) {
-          if (!trailCanvas || trailCanvas.width !== width || trailCanvas.height !== height) {
-            trailCanvas = document.createElement('canvas');
-            trailCanvas.width = width;
-            trailCanvas.height = height;
-            trailCtx = trailCanvas.getContext('2d');
-            if (trailCtx) {
-              trailCtx.fillStyle = 'rgb(0, 0, 0)';
-              trailCtx.fillRect(0, 0, width, height);
-            }
-          }
-          
+        if (!trailCanvas || trailCanvas.width !== width || trailCanvas.height !== height) {
+          trailCanvas = document.createElement('canvas');
+          trailCanvas.width = width;
+          trailCanvas.height = height;
+          trailCtx = trailCanvas.getContext('2d');
           if (trailCtx) {
-            frameCount++;
-            if (frameCount >= 20) {
-              trailCtx.fillStyle = 'rgb(0, 0, 0)';
-              trailCtx.fillRect(0, 0, width, height);
-              frameCount = 0;
-            } else {
-              const fadeAlpha = 1 - trailLength;
-              trailCtx.fillStyle = `rgba(0, 0, 0, ${fadeAlpha})`;
-              trailCtx.fillRect(0, 0, width, height);
-            }
+            trailCtx.fillStyle = 'rgb(0, 0, 0)';
+            trailCtx.fillRect(0, 0, width, height);
           }
         }
 
         context.fillStyle = 'rgb(0, 0, 0)';
         context.fillRect(0, 0, width, height);
-
-        const drawCtx = showTrails && trailCtx ? trailCtx : context;
+        
+        if (showTrails && trailCtx && trailCanvas) {
+          const fadeAmount = 0.92 - energy * 0.08;
+          context.globalAlpha = fadeAmount;
+          context.drawImage(trailCanvas, 0, 0);
+          context.globalAlpha = 1;
+        }
 
         const cx = width / 2;
         const cy = height / 2;
@@ -270,7 +257,7 @@ export const oscillatoryMotion: VisualizationModule = {
             const ox = Math.sin(omega * time + osc.phase1 + ringPhase) * amplitude;
             const oy = Math.cos(omega * time + osc.phase2 + ringPhase) * amplitude * 0.6;
 
-            drawCtx.beginPath();
+            context.beginPath();
             for (let i = 0; i <= pointCount; i++) {
               const theta = (i / pointCount) * Math.PI * 2;
               const r = baseRadius;
@@ -278,19 +265,19 @@ export const oscillatoryMotion: VisualizationModule = {
               const x = cx + (r + ox) * Math.cos(theta);
               const y = cy + (r + oy) * Math.sin(theta);
               
-              if (i === 0) drawCtx.moveTo(x, y);
-              else drawCtx.lineTo(x, y);
+              if (i === 0) context.moveTo(x, y);
+              else context.lineTo(x, y);
             }
-            drawCtx.closePath();
+            context.closePath();
 
             const hue = getColorHue(colorMode, (ring * 40 + time * 20) % 360, energy, treble, colorSensitivity);
             const saturation = clamp(70 + treble * 30 * colorSensitivity, 0, 100);
             const lightness = clamp(50 + energy * 20 * colorSensitivity, 30, 80);
             const alpha = 0.6 + instantBass * 0.4;
 
-            drawCtx.strokeStyle = `hsla(${hue}, ${saturation}%, ${lightness}%, ${alpha})`;
-            drawCtx.lineWidth = 2 + instantBass * 3;
-            drawCtx.stroke();
+            context.strokeStyle = `hsla(${hue}, ${saturation}%, ${lightness}%, ${alpha})`;
+            context.lineWidth = 2 + instantBass * 3;
+            context.stroke();
 
             for (let i = 0; i < pointCount; i += 8) {
               const theta = (i / pointCount) * Math.PI * 2;
@@ -299,10 +286,10 @@ export const oscillatoryMotion: VisualizationModule = {
               const y = cy + (r + oy) * Math.sin(theta);
               
               const dotSize = 2 + instantBass * 3;
-              drawCtx.beginPath();
-              drawCtx.arc(x, y, dotSize, 0, Math.PI * 2);
-              drawCtx.fillStyle = `hsla(${hue}, ${saturation}%, ${lightness + 10}%, ${alpha})`;
-              drawCtx.fill();
+              context.beginPath();
+              context.arc(x, y, dotSize, 0, Math.PI * 2);
+              context.fillStyle = `hsla(${hue}, ${saturation}%, ${lightness + 10}%, ${alpha})`;
+              context.fill();
             }
           }
 
@@ -326,17 +313,17 @@ export const oscillatoryMotion: VisualizationModule = {
             const alpha = 0.5 + instantBass * 0.5;
             const size = p.size * (1 + instantBass * 1.5);
 
-            drawCtx.beginPath();
-            drawCtx.arc(x, y, size, 0, Math.PI * 2);
-            drawCtx.fillStyle = `hsla(${hue}, ${saturation}%, ${lightness}%, ${alpha})`;
-            drawCtx.fill();
+            context.beginPath();
+            context.arc(x, y, size, 0, Math.PI * 2);
+            context.fillStyle = `hsla(${hue}, ${saturation}%, ${lightness}%, ${alpha})`;
+            context.fill();
 
             if (instantBass > 0.4) {
-              drawCtx.beginPath();
-              drawCtx.arc(x, y, size * 1.8, 0, Math.PI * 2);
-              drawCtx.strokeStyle = `hsla(${hue}, ${saturation}%, ${lightness}%, ${alpha * 0.2})`;
-              drawCtx.lineWidth = 1;
-              drawCtx.stroke();
+              context.beginPath();
+              context.arc(x, y, size * 1.8, 0, Math.PI * 2);
+              context.strokeStyle = `hsla(${hue}, ${saturation}%, ${lightness}%, ${alpha * 0.2})`;
+              context.lineWidth = 1;
+              context.stroke();
             }
           }
 
@@ -355,14 +342,14 @@ export const oscillatoryMotion: VisualizationModule = {
             const layerPhase = layer * 0.3;
             const layerScale = 1 - layer * 0.15;
             
-            drawCtx.beginPath();
+            context.beginPath();
             for (let i = 0; i <= pointCount * 4; i++) {
               const t = (i / (pointCount * 4)) * Math.PI * 2 + time;
               const x = cx + A * layerScale * Math.sin(lissajousA * t + delta + layerPhase);
               const y = cy + B * layerScale * Math.sin(lissajousB * t + layerPhase);
               
-              if (i === 0) drawCtx.moveTo(x, y);
-              else drawCtx.lineTo(x, y);
+              if (i === 0) context.moveTo(x, y);
+              else context.lineTo(x, y);
             }
 
             const hue = getColorHue(colorMode, (layer * 60 + time * 30) % 360, energy, treble, colorSensitivity);
@@ -370,9 +357,9 @@ export const oscillatoryMotion: VisualizationModule = {
             const lightness = clamp(55 + energy * 20 * colorSensitivity - layer * 10, 30, 80);
             const alpha = (0.8 - layer * 0.2) * (0.6 + instantBass * 0.4);
 
-            drawCtx.strokeStyle = `hsla(${hue}, ${saturation}%, ${lightness}%, ${alpha})`;
-            drawCtx.lineWidth = (3 - layer) + instantBass * 2;
-            drawCtx.stroke();
+            context.strokeStyle = `hsla(${hue}, ${saturation}%, ${lightness}%, ${alpha})`;
+            context.lineWidth = (3 - layer) + instantBass * 2;
+            context.stroke();
           }
 
           const dotCount = 8;
@@ -384,15 +371,17 @@ export const oscillatoryMotion: VisualizationModule = {
             const hue = getColorHue(colorMode, (i * 45 + time * 50) % 360, energy, treble, colorSensitivity);
             const dotSize = 4 + instantBass * 4;
             
-            drawCtx.beginPath();
-            drawCtx.arc(x, y, dotSize, 0, Math.PI * 2);
-            drawCtx.fillStyle = `hsla(${hue}, 90%, 70%, ${0.7 + instantBass * 0.3})`;
-            drawCtx.fill();
+            context.beginPath();
+            context.arc(x, y, dotSize, 0, Math.PI * 2);
+            context.fillStyle = `hsla(${hue}, 90%, 70%, ${0.7 + instantBass * 0.3})`;
+            context.fill();
           }
         }
 
-        if (showTrails && trailCanvas) {
-          context.drawImage(trailCanvas, 0, 0);
+        if (showTrails && trailCtx) {
+          trailCtx.fillStyle = 'rgb(0, 0, 0)';
+          trailCtx.fillRect(0, 0, width, height);
+          trailCtx.drawImage(context.canvas, 0, 0);
         }
       },
 

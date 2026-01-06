@@ -44,8 +44,6 @@ const defaultParameters = {
   noiseScale: { type: 'number' as const, label: 'Noise Scale', value: 0.001, min: 0.0005, max: 0.003, step: 0.0002 },
   timeScale: { type: 'number' as const, label: 'Flow Speed', value: 0.4, min: 0.1, max: 1.5, step: 0.1 },
   drag: { type: 'number' as const, label: 'Drag', value: 0.96, min: 0.9, max: 0.99, step: 0.01 },
-  trails: { type: 'boolean' as const, label: 'Trails', value: false },
-  trailLength: { type: 'number' as const, label: 'Trail Length', value: 0.92, min: 0.8, max: 0.98, step: 0.01 },
   colorMode: { type: 'select' as const, label: 'Color', value: 'spectrum', options: [
     { label: 'Spectrum', value: 'spectrum' },
     { label: 'Ocean', value: 'ocean' },
@@ -182,10 +180,6 @@ function createInstance(): VisualizationInstance {
   let beatCooldown = 0;
   let globalBrightness = 0;
   const SMOOTHING = 0.15;
-  
-  let trailCanvas: HTMLCanvasElement | null = null;
-  let trailCtx: CanvasRenderingContext2D | null = null;
-  let frameCount = 0;
 
   function getParticleType(): ParticleType {
     const r = Math.random();
@@ -270,8 +264,6 @@ function createInstance(): VisualizationInstance {
       const baseNoiseScale = params.noiseScale as number || 0.002;
       const timeScale = params.timeScale as number || 0.4;
       const drag = params.drag as number || 0.96;
-      const showTrails = params.trails as boolean ?? false;
-      const trailLength = params.trailLength as number || 0.92;
       const colorMode = params.colorMode as string || 'spectrum';
       const colorSensitivity = params.colorSensitivity as number || 1;
 
@@ -315,36 +307,8 @@ function createInstance(): VisualizationInstance {
 
       time += ctx.deltaTime * timeScale * 0.001 * (0.8 + bass * 0.4);
 
-      if (showTrails) {
-        if (!trailCanvas || trailCanvas.width !== width || trailCanvas.height !== height) {
-          trailCanvas = document.createElement('canvas');
-          trailCanvas.width = width;
-          trailCanvas.height = height;
-          trailCtx = trailCanvas.getContext('2d');
-          if (trailCtx) {
-            trailCtx.fillStyle = 'rgb(0, 0, 0)';
-            trailCtx.fillRect(0, 0, width, height);
-          }
-        }
-        
-        if (trailCtx) {
-          frameCount++;
-          if (frameCount >= 20) {
-            trailCtx.fillStyle = 'rgb(0, 0, 0)';
-            trailCtx.fillRect(0, 0, width, height);
-            frameCount = 0;
-          } else {
-            const fadeAlpha = 1 - trailLength;
-            trailCtx.fillStyle = `rgba(0, 0, 0, ${fadeAlpha})`;
-            trailCtx.fillRect(0, 0, width, height);
-          }
-        }
-      }
-
       context.fillStyle = 'rgb(0, 0, 0)';
       context.fillRect(0, 0, width, height);
-
-      const drawCtx = showTrails && trailCtx ? trailCtx : context;
 
       while (particles.length < targetCount) {
         const centroidHue = (audio.peakFrequency / len) * 360;
@@ -442,27 +406,24 @@ function createInstance(): VisualizationInstance {
             ? p.size * (1.5 + treble * 0.5) 
             : p.size * (1 + treble * 0.3);
           
-          drawCtx.beginPath();
-          drawCtx.moveTo(p.px, p.py);
-          drawCtx.lineTo(p.x, p.y);
-          drawCtx.strokeStyle = `hsla(${hue}, ${saturation}%, ${lightness}%, ${alpha})`;
-          drawCtx.lineWidth = strokeWidth;
-          drawCtx.lineCap = 'round';
-          drawCtx.stroke();
+          context.beginPath();
+          context.moveTo(p.px, p.py);
+          context.lineTo(p.x, p.y);
+          context.strokeStyle = `hsla(${hue}, ${saturation}%, ${lightness}%, ${alpha})`;
+          context.lineWidth = strokeWidth;
+          context.lineCap = 'round';
+          context.stroke();
         }
 
         if (p.type === 'anchor') {
           const glowSize = p.size * (2 + treble * 1.5);
-          drawCtx.beginPath();
-          drawCtx.arc(p.x, p.y, glowSize, 0, Math.PI * 2);
-          drawCtx.fillStyle = `hsla(${hue}, ${saturation}%, ${lightness + 10}%, ${alpha * 0.3})`;
-          drawCtx.fill();
+          context.beginPath();
+          context.arc(p.x, p.y, glowSize, 0, Math.PI * 2);
+          context.fillStyle = `hsla(${hue}, ${saturation}%, ${lightness + 10}%, ${alpha * 0.3})`;
+          context.fill();
         }
       }
 
-      if (showTrails && trailCanvas) {
-        context.drawImage(trailCanvas, 0, 0);
-      }
     },
 
     resize(ctx: VisualizationRenderContext) {
@@ -472,8 +433,6 @@ function createInstance(): VisualizationInstance {
 
     destroy() {
       particles = [];
-      trailCanvas = null;
-      trailCtx = null;
     },
   };
 }
