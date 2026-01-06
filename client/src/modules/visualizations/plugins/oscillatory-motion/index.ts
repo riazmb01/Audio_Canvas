@@ -107,6 +107,8 @@ export const oscillatoryMotion: VisualizationModule = {
     
     let trailCanvas: HTMLCanvasElement | null = null;
     let trailCtx: CanvasRenderingContext2D | null = null;
+    let tempCanvas: HTMLCanvasElement | null = null;
+    let tempCtx: CanvasRenderingContext2D | null = null;
     
     interface Particle {
       baseX: number;
@@ -228,6 +230,12 @@ export const oscillatoryMotion: VisualizationModule = {
           trailCanvas.width = width;
           trailCanvas.height = height;
           trailCtx = trailCanvas.getContext('2d');
+          
+          tempCanvas = document.createElement('canvas');
+          tempCanvas.width = width;
+          tempCanvas.height = height;
+          tempCtx = tempCanvas.getContext('2d');
+          
           if (trailCtx) {
             trailCtx.fillStyle = 'rgb(0, 0, 0)';
             trailCtx.fillRect(0, 0, width, height);
@@ -237,11 +245,19 @@ export const oscillatoryMotion: VisualizationModule = {
         context.fillStyle = 'rgb(0, 0, 0)';
         context.fillRect(0, 0, width, height);
         
-        if (showTrails && trailCtx && trailCanvas) {
+        if (showTrails && trailCtx && trailCanvas && tempCtx && tempCanvas) {
+          tempCtx.clearRect(0, 0, width, height);
+          tempCtx.drawImage(trailCanvas, 0, 0);
+          
+          trailCtx.fillStyle = 'rgb(0, 0, 0)';
+          trailCtx.fillRect(0, 0, width, height);
+          
           const fadeAmount = 0.92 - energy * 0.08;
-          context.globalAlpha = fadeAmount;
+          trailCtx.globalAlpha = fadeAmount;
+          trailCtx.drawImage(tempCanvas, 0, 0);
+          trailCtx.globalAlpha = 1;
+          
           context.drawImage(trailCanvas, 0, 0);
-          context.globalAlpha = 1;
         }
 
         const cx = width / 2;
@@ -379,8 +395,6 @@ export const oscillatoryMotion: VisualizationModule = {
         }
 
         if (showTrails && trailCtx) {
-          trailCtx.fillStyle = 'rgb(0, 0, 0)';
-          trailCtx.fillRect(0, 0, width, height);
           trailCtx.drawImage(context.canvas, 0, 0);
         }
       },
@@ -396,6 +410,8 @@ export const oscillatoryMotion: VisualizationModule = {
         oscillators.length = 0;
         trailCanvas = null;
         trailCtx = null;
+        tempCanvas = null;
+        tempCtx = null;
       },
     };
   },
