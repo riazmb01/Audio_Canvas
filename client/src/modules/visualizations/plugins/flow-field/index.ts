@@ -181,6 +181,12 @@ function createInstance(): VisualizationInstance {
   let beatCooldown = 0;
   let globalBrightness = 0;
   const SMOOTHING = 0.15;
+  
+  let trailCanvas: HTMLCanvasElement | null = null;
+  let trailCtx: CanvasRenderingContext2D | null = null;
+  const trailScale = 0.5;
+  let fadeLUT: Uint8Array | null = null;
+  let lastFadeAmount = 0;
 
   function getParticleType(): ParticleType {
     const r = Math.random();
@@ -309,12 +315,50 @@ function createInstance(): VisualizationInstance {
 
       time += ctx.deltaTime * timeScale * 0.001 * (0.8 + bass * 0.4);
 
-      if (showTrails) {
-        context.fillStyle = 'rgba(0, 0, 0, 0.15)';
-      } else {
-        context.fillStyle = 'rgb(0, 0, 0)';
+      const trailW = Math.floor(width * trailScale);
+      const trailH = Math.floor(height * trailScale);
+      
+      if (!trailCanvas || trailCanvas.width !== trailW || trailCanvas.height !== trailH) {
+        trailCanvas = document.createElement('canvas');
+        trailCanvas.width = trailW;
+        trailCanvas.height = trailH;
+        trailCtx = trailCanvas.getContext('2d', { willReadFrequently: true });
+        
+        if (trailCtx) {
+          trailCtx.fillStyle = 'rgb(0, 0, 0)';
+          trailCtx.fillRect(0, 0, trailW, trailH);
+        }
       }
+
+      context.fillStyle = 'rgb(0, 0, 0)';
       context.fillRect(0, 0, width, height);
+      
+      if (showTrails && trailCtx && trailCanvas) {
+        const fadeAmount = Math.floor(6 + energy * 10);
+        
+        if (!fadeLUT || lastFadeAmount !== fadeAmount) {
+          fadeLUT = new Uint8Array(256);
+          for (let i = 0; i < 256; i++) {
+            fadeLUT[i] = Math.max(0, i - fadeAmount);
+          }
+          lastFadeAmount = fadeAmount;
+        }
+        
+        const imageData = trailCtx.getImageData(0, 0, trailW, trailH);
+        const data = imageData.data;
+        const lut = fadeLUT;
+        
+        for (let i = 0; i < data.length; i += 4) {
+          data[i] = lut[data[i]];
+          data[i + 1] = lut[data[i + 1]];
+          data[i + 2] = lut[data[i + 2]];
+        }
+        
+        trailCtx.putImageData(imageData, 0, 0);
+        
+        context.imageSmoothingEnabled = true;
+        context.drawImage(trailCanvas, 0, 0, width, height);
+      }
 
       while (particles.length < targetCount) {
         const centroidHue = (audio.peakFrequency / len) * 360;
@@ -430,6 +474,9 @@ function createInstance(): VisualizationInstance {
         }
       }
 
+      if (showTrails && trailCtx && trailCanvas) {
+        trailCtx.drawImage(context.canvas, 0, 0, trailCanvas.width, trailCanvas.height);
+      }
     },
 
     resize(ctx: VisualizationRenderContext) {
@@ -439,6 +486,8 @@ function createInstance(): VisualizationInstance {
 
     destroy() {
       particles = [];
+      trailCanvas = null;
+      trailCtx = null;
     },
   };
 }
