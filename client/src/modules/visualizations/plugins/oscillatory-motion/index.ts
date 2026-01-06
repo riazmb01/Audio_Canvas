@@ -107,6 +107,9 @@ export const oscillatoryMotion: VisualizationModule = {
     
     let trailCanvas: HTMLCanvasElement | null = null;
     let trailCtx: CanvasRenderingContext2D | null = null;
+    let trailScale = 0.5;
+    let fadeLUT: Uint8Array | null = null;
+    let lastFadeAmount = 0;
     
     interface Particle {
       baseX: number;
@@ -223,15 +226,18 @@ export const oscillatoryMotion: VisualizationModule = {
 
         time += 0.016 * baseSpeed;
 
-        if (!trailCanvas || trailCanvas.width !== width || trailCanvas.height !== height) {
+        const trailW = Math.floor(width * trailScale);
+        const trailH = Math.floor(height * trailScale);
+        
+        if (!trailCanvas || trailCanvas.width !== trailW || trailCanvas.height !== trailH) {
           trailCanvas = document.createElement('canvas');
-          trailCanvas.width = width;
-          trailCanvas.height = height;
+          trailCanvas.width = trailW;
+          trailCanvas.height = trailH;
           trailCtx = trailCanvas.getContext('2d', { willReadFrequently: true });
           
           if (trailCtx) {
             trailCtx.fillStyle = 'rgb(0, 0, 0)';
-            trailCtx.fillRect(0, 0, width, height);
+            trailCtx.fillRect(0, 0, trailW, trailH);
           }
         }
 
@@ -239,18 +245,30 @@ export const oscillatoryMotion: VisualizationModule = {
         context.fillRect(0, 0, width, height);
         
         if (showTrails && trailCtx && trailCanvas) {
-          const fadeAmount = Math.floor(6 + energy * 10);
-          const imageData = trailCtx.getImageData(0, 0, width, height);
+          const fadeAmount = Math.floor(8 + energy * 12);
+          
+          if (!fadeLUT || lastFadeAmount !== fadeAmount) {
+            fadeLUT = new Uint8Array(256);
+            for (let i = 0; i < 256; i++) {
+              fadeLUT[i] = Math.max(0, i - fadeAmount);
+            }
+            lastFadeAmount = fadeAmount;
+          }
+          
+          const imageData = trailCtx.getImageData(0, 0, trailW, trailH);
           const data = imageData.data;
+          const lut = fadeLUT;
           
           for (let i = 0; i < data.length; i += 4) {
-            data[i] = Math.max(0, data[i] - fadeAmount);
-            data[i + 1] = Math.max(0, data[i + 1] - fadeAmount);
-            data[i + 2] = Math.max(0, data[i + 2] - fadeAmount);
+            data[i] = lut[data[i]];
+            data[i + 1] = lut[data[i + 1]];
+            data[i + 2] = lut[data[i + 2]];
           }
           
           trailCtx.putImageData(imageData, 0, 0);
-          context.drawImage(trailCanvas, 0, 0);
+          
+          context.imageSmoothingEnabled = true;
+          context.drawImage(trailCanvas, 0, 0, width, height);
         }
 
         const cx = width / 2;
@@ -387,8 +405,8 @@ export const oscillatoryMotion: VisualizationModule = {
           }
         }
 
-        if (showTrails && trailCtx) {
-          trailCtx.drawImage(context.canvas, 0, 0);
+        if (showTrails && trailCtx && trailCanvas) {
+          trailCtx.drawImage(context.canvas, 0, 0, trailCanvas.width, trailCanvas.height);
         }
       },
 
