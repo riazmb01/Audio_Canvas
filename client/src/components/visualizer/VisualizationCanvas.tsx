@@ -46,14 +46,27 @@ export function VisualizationCanvas() {
 
   const activeVisualizationId = useVisualizationStore(state => state.activeVisualizationId);
 
-  const audioDataRef = useRef<AudioFrameData | null>(null);
-  const sensitivityRef = useRef<number>(1);
-  const demoModeRef = useRef<boolean>(true);
-  const isAudioConnectedRef = useRef<boolean>(false);
-  const activeParamsRef = useRef<Record<string, string | number | boolean>>({});
+  // Get initial state from store
+  const initialState = useVisualizationStore.getState();
+  const audioDataRef = useRef<AudioFrameData | null>(initialState.audioData);
+  const sensitivityRef = useRef<number>(initialState.sensitivity);
+  const demoModeRef = useRef<boolean>(initialState.demoMode);
+  const isAudioConnectedRef = useRef<boolean>(initialState.isAudioConnected);
+  const activeParamsRef = useRef<Record<string, string | number | boolean>>(
+    (initialState.parameters[initialState.activeVisualizationId] || {}) as Record<string, string | number | boolean>
+  );
   const activeVizIdRef = useRef<string>(activeVisualizationId);
 
   useEffect(() => {
+    // Initialize refs with current state on mount
+    const state = useVisualizationStore.getState();
+    audioDataRef.current = state.audioData;
+    sensitivityRef.current = state.sensitivity;
+    demoModeRef.current = state.demoMode;
+    isAudioConnectedRef.current = state.isAudioConnected;
+    activeParamsRef.current = (state.parameters[state.activeVisualizationId] || {}) as Record<string, string | number | boolean>;
+    activeVizIdRef.current = state.activeVisualizationId;
+
     return useVisualizationStore.subscribe((state) => {
       audioDataRef.current = state.audioData;
       sensitivityRef.current = state.sensitivity;
