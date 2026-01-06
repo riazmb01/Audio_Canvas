@@ -139,17 +139,17 @@ function createInstance(): VisualizationInstance {
           const hue = (i / barCount) * 360;
           gradient = `hsl(${hue}, 80%, 60%)`;
         } else if (colorMode === 'reactive') {
-          const trebleShift = smoothedTreble * 120;
-          const energyShift = smoothedEnergy * 80;
-          const timeShift = time * 20;
-          const barOffset = (i / barCount) * 60;
-          const baseHue = (190 + trebleShift + energyShift + timeShift + barOffset) % 360;
-          const sat = 75 + smoothedEnergy * 25;
-          const lit = 50 + smoothedTreble * 20;
+          const barIntensity = normalizedValue;
+          const bassInfluence = smoothedBass * 180;
+          const trebleInfluence = smoothedTreble * 90;
+          const intensityHue = barIntensity * 60;
+          const baseHue = (200 + bassInfluence + trebleInfluence + intensityHue) % 360;
+          const sat = 70 + barIntensity * 30;
+          const lit = 45 + barIntensity * 25 + smoothedEnergy * 15;
           
           gradient = context.createLinearGradient(x, y + drawHeight, x, y);
-          gradient.addColorStop(0, `hsl(${baseHue}, ${sat}%, ${lit}%)`);
-          gradient.addColorStop(1, `hsl(${(baseHue + 40) % 360}, ${sat}%, ${lit + 10}%)`);
+          gradient.addColorStop(0, `hsl(${baseHue}, ${sat}%, ${lit * 0.8}%)`);
+          gradient.addColorStop(1, `hsl(${(baseHue + barIntensity * 30) % 360}, ${sat}%, ${lit}%)`);
         } else {
           gradient = 'hsl(271, 91%, 65%)';
         }

@@ -78,12 +78,12 @@ function createInstance(): VisualizationInstance {
       context.fillStyle = 'rgb(0, 0, 0)';
       context.fillRect(0, 0, width, height);
 
-      const trebleShift = smoothedTreble * 120;
-      const energyShift = smoothedEnergy * 80;
-      const timeShift = time * 15;
-      const reactiveHue = (190 + trebleShift + energyShift + timeShift) % 360;
-      const reactiveSat = 80 + smoothedEnergy * 20;
-      const reactiveLit = 50 + smoothedTreble * 15;
+      const bassInfluence = smoothedBass * 180;
+      const trebleInfluence = smoothedTreble * 120;
+      const energyInfluence = smoothedEnergy * 60;
+      const reactiveHue = (200 + bassInfluence + trebleInfluence + energyInfluence) % 360;
+      const reactiveSat = 75 + smoothedEnergy * 25;
+      const reactiveLit = 50 + smoothedTreble * 20 + smoothedBass * 10;
 
       const colors: Record<string, string> = {
         cyan: 'hsl(190, 95%, 50%)',
